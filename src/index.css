@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=IBM+Plex+Sans+KR:wght@400;600;700;800&display=swap');
+
+:root {
+  --ink: #111827;
+  --muted: #5b6472;
+  --paper: #fffdf7;
+  --field: #f4f7fb;
+  --line: #d6dce7;
+  --champion-red: #e43d35;
+  --signal-yellow: #ffd447;
+  --stadium-blue: #1f6fd6;
+  --grass-green: #2b9f6a;
+  --display: 'Bricolage Grotesque', 'IBM Plex Sans KR', sans-serif;
+  --body: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  font-family: var(--body);
+  color: var(--ink);
+  background:
+    linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+    var(--field);
+  background-size: 28px 28px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
