@@ -1,4 +1,6 @@
 import '@testing-library/jest-dom/vitest'
+import { cleanup } from '@testing-library/react'
+import { afterEach } from 'vitest'
 
 class MemoryStorage implements Storage {
   private readonly data = new Map<string, string>()
@@ -31,4 +33,8 @@ class MemoryStorage implements Storage {
 Object.defineProperty(window, 'localStorage', {
   configurable: true,
   value: new MemoryStorage(),
+})
+
+afterEach(() => {
+  cleanup()
 })

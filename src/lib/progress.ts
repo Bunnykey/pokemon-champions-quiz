@@ -7,6 +7,13 @@ const EMPTY_PROGRESS: ProgressState = {
   missedQuestionIds: [],
 }
 
+export function emptyProgress(): ProgressState {
+  return {
+    answered: [],
+    missedQuestionIds: [],
+  }
+}
+
 export function loadProgress(storage: Storage = window.localStorage): ProgressState {
   const value = storage.getItem(STORAGE_KEY)
   if (!value) {
@@ -24,6 +31,10 @@ export function loadProgress(storage: Storage = window.localStorage): ProgressSt
   } catch {
     return EMPTY_PROGRESS
   }
+}
+
+export function clearStoredProgress(storage: Storage = window.localStorage) {
+  storage.removeItem(STORAGE_KEY)
 }
 
 export function saveProgress(

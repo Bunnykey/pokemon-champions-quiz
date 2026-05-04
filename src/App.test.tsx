@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
 
 describe('App', () => {
@@ -27,5 +27,43 @@ describe('App', () => {
       'href',
       expect.stringContaining('/Bunnykey/pokemon-champions-quiz/issues/new?'),
     )
+  })
+
+  it('supports keyboard answering and next-question navigation', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.click(screen.getAllByRole('button', { name: /시작/ })[0])
+    await user.keyboard('2')
+
+    expect(screen.getByTestId('result-status')).toHaveTextContent('정답')
+
+    await user.keyboard('{Enter}')
+
+    expect(screen.getByTestId('result-status')).toHaveTextContent('선택 대기')
+  })
+
+  it('shows service policy controls and can reset local progress', async () => {
+    const user = userEvent.setup()
+    const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
+    render(<App />)
+
+    await user.click(screen.getAllByRole('button', { name: /시작/ })[0])
+    await user.click(screen.getAllByTestId('answer-choice')[0])
+    await user.click(screen.getByRole('button', { name: /서비스/ }))
+
+    expect(screen.getByText('공개 웹 서비스 기본 항목')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /기록 내보내기/ })).toHaveAttribute(
+      'download',
+      'pokemon-champions-quiz-progress.json',
+    )
+
+    await user.click(screen.getByRole('button', { name: /기록 초기화/ }))
+
+    expect(confirmSpy).toHaveBeenCalled()
+    expect(
+      window.localStorage.getItem('pokemon-champions-quiz-progress-v1'),
+    ).toContain('"answered":[]')
+    confirmSpy.mockRestore()
   })
 })

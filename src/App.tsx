@@ -1,13 +1,18 @@
 import {
   BookOpen,
   CheckCircle2,
+  Download,
   ExternalLink,
   Flag,
+  Info,
+  Keyboard,
+  Lock,
   RotateCcw,
   ShieldCheck,
   Swords,
   TimerReset,
   Trophy,
+  Trash2,
   XCircle,
 } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
@@ -20,6 +25,8 @@ import {
 import validationSummary from './data/validation-summary.json'
 import { buildBlameIssueUrl } from './lib/blame'
 import {
+  clearStoredProgress,
+  emptyProgress,
   getAccuracy,
   loadProgress,
   recordAnswer,
@@ -35,7 +42,7 @@ import {
 } from './lib/questions'
 import type { Difficulty, ProgressState, Question } from './types/quiz'
 
-type ViewMode = 'home' | 'quiz' | 'review'
+type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
 
 function App() {
@@ -112,95 +119,118 @@ function App() {
     setProgress((current) => removeMiss(current, questionId))
   }
 
+  function resetProgress() {
+    if (!window.confirm('풀이 기록과 오답노트를 모두 초기화할까요?')) {
+      return
+    }
+    clearStoredProgress()
+    setProgress(emptyProgress())
+  }
+
   return (
-    <main className="app-shell">
-      <header className="stadium-header">
-        <div>
-          <p className="eyebrow">Champion Stadium Drill</p>
-          <h1>Pokémon Champions 실전 퀴즈</h1>
-          <p className="lead">
-            Regulation Set M-A 기준으로 규정, 상성, 스피드, 메가진화 판단을
-            반복 훈련합니다.
-          </p>
-        </div>
-        <div className="score-panel" aria-label="학습 요약">
-          <div>
-            <strong>{questions.length.toLocaleString('ko-KR')}</strong>
-            <span>문제은행</span>
-          </div>
-          <div>
-            <strong>{answeredCount.toLocaleString('ko-KR')}</strong>
-            <span>풀이 기록</span>
-          </div>
-          <div>
-            <strong>{accuracy}%</strong>
-            <span>정답률</span>
-          </div>
-        </div>
-      </header>
+    <>
+      <a className="skip-link" href="#content">
+        본문으로 건너뛰기
+      </a>
+        <main className="app-shell" id="content">
+          <header className="stadium-header">
+            <div>
+              <p className="eyebrow">Champion Stadium Drill</p>
+              <h1>Pokémon Champions 실전 퀴즈</h1>
+              <p className="lead">
+                Regulation Set M-A 기준으로 규정, 상성, 스피드, 메가진화 판단을
+                반복 훈련합니다.
+              </p>
+            </div>
+            <div className="score-panel" aria-label="학습 요약">
+              <div>
+                <strong>{questions.length.toLocaleString('ko-KR')}</strong>
+                <span>문제은행</span>
+              </div>
+              <div>
+                <strong>{answeredCount.toLocaleString('ko-KR')}</strong>
+                <span>풀이 기록</span>
+              </div>
+              <div>
+                <strong>{accuracy}%</strong>
+                <span>정답률</span>
+              </div>
+            </div>
+          </header>
 
-      <nav className="mode-bar" aria-label="앱 보기">
-        <button
-          className={view === 'home' ? 'mode-button active' : 'mode-button'}
-          type="button"
-          onClick={() => setView('home')}
-        >
-          <Trophy size={18} /> 홈
-        </button>
-        <button
-          className={view === 'quiz' ? 'mode-button active' : 'mode-button'}
-          type="button"
-          onClick={() => setView('quiz')}
-        >
-          <Swords size={18} /> 퀴즈
-        </button>
-        <button
-          className={view === 'review' ? 'mode-button active' : 'mode-button'}
-          type="button"
-          onClick={() => setView('review')}
-        >
-          <BookOpen size={18} /> 오답노트
-        </button>
-      </nav>
+          <nav className="mode-bar" aria-label="앱 보기">
+            <button
+              className={view === 'home' ? 'mode-button active' : 'mode-button'}
+              type="button"
+              onClick={() => setView('home')}
+            >
+              <Trophy size={18} /> 홈
+            </button>
+            <button
+              className={view === 'quiz' ? 'mode-button active' : 'mode-button'}
+              type="button"
+              onClick={() => setView('quiz')}
+            >
+              <Swords size={18} /> 퀴즈
+            </button>
+            <button
+              className={view === 'review' ? 'mode-button active' : 'mode-button'}
+              type="button"
+              onClick={() => setView('review')}
+            >
+              <BookOpen size={18} /> 오답노트
+            </button>
+            <button
+              className={view === 'service' ? 'mode-button active' : 'mode-button'}
+              type="button"
+              onClick={() => setView('service')}
+            >
+              <Info size={18} /> 서비스
+            </button>
+          </nav>
 
-      {view === 'home' && (
-        <HomeView
-          answeredCount={answeredCount}
-          accuracy={accuracy}
-          progress={progress}
-          onStart={startQuiz}
-          onOpenReview={() => setView('review')}
-        />
-      )}
+          {view === 'home' && (
+            <HomeView
+              answeredCount={answeredCount}
+              accuracy={accuracy}
+              progress={progress}
+              onStart={startQuiz}
+              onOpenReview={() => setView('review')}
+            />
+          )}
 
-      {view === 'quiz' && currentQuestion && (
-        <QuizView
-          question={currentQuestion}
-          questionIndex={questionIndex}
-          totalQuestions={activeQuestions.length}
-          selectedIndex={selectedIndex}
-          blameNote={blameNote}
-          onAnswer={answerQuestion}
-          onNext={nextQuestion}
-          onBlameNoteChange={setBlameNote}
-        />
-      )}
+          {view === 'quiz' && currentQuestion && (
+            <QuizView
+              question={currentQuestion}
+              questionIndex={questionIndex}
+              totalQuestions={activeQuestions.length}
+              selectedIndex={selectedIndex}
+              blameNote={blameNote}
+              onAnswer={answerQuestion}
+              onNext={nextQuestion}
+              onBlameNoteChange={setBlameNote}
+            />
+          )}
 
-      {view === 'review' && (
-        <ReviewView
-          missedQuestions={missedQuestions}
-          reviewDifficulty={reviewDifficulty}
-          reviewTag={reviewTag}
-          reviewTags={reviewTags}
-          onDifficultyChange={setReviewDifficulty}
-          onTagChange={setReviewTag}
-          onClearMiss={clearMiss}
-        />
-      )}
-    </main>
-  )
-}
+          {view === 'review' && (
+            <ReviewView
+              missedQuestions={missedQuestions}
+              reviewDifficulty={reviewDifficulty}
+              reviewTag={reviewTag}
+              reviewTags={reviewTags}
+              onDifficultyChange={setReviewDifficulty}
+              onTagChange={setReviewTag}
+              onClearMiss={clearMiss}
+            />
+          )}
 
+          {view === 'service' && (
+            <ServiceView progress={progress} onResetProgress={resetProgress} />
+          )}
+        </main>
+      </>
+    )
+  }
 interface HomeViewProps {
   answeredCount: number
   accuracy: number
@@ -325,6 +355,29 @@ function QuizView({
   const correct = selectedIndex === question.answerIndex
   const blameUrl = buildBlameIssueUrl(question, blameNote)
 
+  useEffect(() => {
+    function handleKeyDown(event: KeyboardEvent) {
+      if (isTypingTarget(event.target)) {
+        return
+      }
+
+      const answerShortcut = Number(event.key)
+      if (!answered && answerShortcut >= 1 && answerShortcut <= 4) {
+        event.preventDefault()
+        onAnswer(answerShortcut - 1)
+        return
+      }
+
+      if (answered && (event.key === 'Enter' || event.key.toLowerCase() === 'n')) {
+        event.preventDefault()
+        onNext()
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [answered, onAnswer, onNext])
+
   return (
     <section className="quiz-layout" aria-label="퀴즈">
       <article className="battle-card quiz-card">
@@ -365,6 +418,7 @@ function QuizView({
         <div
           className={answered && correct ? 'result good' : 'result'}
           data-testid="result-status"
+          aria-live="polite"
         >
           {answered ? (
             correct ? (
@@ -432,10 +486,102 @@ function QuizView({
           </>
         ) : (
           <p className="explanation muted">
-            답을 선택하면 해설, 근거 링크, 신고 버튼이 표시됩니다.
+            답을 선택하면 해설, 근거 링크, 신고 버튼이 표시됩니다. 키보드
+            1-4로 답변하고, 해설 후 Enter 또는 N으로 다음 문제로 이동할 수
+            있습니다.
           </p>
         )}
       </aside>
+    </section>
+  )
+}
+
+interface ServiceViewProps {
+  progress: ProgressState
+  onResetProgress: () => void
+}
+
+function ServiceView({ progress, onResetProgress }: ServiceViewProps) {
+  const exportHref = `data:application/json;charset=utf-8,${encodeURIComponent(
+    JSON.stringify(progress, null, 2),
+  )}`
+
+  return (
+    <section className="service-panel" aria-label="서비스 정보">
+      <div className="service-hero">
+        <span className="validation-mark">
+          <Info size={18} /> 서비스 준비 상태
+        </span>
+        <h2>공개 웹 서비스 기본 항목</h2>
+        <p>
+          이 앱은 로그인 없이 동작하며, 풀이 기록은 브라우저 localStorage에만
+          저장됩니다. 공식 자산을 사용하지 않는 비공식 팬메이드 훈련 도구입니다.
+        </p>
+      </div>
+
+      <div className="service-grid">
+        <article className="service-card">
+          <Lock size={22} />
+          <h3>개인정보</h3>
+          <p>
+            계정, 쿠키 기반 추적, 분석 스크립트가 없습니다. 오답노트와 풀이 기록은
+            현재 브라우저에만 저장되며 서버로 전송되지 않습니다.
+          </p>
+        </article>
+        <article className="service-card">
+          <ShieldCheck size={22} />
+          <h3>출처와 검증</h3>
+          <p>
+            공식 Champions M-A 규정과 참가 가능 목록을 기준으로 검증했고, 타입은
+            PokéAPI와 213/213 교차검증했습니다.
+          </p>
+          <a
+            href="https://github.com/Bunnykey/pokemon-champions-quiz/blob/main/docs/validation-report.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <ExternalLink size={14} /> 검증 리포트
+          </a>
+        </article>
+        <article className="service-card">
+          <Keyboard size={22} />
+          <h3>접근성</h3>
+          <p>
+            본문 건너뛰기, 키보드 답변, aria-live 결과 알림, 고대비 포커스 링을
+            제공합니다.
+          </p>
+        </article>
+        <article className="service-card">
+          <Download size={22} />
+          <h3>데이터 이동성</h3>
+          <p>사용자 풀이 기록은 JSON으로 내려받거나 언제든 초기화할 수 있습니다.</p>
+          <div className="service-actions">
+            <a
+              className="secondary-action compact"
+              href={exportHref}
+              download="pokemon-champions-quiz-progress.json"
+            >
+              <Download size={16} /> 기록 내보내기
+            </a>
+            <button
+              className="danger-action compact"
+              type="button"
+              onClick={onResetProgress}
+            >
+              <Trash2 size={16} /> 기록 초기화
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <section className="policy-box">
+        <h3>면책 및 운영 정책</h3>
+        <p>
+          Pokémon 및 관련 명칭은 각 권리자의 상표입니다. 이 앱은 공식 서비스가
+          아니며, 외부 공개용으로 공식 로고/일러스트/스프라이트를 포함하지
+          않습니다. 문제 오류는 각 문항의 blame 버튼으로 신고할 수 있습니다.
+        </p>
+      </section>
     </section>
   )
 }
@@ -594,6 +740,18 @@ function getChoiceState(
 
 function difficultyClass(difficulty: Difficulty) {
   return `difficulty-${DIFFICULTIES.indexOf(difficulty)}`
+}
+
+function isTypingTarget(target: EventTarget | null) {
+  if (!(target instanceof HTMLElement)) {
+    return false
+  }
+  return (
+    target.tagName === 'TEXTAREA' ||
+    target.tagName === 'INPUT' ||
+    target.tagName === 'SELECT' ||
+    target.isContentEditable
+  )
 }
 
 export default App

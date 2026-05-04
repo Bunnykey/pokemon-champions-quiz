@@ -31,3 +31,13 @@ npm run build
 ## Blame Flow
 
 각 문제의 신고 버튼은 `Bunnykey/pokemon-champions-quiz`에 새 GitHub Issue를 여는 URL을 만듭니다. 본문에는 문제 ID, 난이도, 태그, 지문, 선택지, 정답, 해설, 출처, 사용자 메모가 포함됩니다.
+
+## Web Service Baseline
+
+- SEO/social metadata: canonical URL, Open Graph, Twitter card, JSON-LD.
+- Discoverability: `robots.txt`, `sitemap.xml`, GitHub Pages `404.html`.
+- PWA: web app manifest and a small service worker for static shell caching.
+- Privacy: no accounts, cookies, analytics, or server-side tracking.
+- Data portability: local progress can be exported as JSON or reset from the service screen.
+- Accessibility: skip link, keyboard answering (`1`-`4`), next shortcut (`Enter` or `N`), visible focus rings, and live result status.
+- Resilience: React error boundary with reload fallback.

@@ -3,6 +3,25 @@
   color: var(--ink);
 }
 
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 50;
+  transform: translateY(-160%);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 10px 12px;
+  color: var(--paper);
+  background: var(--ink);
+  font-weight: 900;
+  transition: transform 0.15s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 .stadium-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
@@ -92,7 +111,8 @@
 .mode-button,
 .primary-action,
 .secondary-action,
-.blame-action {
+.blame-action,
+.danger-action {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
@@ -128,6 +148,12 @@
   padding: 10px 14px;
   color: var(--ink);
   background: var(--paper);
+}
+
+.danger-action {
+  padding: 10px 14px;
+  color: var(--paper);
+  background: #a82622;
 }
 
 .blame-action {
@@ -505,6 +531,81 @@
   padding: 24px;
 }
 
+.service-panel {
+  padding: 24px;
+}
+
+.service-hero,
+.policy-box {
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.service-hero {
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.service-hero h2,
+.policy-box h3,
+.service-card h3 {
+  margin: 12px 0 8px;
+  font-family: var(--display);
+}
+
+.service-hero p,
+.service-card p,
+.policy-box p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.service-card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 16px;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.service-card > svg {
+  color: var(--champion-red);
+}
+
+.service-card a:not(.secondary-action) {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: var(--stadium-blue);
+  font-weight: 900;
+}
+
+.service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.policy-box {
+  padding: 18px;
+}
+
 .review-toolbar {
   display: flex;
   align-items: center;
@@ -566,6 +667,10 @@ select:focus-visible {
   .difficulty-grid {
     grid-template-columns: repeat(3, minmax(180px, 1fr));
   }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 860px) {
@@ -607,6 +712,7 @@ select:focus-visible {
   .difficulty-grid,
   .quiz-layout,
   .review-panel,
+  .service-panel,
   .mode-bar {
     padding-left: 14px;
     padding-right: 14px;
@@ -626,7 +732,12 @@ select:focus-visible {
   }
 
   .mode-bar,
-  .filters {
+  .filters,
+  .service-actions {
     flex-wrap: wrap;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
   }
 }

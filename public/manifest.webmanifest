@@ -1,0 +1,18 @@
+{
+  "name": "Pokémon Champions 실전 퀴즈",
+  "short_name": "Champions Quiz",
+  "description": "Regulation Set M-A 기준 실전 훈련 퀴즈",
+  "start_url": "/pokemon-champions-quiz/",
+  "scope": "/pokemon-champions-quiz/",
+  "display": "standalone",
+  "background_color": "#f4f7fb",
+  "theme_color": "#e43d35",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
