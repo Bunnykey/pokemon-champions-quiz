@@ -388,6 +388,10 @@
   padding: 20px;
 }
 
+.quiz-card .question-meta {
+  margin-top: -4px;
+}
+
 .quiz-card h2 {
   margin: 18px 0 22px;
   font-family: var(--display);
@@ -784,10 +788,35 @@ select:focus-visible {
   .difficulty-grid,
   .quiz-layout,
   .review-panel,
-  .service-panel,
-  .mode-bar {
+  .service-panel {
     padding-left: 14px;
     padding-right: 14px;
+  }
+
+  .mode-bar {
+    flex-wrap: nowrap;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 10px 10px;
+    scrollbar-width: none;
+  }
+
+  .mode-bar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mode-button {
+    flex: 0 0 auto;
+    gap: 5px;
+    padding: 7px 9px;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .mode-button svg {
+    width: 16px;
+    height: 16px;
   }
 
   .difficulty-grid {
@@ -803,7 +832,6 @@ select:focus-visible {
     border-left: 0;
   }
 
-  .mode-bar,
   .filters,
   .service-actions {
     flex-wrap: wrap;
