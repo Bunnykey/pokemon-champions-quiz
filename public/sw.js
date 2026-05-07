@@ -1,10 +1,9 @@
-const CACHE_NAME = 'pokemon-champions-quiz-v1'
+const CACHE_NAME = 'pokemon-champions-quiz-v2'
 const APP_SHELL = [
-  '/pokemon-champions-quiz/',
-  '/pokemon-champions-quiz/index.html',
   '/pokemon-champions-quiz/favicon.svg',
   '/pokemon-champions-quiz/manifest.webmanifest',
 ]
+const INDEX_URL = '/pokemon-champions-quiz/index.html'
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_SHELL)))
@@ -17,9 +16,9 @@ self.addEventListener('activate', (event) => {
       .keys()
       .then((keys) =>
         Promise.all(keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))),
-      ),
+      )
+      .then(() => self.clients.claim()),
   )
-  self.clients.claim()
 })
 
 self.addEventListener('fetch', (event) => {
@@ -28,21 +27,30 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
-  event.respondWith(
-    caches.match(request).then((cached) => {
-      if (cached) {
-        return cached
-      }
+  const url = new URL(request.url)
+  if (url.origin !== self.location.origin) {
+    return
+  }
 
-      return fetch(request)
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
         .then((response) => {
-          const copy = response.clone()
-          if (new URL(request.url).origin === self.location.origin) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(request, copy))
-          }
+          caches.open(CACHE_NAME).then((cache) => cache.put(INDEX_URL, response.clone()))
           return response
         })
-        .catch(() => caches.match('/pokemon-champions-quiz/index.html'))
-    }),
+        .catch(() => caches.match(INDEX_URL)),
+    )
+    return
+  }
+
+  event.respondWith(
+    caches
+      .match(request)
+      .then((cached) => cached || fetch(request))
+      .then((response) => {
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, response.clone()))
+        return response
+      }),
   )
 })
