@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { Dex } from '@pkmn/dex'
 
-const RETRIEVED_AT = '2026-05-04'
+const RETRIEVED_AT = '2026-05-08'
 const REGULATION_URL =
   'https://champions-news.pokemon-home.com/en/page/751.html'
 const ELIGIBLE_EN_URL =
@@ -218,8 +218,6 @@ const OFFICIAL_RULE_ANSWERS = new Map([
   ['timer-player', '7분'],
   ['timer-turn', '45초'],
   ['timer-preview', '90초'],
-  ['event-start', '2026-04-08 02:00 UTC'],
-  ['event-end', '2026-06-17 01:59 UTC'],
 ])
 
 const questions = JSON.parse(
@@ -244,6 +242,8 @@ const eligiblePokemon = eligibleEn.map((entry, index) => {
     types: species.types ?? [],
     speed: species.baseStats?.spe ?? 0,
     abilities: Object.values(species.abilities ?? {}),
+    pokeApiName: normalizePokeApiName(entry.name),
+    pokeApiUrl: `https://pokeapi.co/api/v2/pokemon/${normalizePokeApiName(entry.name)}`,
   }
 })
 
@@ -260,6 +260,8 @@ const issues = []
 
 validateQuestionShape()
 validateRuleSpecificAnswers()
+const pedagogyQuality = validatePedagogyQuality()
+const sourceReferenceQuality = validateSourceReferenceQuality()
 const pokeApiTypeCrossCheck = await validatePokeApiTypeCrossCheck()
 
 const byDifficulty = Object.fromEntries(
@@ -284,6 +286,8 @@ const summary = {
     ruleSpecificQuestionsChecked: questions.length,
     issues: issues.length,
   },
+  pedagogyQuality,
+  sourceReferenceQuality,
   pokeApiTypeCrossCheck,
   caveats: [
     'Pokémon Champions 공식 규정과 참가 가능 목록은 라이브 공식 페이지와 대조했습니다.',
@@ -337,6 +341,29 @@ function validateQuestionShape() {
     if (!question.promptKo || !question.explanationKo) {
       addIssue(question.id, 'Missing prompt or explanation')
     }
+    if (!Array.isArray(question.sourceRefs) || question.sourceRefs.length === 0) {
+      addIssue(question.id, 'Missing source refs')
+    }
+    for (const source of question.sourceRefs ?? []) {
+      if (!source.kind || !source.label || !source.url) {
+        addIssue(question.id, 'Source ref must include kind, label, and url')
+      }
+      if (!isHttpUrl(source.url)) {
+        addIssue(question.id, `Source ref is not an http URL: ${source.url}`)
+      }
+    }
+    if (question.focusPokemon) {
+      const focus = question.focusPokemon
+      if (!focus.nameKo || !focus.nameEn || !focus.pokeApiName || !focus.referenceUrl) {
+        addIssue(question.id, 'Focus Pokemon metadata is incomplete')
+      }
+      if (focus.imageUrl && !isHttpUrl(focus.imageUrl)) {
+        addIssue(question.id, `Focus Pokemon image is not an http URL: ${focus.imageUrl}`)
+      }
+      if (!question.sourceRefs.some((source) => source.url === focus.referenceUrl)) {
+        addIssue(question.id, 'Focus Pokemon reference URL is missing from source refs')
+      }
+    }
   }
 }
 
@@ -385,7 +412,7 @@ function validateRuleSpecificAnswers() {
     if (ruleAnswer) {
       expectAnswer(question, ruleAnswer)
       expect(
-        question.sourceRefs.some((source) => source.url === REGULATION_URL),
+        question.sourceRefs.some((source) => source.url.startsWith(REGULATION_URL)),
         question,
         'Official rule question does not reference Regulation Set M-A',
       )
@@ -444,7 +471,157 @@ function validateRuleSpecificAnswers() {
     if (question.id.startsWith('ability-')) {
       const pokemon = pokemonByCodeFromId(question.id, 'ability-')
       expect(pokemon.abilities.includes(answer), question, 'Ability answer is not in @pkmn/dex ability set')
+      continue
     }
+
+    if (question.id.startsWith('counter-pivot-')) {
+      const { code, typeName } = parseCodeAndType(question.id, 'counter-pivot-')
+      const attacker = requirePokemon(code, question)
+      const answerPokemon = labelToPokemon.get(answer)
+      expect(Boolean(answerPokemon), question, `Counter pivot answer Pokemon not found: ${answer}`)
+      if (answerPokemon) {
+        expect(
+          damageMultiplier(typeName, answerPokemon.types) < 1,
+          question,
+          'Counter pivot answer does not resist the expected attack type',
+        )
+        expect(
+          hasStabSuperEffective(answerPokemon, attacker),
+          question,
+          'Counter pivot answer cannot pressure back with super-effective STAB',
+        )
+      }
+      continue
+    }
+
+    if (question.id.startsWith('speed-pressure-')) {
+      const target = pokemonByCodeFromId(question.id, 'speed-pressure-')
+      const answerPokemon = labelToPokemon.get(answer)
+      expect(Boolean(answerPokemon), question, `Speed pressure answer Pokemon not found: ${answer}`)
+      if (answerPokemon) {
+        expect(answerPokemon.speed > target.speed, question, 'Speed pressure answer is not faster than target')
+        expect(
+          hasStabSuperEffective(answerPokemon, target),
+          question,
+          'Speed pressure answer cannot pressure with super-effective STAB',
+        )
+      }
+    }
+  }
+}
+
+function validatePedagogyQuality() {
+  const bannedAnyDifficultyPatterns = [
+    /복습/,
+    /Regulation Set M-A 시작 시각/,
+    /Regulation Set M-A 종료 시각/,
+    /\bUTC\b/,
+    /20\d{2}-\d{2}-\d{2}/,
+  ]
+  const expertAllowedTags = new Set([
+    '상성',
+    '교체',
+    '카운터',
+    '스피드',
+    '스피드티어',
+    '선공',
+    '압박',
+    '복합판단',
+  ])
+
+  const expertQuestions = questions.filter((question) => question.difficulty === '전문가')
+  let bannedTextMatches = 0
+  let expertPracticalQuestions = 0
+  let expertOfficialTriviaQuestions = 0
+
+  for (const question of questions) {
+    const teachableText = [
+      question.promptKo,
+      question.explanationKo,
+      ...question.choices,
+    ].join(' ')
+    const matchedPattern = bannedAnyDifficultyPatterns.find((pattern) =>
+      pattern.test(teachableText),
+    )
+    if (matchedPattern) {
+      bannedTextMatches += 1
+      addIssue(
+        question.id,
+        `Non-practical quiz text matched banned pattern ${matchedPattern}`,
+      )
+    }
+
+    if (question.difficulty !== '전문가') {
+      continue
+    }
+
+    if (question.generatedFrom.startsWith('official-regulation')) {
+      expertOfficialTriviaQuestions += 1
+      addIssue(question.id, 'Expert questions must not be official regulation trivia')
+    }
+    if (question.tags.includes('타이머') || question.tags.includes('시즌')) {
+      addIssue(question.id, 'Expert questions must not be timer or season recall')
+    }
+    if (!question.tags.includes('실전판단')) {
+      addIssue(question.id, 'Expert questions must include 실전판단')
+    }
+    if (question.tags.some((tag) => expertAllowedTags.has(tag))) {
+      expertPracticalQuestions += 1
+    } else {
+      addIssue(question.id, 'Expert questions must use practical battle-decision tags')
+    }
+  }
+
+  return {
+    expertQuestions: expertQuestions.length,
+    expertPracticalQuestions,
+    expertOfficialTriviaQuestions,
+    bannedTextMatches,
+    policy: [
+      '전문가 난이도에는 시즌 시작/종료 시각, UTC 일정, 반복 복습 문항을 허용하지 않습니다.',
+      '전문가 난이도는 실전판단 태그와 상성/교체/스피드/카운터/압박 계열 판단 태그가 필요합니다.',
+    ],
+  }
+}
+
+function validateSourceReferenceQuality() {
+  let questionSpecificReferenceQuestions = 0
+  let focusPokemonQuestions = 0
+  let focusPokemonWithImages = 0
+
+  for (const question of questions) {
+    const hasSpecificReference = question.sourceRefs.some((source) =>
+      /pokeapi\.co\/api\/v2\/(pokemon|type)\//.test(source.url) ||
+      /dex\.pokemonshowdown\.com\/pokemon\//.test(source.url) ||
+      (source.url.startsWith(REGULATION_URL) &&
+        source.label !== 'Regulation Set M-A'),
+    )
+    if (hasSpecificReference) {
+      questionSpecificReferenceQuestions += 1
+    }
+
+    if (!question.generatedFrom.startsWith('official-regulation') && !hasSpecificReference) {
+      addIssue(question.id, 'Non-regulation question needs a Pokemon or type specific reference URL')
+    }
+
+    if (question.focusPokemon) {
+      focusPokemonQuestions += 1
+      if (question.focusPokemon.imageUrl) {
+        focusPokemonWithImages += 1
+      } else {
+        addIssue(question.id, 'Pokemon-specific question is missing an image URL')
+      }
+    }
+  }
+
+  return {
+    questionSpecificReferenceQuestions,
+    focusPokemonQuestions,
+    focusPokemonWithImages,
+    policy: [
+      '비규정 문항은 PokeAPI Pokemon/Type 또는 Pokemon Showdown Dex의 문제별 URL을 포함해야 합니다.',
+      '지문에 특정 포켓몬이 등장하는 문항은 focusPokemon 메타데이터와 이미지 URL을 포함해야 합니다.',
+    ],
   }
 }
 
@@ -509,6 +686,11 @@ function renderReport(summary, validationIssues) {
     `- Official eligible Pokemon checked: ${summary.officialEligiblePokemon}`,
     `- Official allowed Mega Evolutions checked: ${summary.officialAllowedMegaEvolutions}`,
     `- PokeAPI type cross-check: ${summary.pokeApiTypeCrossCheck.verified}/${summary.officialEligiblePokemon} verified`,
+    `- Expert practical questions: ${summary.pedagogyQuality.expertPracticalQuestions}/${summary.pedagogyQuality.expertQuestions}`,
+    `- Expert official trivia questions: ${summary.pedagogyQuality.expertOfficialTriviaQuestions}`,
+    `- Non-practical banned text matches: ${summary.pedagogyQuality.bannedTextMatches}`,
+    `- Question-specific reference coverage: ${summary.sourceReferenceQuality.questionSpecificReferenceQuestions}/${summary.totalQuestions}`,
+    `- Focus Pokemon images: ${summary.sourceReferenceQuality.focusPokemonWithImages}/${summary.sourceReferenceQuality.focusPokemonQuestions}`,
     `- Issues: ${validationIssues.length}`,
     '',
     '## Difficulty Counts',
@@ -659,6 +841,12 @@ function damageMultiplier(attackType, defenderTypes) {
   )
 }
 
+function hasStabSuperEffective(attacker, defender) {
+  return attacker.types.some(
+    (typeName) => damageMultiplier(typeName, defender.types) > 1,
+  )
+}
+
 function labelPokemon(pokemon) {
   if (pokemon.ko && pokemon.ko !== pokemon.en) {
     return `${pokemon.ko} (${pokemon.en})`
@@ -692,6 +880,10 @@ function titleCase(value) {
 
 function toSlug(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+function isHttpUrl(value) {
+  return /^https?:\/\//.test(value)
 }
 
 async function mapConcurrent(items, limit, callback) {

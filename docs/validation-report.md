@@ -1,6 +1,6 @@
 # Quiz Validation Report
 
-Generated: 2026-05-04T04:03:42.863Z
+Generated: 2026-05-07T21:52:43.694Z
 Status: passed
 
 ## Sources
@@ -13,19 +13,24 @@ Status: passed
 
 ## Results
 
-- Total questions checked: 1711
+- Total questions checked: 2066
 - Official eligible Pokemon checked: 213
 - Official allowed Mega Evolutions checked: 59
 - PokeAPI type cross-check: 213/213 verified
+- Expert practical questions: 460/460
+- Expert official trivia questions: 0
+- Non-practical banned text matches: 0
+- Question-specific reference coverage: 2066/2066
+- Focus Pokemon images: 1291/1291
 - Issues: 0
 
 ## Difficulty Counts
 
-- 입문: 244
-- 초급: 443
-- 중급: 395
-- 상급: 441
-- 전문가: 188
+- 입문: 234
+- 초급: 434
+- 중급: 476
+- 상급: 462
+- 전문가: 460
 
 ## Caveats
 

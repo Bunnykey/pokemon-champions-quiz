@@ -389,10 +389,68 @@
 }
 
 .quiz-card h2 {
-  margin: 22px 0;
+  margin: 18px 0 22px;
   font-family: var(--display);
   font-size: 1.9rem;
   line-height: 1.28;
+}
+
+.pokemon-spotlight {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  margin: 18px 0 0;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  padding: 10px;
+  background:
+    linear-gradient(90deg, rgba(255, 212, 71, 0.25), rgba(31, 111, 214, 0.08)),
+    #fff;
+}
+
+.pokemon-art-frame {
+  display: grid;
+  width: 112px;
+  height: 112px;
+  place-items: center;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background:
+    linear-gradient(#fff 0 48%, var(--ink) 48% 52%, #f8fafc 52% 100%);
+}
+
+.pokemon-art-frame img {
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 0 rgba(15, 24, 42, 0.18));
+}
+
+.pokemon-spotlight figcaption {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pokemon-spotlight strong {
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+
+.pokemon-spotlight span {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.pokemon-spotlight a {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 5px;
+  color: var(--stadium-blue);
+  font-size: 0.86rem;
+  font-weight: 900;
 }
 
 .answer-grid {
@@ -688,6 +746,20 @@ select:focus-visible {
 
   .answer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .pokemon-spotlight {
+    grid-template-columns: 96px minmax(0, 1fr);
+  }
+
+  .pokemon-art-frame {
+    width: 92px;
+    height: 92px;
+  }
+
+  .pokemon-art-frame img {
+    width: 78px;
+    height: 78px;
   }
 
   .score-panel {

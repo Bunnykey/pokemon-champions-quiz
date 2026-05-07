@@ -40,7 +40,12 @@ import {
   questions,
   questionsById,
 } from './lib/questions'
-import type { Difficulty, ProgressState, Question } from './types/quiz'
+import type {
+  Difficulty,
+  PokemonReference,
+  ProgressState,
+  Question,
+} from './types/quiz'
 
 type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
@@ -393,6 +398,7 @@ function QuizView({
           label="현재 난이도 진행률"
           value={Math.round(((questionIndex + 1) / totalQuestions) * 100)}
         />
+        <QuestionPokemonPanel pokemon={question.focusPokemon} />
         <h2>{question.promptKo}</h2>
         <div className="answer-grid">
           {question.choices.map((choice, index) => {
@@ -496,6 +502,39 @@ function QuizView({
   )
 }
 
+interface QuestionPokemonPanelProps {
+  pokemon?: PokemonReference
+}
+
+function QuestionPokemonPanel({ pokemon }: QuestionPokemonPanelProps) {
+  const [imageFailed, setImageFailed] = useState(false)
+
+  if (!pokemon || !pokemon.imageUrl || imageFailed) {
+    return null
+  }
+
+  return (
+    <figure className="pokemon-spotlight">
+      <div className="pokemon-art-frame">
+        <img
+          src={pokemon.imageUrl}
+          alt={`${pokemon.nameKo} (${pokemon.nameEn})`}
+          loading="lazy"
+          decoding="async"
+          onError={() => setImageFailed(true)}
+        />
+      </div>
+      <figcaption>
+        <strong>{pokemon.nameKo}</strong>
+        <span>{pokemon.nameEn}</span>
+        <a href={pokemon.referenceUrl} target="_blank" rel="noreferrer">
+          <ExternalLink size={13} /> 이미지/도감 출처
+        </a>
+      </figcaption>
+    </figure>
+  )
+}
+
 interface ServiceViewProps {
   progress: ProgressState
   onResetProgress: () => void
@@ -515,7 +554,8 @@ function ServiceView({ progress, onResetProgress }: ServiceViewProps) {
         <h2>공개 웹 서비스 기본 항목</h2>
         <p>
           이 앱은 로그인 없이 동작하며, 풀이 기록은 브라우저 localStorage에만
-          저장됩니다. 공식 자산을 사용하지 않는 비공식 팬메이드 훈련 도구입니다.
+          저장됩니다. 포켓몬 이미지는 PokeAPI의 외부 도감 이미지 URL을 불러오는
+          비공식 팬메이드 훈련 도구입니다.
         </p>
       </div>
 
@@ -532,8 +572,9 @@ function ServiceView({ progress, onResetProgress }: ServiceViewProps) {
           <ShieldCheck size={22} />
           <h3>출처와 검증</h3>
           <p>
-            공식 Champions M-A 규정과 참가 가능 목록을 기준으로 검증했고, 타입은
-            PokéAPI와 213/213 교차검증했습니다.
+          공식 Champions M-A 규정과 참가 가능 목록을 기준으로 검증했고, 타입은
+            PokéAPI와 213/213 교차검증했습니다. 각 문항은 문제별 Pokémon/Type
+            레퍼런스를 함께 제공합니다.
           </p>
           <a
             href="https://github.com/Bunnykey/pokemon-champions-quiz/blob/main/docs/validation-report.md"
@@ -578,8 +619,9 @@ function ServiceView({ progress, onResetProgress }: ServiceViewProps) {
         <h3>면책 및 운영 정책</h3>
         <p>
           Pokémon 및 관련 명칭은 각 권리자의 상표입니다. 이 앱은 공식 서비스가
-          아니며, 외부 공개용으로 공식 로고/일러스트/스프라이트를 포함하지
-          않습니다. 문제 오류는 각 문항의 blame 버튼으로 신고할 수 있습니다.
+          아니며, 공식 로고는 사용하지 않습니다. 문항에 표시되는 포켓몬 이미지는
+          PokeAPI가 제공하는 외부 URL을 참조합니다. 문제 오류는 각 문항의 blame
+          버튼으로 신고할 수 있습니다.
         </p>
       </section>
     </section>

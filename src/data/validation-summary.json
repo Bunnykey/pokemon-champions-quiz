@@ -1,23 +1,42 @@
 {
-  "generatedAt": "2026-05-04T04:03:42.863Z",
-  "retrievedAt": "2026-05-04",
+  "generatedAt": "2026-05-07T21:52:43.694Z",
+  "retrievedAt": "2026-05-08",
   "status": "passed",
-  "totalQuestions": 1711,
+  "totalQuestions": 2066,
   "byDifficulty": {
-    "입문": 244,
-    "초급": 443,
-    "중급": 395,
-    "상급": 441,
-    "전문가": 188
+    "입문": 234,
+    "초급": 434,
+    "중급": 476,
+    "상급": 462,
+    "전문가": 460
   },
   "officialEligiblePokemon": 213,
   "officialAllowedMegaEvolutions": 59,
   "checks": {
-    "uniqueIds": 1711,
+    "uniqueIds": 2066,
     "regulationSourceUrl": "https://champions-news.pokemon-home.com/en/page/751.html",
     "eligibleSourceUrl": "https://web-view.app.pokemonchampions.jp/battle/pages/events/rs177501629259kmzbny/ko/pokemon.html",
-    "ruleSpecificQuestionsChecked": 1711,
+    "ruleSpecificQuestionsChecked": 2066,
     "issues": 0
+  },
+  "pedagogyQuality": {
+    "expertQuestions": 460,
+    "expertPracticalQuestions": 460,
+    "expertOfficialTriviaQuestions": 0,
+    "bannedTextMatches": 0,
+    "policy": [
+      "전문가 난이도에는 시즌 시작/종료 시각, UTC 일정, 반복 복습 문항을 허용하지 않습니다.",
+      "전문가 난이도는 실전판단 태그와 상성/교체/스피드/카운터/압박 계열 판단 태그가 필요합니다."
+    ]
+  },
+  "sourceReferenceQuality": {
+    "questionSpecificReferenceQuestions": 2066,
+    "focusPokemonQuestions": 1291,
+    "focusPokemonWithImages": 1291,
+    "policy": [
+      "비규정 문항은 PokeAPI Pokemon/Type 또는 Pokemon Showdown Dex의 문제별 URL을 포함해야 합니다.",
+      "지문에 특정 포켓몬이 등장하는 문항은 focusPokemon 메타데이터와 이미지 URL을 포함해야 합니다."
+    ]
   },
   "pokeApiTypeCrossCheck": {
     "verified": 213,

@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
+import questions from './data/questions.json'
 
 describe('App', () => {
   beforeEach(() => {
@@ -10,18 +11,32 @@ describe('App', () => {
 
   it('starts a quiz, answers, shows explanation, and exposes blame URL', async () => {
     const user = userEvent.setup()
+    const firstIntroQuestion = questions.find(
+      (question) => question.difficulty === '입문',
+    )
     render(<App />)
 
     expect(screen.getByText('Pokémon Champions 실전 퀴즈')).toBeInTheDocument()
-    expect(screen.getByText('1,711')).toBeInTheDocument()
+    expect(
+      screen.getByText(questions.length.toLocaleString('ko-KR')),
+    ).toBeInTheDocument()
 
     await user.click(screen.getAllByRole('button', { name: /시작/ })[0])
+    expect(firstIntroQuestion?.focusPokemon).toBeDefined()
+    expect(
+      screen.getByRole('img', {
+        name: `${firstIntroQuestion?.focusPokemon?.nameKo} (${firstIntroQuestion?.focusPokemon?.nameEn})`,
+      }),
+    ).toBeInTheDocument()
     const choices = screen.getAllByTestId('answer-choice')
     expect(choices).toHaveLength(4)
 
     await user.click(choices[0])
 
     expect(screen.getByTestId('result-status')).toHaveTextContent(/정답|오답/)
+    expect(
+      screen.getByRole('link', { name: /PokeAPI Pokemon:/ }),
+    ).toBeInTheDocument()
     expect(screen.getByText(/GitHub Issue로 신고/)).toBeInTheDocument()
     expect(screen.getByTestId('blame-link')).toHaveAttribute(
       'href',

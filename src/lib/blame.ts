@@ -26,6 +26,15 @@ export function buildBlameIssueUrl(
     '## Explanation',
     question.explanationKo,
     '',
+    ...(question.focusPokemon
+      ? [
+          '## Focus Pokemon',
+          `- Name: ${question.focusPokemon.nameKo} (${question.focusPokemon.nameEn})`,
+          `- PokeAPI: ${question.focusPokemon.referenceUrl}`,
+          `- Image: ${question.focusPokemon.imageUrl ?? '(empty)'}`,
+          '',
+        ]
+      : []),
     '## Sources',
     ...question.sourceRefs.map(
       (source) => `- ${source.kind}: ${source.label} ${source.url}`,

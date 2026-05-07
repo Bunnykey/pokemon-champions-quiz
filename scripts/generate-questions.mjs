@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises'
 import { Dex } from '@pkmn/dex'
 
-const RETRIEVED_AT = '2026-05-04'
+const RETRIEVED_AT = '2026-05-08'
 const REGULATION_URL =
   'https://champions-news.pokemon-home.com/en/page/751.html'
 const ELIGIBLE_EN_URL =
@@ -203,6 +203,35 @@ const EXACT_DEX_NAMES = new Map([
   ['Basculegion (Female)', 'Basculegion-F'],
 ])
 
+const EXACT_POKEAPI_NAMES = new Map([
+  ['Rotom (Rotom)', 'rotom'],
+  ['Rotom (Heat Rotom)', 'rotom-heat'],
+  ['Rotom (Wash Rotom)', 'rotom-wash'],
+  ['Rotom (Frost Rotom)', 'rotom-frost'],
+  ['Rotom (Fan Rotom)', 'rotom-fan'],
+  ['Rotom (Mow Rotom)', 'rotom-mow'],
+  ['Tauros (Paldean Form (Combat Breed))', 'tauros-paldea-combat-breed'],
+  ['Tauros (Paldean Form (Blaze Breed))', 'tauros-paldea-blaze-breed'],
+  ['Tauros (Paldean Form (Aqua Breed))', 'tauros-paldea-aqua-breed'],
+  ['Meowstic (Male)', 'meowstic-male'],
+  ['Meowstic (Female)', 'meowstic-female'],
+  ['Gourgeist (Medium Variety)', 'gourgeist-average'],
+  ['Gourgeist (Small Variety)', 'gourgeist-small'],
+  ['Gourgeist (Large Variety)', 'gourgeist-large'],
+  ['Gourgeist (Jumbo Variety)', 'gourgeist-super'],
+  ['Lycanroc (Midday Form)', 'lycanroc-midday'],
+  ['Lycanroc (Midnight Form)', 'lycanroc-midnight'],
+  ['Lycanroc (Dusk Form)', 'lycanroc-dusk'],
+  ['Basculegion (Male)', 'basculegion-male'],
+  ['Basculegion (Female)', 'basculegion-female'],
+  ['Maushold', 'maushold-family-of-four'],
+  ['Palafin', 'palafin-zero'],
+  ['Mr. Rime', 'mr-rime'],
+  ['Aegislash', 'aegislash-shield'],
+  ['Mimikyu', 'mimikyu-disguised'],
+  ['Morpeko', 'morpeko-full-belly'],
+])
+
 const FAKE_MEGA_NAMES = [
   'Mega Mewtwo X',
   'Mega Salamence',
@@ -229,7 +258,7 @@ async function main() {
     fetchAllowedMegas(),
   ])
 
-  const eligiblePokemon = eligibleEn.map((entry, index) => {
+  const eligiblePokemonBase = eligibleEn.map((entry, index) => {
     const dexName = normalizeDexName(entry.name)
     const species = Dex.species.get(dexName)
     return {
@@ -246,7 +275,7 @@ async function main() {
     }
   })
 
-  const missing = eligiblePokemon.filter((pokemon) => !pokemon.species.exists)
+  const missing = eligiblePokemonBase.filter((pokemon) => !pokemon.species.exists)
   if (missing.length > 0) {
     throw new Error(
       `Missing @pkmn/dex species: ${missing
@@ -254,6 +283,12 @@ async function main() {
         .join(', ')}`,
     )
   }
+
+  const eligiblePokemon = await mapConcurrent(
+    eligiblePokemonBase,
+    12,
+    async (pokemon) => enrichWithPokeApi(pokemon),
+  )
 
   const usable = eligiblePokemon.filter(
     (pokemon) => pokemon.types.length > 0 && pokemon.speed > 0,
@@ -303,6 +338,8 @@ async function main() {
   buildResistanceQuestions(usable).forEach(add)
   buildSpeedQuestions(usable).forEach(add)
   buildAbilityQuestions(usable).forEach(add)
+  buildCounterPivotQuestions(usable).forEach(add)
+  buildSpeedPressureQuestions(usable).forEach(add)
 
   if (questions.length < 1000) {
     throw new Error(`Generated ${questions.length} questions, expected at least 1000`)
@@ -359,13 +396,49 @@ async function fetchAllowedMegas() {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { 'user-agent': 'pokemon-champions-quiz-generator/1.0' },
-  })
-  if (!response.ok) {
-    throw new Error(`Fetch failed ${response.status}: ${url}`)
-  }
+  const response = await fetchWithRetry(url)
   return response.text()
+}
+
+async function fetchJson(url) {
+  const response = await fetchWithRetry(url)
+  return response.json()
+}
+
+async function fetchWithRetry(url, retries = 2) {
+  let lastError
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: { 'user-agent': 'pokemon-champions-quiz-generator/1.0' },
+      })
+      if (!response.ok) {
+        throw new Error(`Fetch failed ${response.status}: ${url}`)
+      }
+      return response
+    } catch (error) {
+      lastError = error
+      if (attempt < retries) {
+        await delay(250 * (attempt + 1))
+      }
+    }
+  }
+  throw lastError
+}
+
+async function enrichWithPokeApi(pokemon) {
+  const pokeApiName = normalizePokeApiName(pokemon.en)
+  const pokeApiUrl = `https://pokeapi.co/api/v2/pokemon/${pokeApiName}`
+  const payload = await fetchJson(pokeApiUrl)
+  return {
+    ...pokemon,
+    pokeApiName,
+    pokeApiUrl,
+    imageUrl:
+      payload.sprites?.other?.['official-artwork']?.front_default ??
+      payload.sprites?.front_default ??
+      undefined,
+  }
 }
 
 function normalizeDexName(name) {
@@ -384,6 +457,22 @@ function normalizeDexName(name) {
   return name
 }
 
+function normalizePokeApiName(name) {
+  if (EXACT_POKEAPI_NAMES.has(name)) {
+    return EXACT_POKEAPI_NAMES.get(name)
+  }
+  const formMatch = name.match(/^(.*?) \((Alolan|Galarian|Hisuian) Form\)$/)
+  if (formMatch) {
+    const suffix = {
+      Alolan: 'alola',
+      Galarian: 'galar',
+      Hisuian: 'hisui',
+    }[formMatch[2]]
+    return `${toId(formMatch[1])}-${suffix}`
+  }
+  return toId(name)
+}
+
 function buildTypeIdentityQuestions(usable) {
   return usable.map((pokemon, index) =>
     makeQuestion({
@@ -396,7 +485,11 @@ function buildTypeIdentityQuestions(usable) {
       explanationKo: `${labelPokemon(pokemon)}은 ${typeComboLabel(
         pokemon.types,
       )} 타입입니다. 타입 확인은 상성 판단과 STAB 판단의 출발점입니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+      sourceRefs: [
+        eligibleSourceFor(pokemon),
+        ...pokemonDataSources(pokemon),
+      ],
+      focusPokemon: pokemonReference(pokemon),
       generatedFrom: 'official-eligible-list + pkmn-dex:type-identity',
     }),
   )
@@ -418,7 +511,10 @@ function buildEligiblePickQuestions(usable, ineligible) {
       explanationKo: `${labelPokemon(
         pokemon,
       )}은 공식 참가 가능 포켓몬 목록에 포함되어 있습니다. M-A에서는 목록에 표시된 포켓몬만 랭크배틀에 사용할 수 있습니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE],
+      sourceRefs: [
+        eligibleSourceFor(pokemon),
+        ...pokemonDataSources(pokemon),
+      ],
       generatedFrom: 'official-eligible-list:eligible-pick',
     }),
   )
@@ -440,7 +536,15 @@ function buildIneligibleTrapQuestions(usable, ineligible) {
       explanationKo: `${labelPokemon(
         pokemon,
       )}은 현재 M-A 공식 참가 가능 목록에 없습니다. 규정 문제는 강한 포켓몬인지보다 현 시즌 목록 포함 여부가 기준입니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE],
+      sourceRefs: [
+        {
+          ...SOURCE_ELIGIBLE,
+          label: `Regulation Set M-A Eligible Pokemon absence check: ${labelPokemon(
+            pokemon,
+          )}`,
+        },
+        dexSource(pokemon),
+      ],
       generatedFrom: 'official-eligible-list:ineligible-trap',
     }),
   )
@@ -460,7 +564,9 @@ function buildMegaQuestions(allowedMegas) {
         seededRandom(`mega-allowed-${megaName}`),
       ),
       explanationKo: `${megaName}는 M-A 공식 공지의 허용 메가진화 목록에 포함되어 있습니다. 메가진화는 배틀당 1회만 사용할 수 있습니다.`,
-      sourceRefs: [SOURCE_REGULATION],
+      sourceRefs: [
+        regulationSourceFor(`Allowed Mega Evolution: ${megaName}`, megaName),
+      ],
       generatedFrom: 'official-regulation:mega-allowed',
     }),
   )
@@ -479,7 +585,12 @@ function buildMegaQuestions(allowedMegas) {
           seededRandom(`mega-trap-${megaName}-${index}`),
         ),
         explanationKo: `${megaName}는 M-A 허용 메가진화 목록에 없습니다. 비슷하게 강한 메가진화라도 현재 규정 목록에 없으면 사용할 수 없습니다.`,
-        sourceRefs: [SOURCE_REGULATION],
+        sourceRefs: [
+          regulationSourceFor(
+            `Disallowed Mega Evolution trap: ${megaName}`,
+            'Mega Evolution',
+          ),
+        ],
         generatedFrom: 'official-regulation:mega-trap',
       }),
   )
@@ -498,6 +609,7 @@ function buildRuleQuestions() {
       distractors: ['턴마다 1회', '포켓몬마다 1회', '사용할 수 없음'],
       explanationKo:
         '공식 M-A 규정은 메가진화를 배틀당 1회만 사용할 수 있다고 명시합니다.',
+      referenceText: 'Mega Evolution',
     },
     {
       id: 'rule-duplicate-items',
@@ -512,6 +624,7 @@ function buildRuleQuestions() {
       ],
       explanationKo:
         '공식 M-A 공지는 Duplicate held items are not allowed라고 안내합니다.',
+      referenceText: 'Duplicate held items are not allowed',
     },
     {
       id: 'timer-total',
@@ -521,81 +634,52 @@ function buildRuleQuestions() {
       answer: '20분',
       distractors: ['10분', '15분', '30분'],
       explanationKo: 'M-A 타이머는 Total Time 20 minutes입니다.',
+      referenceText: 'Total Time',
     },
     {
       id: 'timer-player',
-      difficulty: '중급',
+      difficulty: '초급',
       tags: ['규정', '타이머'],
       promptKo: 'Regulation Set M-A의 플레이어 시간은?',
       answer: '7분',
       distractors: ['5분', '10분', '15분'],
       explanationKo: 'M-A 타이머는 Player Time 7 minutes입니다.',
+      referenceText: 'Player Time',
     },
     {
       id: 'timer-turn',
-      difficulty: '상급',
+      difficulty: '중급',
       tags: ['규정', '타이머'],
       promptKo: 'Regulation Set M-A의 턴 선택 시간은?',
       answer: '45초',
       distractors: ['30초', '60초', '90초'],
       explanationKo: 'M-A 타이머는 Turn Time 45 seconds입니다.',
+      referenceText: 'Turn Time',
     },
     {
       id: 'timer-preview',
-      difficulty: '전문가',
+      difficulty: '초급',
       tags: ['규정', '타이머', '선출'],
       promptKo: 'Regulation Set M-A의 선출 시간은?',
       answer: '90초',
       distractors: ['45초', '60초', '120초'],
       explanationKo: 'M-A 타이머는 Preview Time 90 seconds입니다.',
-    },
-    {
-      id: 'event-start',
-      difficulty: '초급',
-      tags: ['규정', '시즌'],
-      promptKo: 'Regulation Set M-A 시작 시각은?',
-      answer: '2026-04-08 02:00 UTC',
-      distractors: [
-        '2026-04-08 00:00 UTC',
-        '2026-05-04 02:00 UTC',
-        '2026-06-17 01:59 UTC',
-      ],
-      explanationKo:
-        'M-A 공식 일정은 2026-04-08 02:00 UTC부터 2026-06-17 01:59 UTC까지입니다.',
-    },
-    {
-      id: 'event-end',
-      difficulty: '전문가',
-      tags: ['규정', '시즌'],
-      promptKo: 'Regulation Set M-A 종료 시각은?',
-      answer: '2026-06-17 01:59 UTC',
-      distractors: [
-        '2026-06-17 02:00 UTC',
-        '2026-04-08 01:59 UTC',
-        '2026-05-17 01:59 UTC',
-      ],
-      explanationKo:
-        'M-A 공식 일정은 2026-06-17 01:59 UTC에 종료됩니다.',
+      referenceText: 'Preview Time',
     },
   ]
 
-  return templates.flatMap((template, templateIndex) =>
-    Array.from({ length: 6 }, (_, repeat) =>
-      makeQuestion({
-        id: `${template.id}-${repeat + 1}`,
-        difficulty: template.difficulty,
-        tags: template.tags,
-        promptKo:
-          repeat === 0
-            ? template.promptKo
-            : `${template.promptKo} (${repeat + 1}회차 복습)`,
-        answer: template.answer,
-        distractors: rotate(template.distractors, repeat),
-        explanationKo: template.explanationKo,
-        sourceRefs: [SOURCE_REGULATION],
-        generatedFrom: `official-regulation:rule-${templateIndex}`,
-      }),
-    ),
+  return templates.map((template, templateIndex) =>
+    makeQuestion({
+      id: template.id,
+      difficulty: template.difficulty,
+      tags: template.tags,
+      promptKo: template.promptKo,
+      answer: template.answer,
+      distractors: template.distractors,
+      explanationKo: template.explanationKo,
+      sourceRefs: [regulationSourceFor(template.promptKo, template.referenceText)],
+      generatedFrom: `official-regulation:rule-${templateIndex}`,
+    }),
   )
 }
 
@@ -630,7 +714,12 @@ function buildTypeWeaknessQuestions(usable) {
         )}입니다. ${typeLabel(answer)} 기술은 이 조합에 ${formatMultiplier(
           damageMultiplier(answer, pokemon.types),
         )}로 들어갑니다.`,
-        sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+        sourceRefs: [
+          eligibleSourceFor(pokemon),
+          ...pokemonDataSources(pokemon),
+          typeSource(answer),
+        ],
+        focusPokemon: pokemonReference(pokemon),
         generatedFrom: 'pkmn-dex:type-chart-weakness',
       }),
     ]
@@ -659,7 +748,12 @@ function buildStabQuestions(usable) {
       )} 타입이므로 ${typeLabel(
         answerType,
       )} 기술을 사용할 때 자속 보정을 받을 수 있습니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+      sourceRefs: [
+        eligibleSourceFor(pokemon),
+        ...pokemonDataSources(pokemon),
+        typeSource(answerType),
+      ],
+      focusPokemon: pokemonReference(pokemon),
       generatedFrom: 'pkmn-dex:type-chart-stab',
     })
   })
@@ -696,7 +790,10 @@ function buildResistanceQuestions(usable) {
         )} 타입이라 ${typeLabel(attackType)} 기술을 ${formatMultiplier(
           damageMultiplier(attackType, resistant.types),
         )}로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.`,
-        sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+        sourceRefs: [
+          typeSource(attackType),
+          ...pokemonDataSources(resistant),
+        ],
         generatedFrom: 'pkmn-dex:type-chart-resistance',
       })
     }),
@@ -729,7 +826,7 @@ function buildSpeedQuestions(usable) {
       explanationKo: `${labelPokemon(answer)}의 기본 스피드는 ${
         answer.speed
       }입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+      sourceRefs: uniqueSources(picks.flatMap(pokemonDataSources)),
       generatedFrom: 'pkmn-dex:base-speed-fastest',
     })
   })
@@ -748,7 +845,7 @@ function buildSpeedQuestions(usable) {
     const answer = sample(faster, 1, rng)[0]
     return makeQuestion({
       id: `speed-benchmark-${pokemon.code}`,
-      difficulty: index % 2 === 0 ? '상급' : '전문가',
+      difficulty: '상급',
       tags: ['스피드', '스피드티어', '실전판단'],
       promptKo: `${labelPokemon(
         pokemon,
@@ -760,7 +857,11 @@ function buildSpeedQuestions(usable) {
       }이고, ${labelPokemon(answer)}의 기본 스피드는 ${
         answer.speed
       }입니다.`,
-      sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+      sourceRefs: uniqueSources([
+        ...pokemonDataSources(pokemon),
+        ...pokemonDataSources(answer),
+      ]),
+      focusPokemon: pokemonReference(pokemon),
       generatedFrom: 'pkmn-dex:base-speed-benchmark',
     })
   })
@@ -781,7 +882,7 @@ function buildAbilityQuestions(usable) {
       const answer = pokemon.abilities[index % pokemon.abilities.length]
       return makeQuestion({
         id: `ability-${pokemon.code}`,
-        difficulty: index % 4 === 0 ? '전문가' : '상급',
+        difficulty: index % 3 === 0 ? '상급' : '중급',
         tags: ['특성', '도감', '실전준비'],
         promptKo: `${labelPokemon(pokemon)}가 가질 수 있는 특성은?`,
         answer,
@@ -793,10 +894,163 @@ function buildAbilityQuestions(usable) {
         explanationKo: `${labelPokemon(pokemon)}의 @pkmn/dex 기준 특성 후보에는 ${pokemon.abilities.join(
           ', ',
         )}가 포함됩니다. 특성은 선출 전 역할 추정에 직접 영향을 줍니다.`,
-        sourceRefs: [SOURCE_ELIGIBLE, SOURCE_DEX],
+        sourceRefs: pokemonDataSources(pokemon),
+        focusPokemon: pokemonReference(pokemon),
         generatedFrom: 'pkmn-dex:ability-recognition',
       })
     })
+}
+
+function buildCounterPivotQuestions(usable) {
+  return usable.flatMap((attacker, index) => {
+    const attackType = attacker.types[index % attacker.types.length]
+    const candidates = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== attacker.dexName &&
+        damageMultiplier(attackType, pokemon.types) < 1 &&
+        hasStabSuperEffective(pokemon, attacker),
+    )
+    const resistOnly = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== attacker.dexName &&
+        damageMultiplier(attackType, pokemon.types) < 1 &&
+        !hasStabSuperEffective(pokemon, attacker),
+    )
+    const pressureOnly = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== attacker.dexName &&
+        damageMultiplier(attackType, pokemon.types) >= 1 &&
+        hasStabSuperEffective(pokemon, attacker),
+    )
+    const neither = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== attacker.dexName &&
+        damageMultiplier(attackType, pokemon.types) >= 1 &&
+        !hasStabSuperEffective(pokemon, attacker),
+    )
+
+    if (
+      candidates.length < 1 ||
+      resistOnly.length < 1 ||
+      pressureOnly.length < 1 ||
+      neither.length < 1
+    ) {
+      return []
+    }
+
+    const rng = seededRandom(`counter-pivot-${attacker.code}-${attackType}`)
+    const answer = sample(candidates, 1, rng)[0]
+    const answerStab = bestStabAgainst(answer, attacker)
+
+    return [
+      makeQuestion({
+        id: `counter-pivot-${attacker.code}-${toId(attackType)}`,
+        difficulty: '전문가',
+        tags: ['상성', '교체', '카운터', '복합판단', '실전판단'],
+        promptKo: `상대 ${labelPokemon(attacker)}의 ${typeLabel(
+          attackType,
+        )} 자속 공격을 읽었습니다. 교체 피해를 줄이면서 바로 자속으로 약점을 찌를 후보는?`,
+        answer: labelPokemon(answer),
+        distractors: [
+          labelPokemon(sample(resistOnly, 1, rng)[0]),
+          labelPokemon(sample(pressureOnly, 1, rng)[0]),
+          labelPokemon(sample(neither, 1, rng)[0]),
+        ],
+        explanationKo: `${labelPokemon(answer)}는 ${typeLabel(
+          attackType,
+        )} 공격을 ${formatMultiplier(
+          damageMultiplier(attackType, answer.types),
+        )}로 받고, ${typeLabel(answerStab)} 자속 공격으로 ${labelPokemon(
+          attacker,
+        )}에게 ${formatMultiplier(
+          damageMultiplier(answerStab, attacker.types),
+        )} 압박을 줄 수 있습니다.`,
+        sourceRefs: uniqueSources([
+          ...pokemonDataSources(attacker),
+          ...pokemonDataSources(answer),
+          typeSource(attackType),
+          typeSource(answerStab),
+        ]),
+        focusPokemon: pokemonReference(attacker),
+        generatedFrom: 'pkmn-dex:type-chart-counter-pivot',
+      }),
+    ]
+  })
+}
+
+function buildSpeedPressureQuestions(usable) {
+  return usable.flatMap((target) => {
+    const answers = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== target.dexName &&
+        pokemon.speed > target.speed &&
+        hasStabSuperEffective(pokemon, target),
+    )
+    const fasterNoPressure = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== target.dexName &&
+        pokemon.speed > target.speed &&
+        !hasStabSuperEffective(pokemon, target),
+    )
+    const slowerPressure = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== target.dexName &&
+        pokemon.speed <= target.speed &&
+        hasStabSuperEffective(pokemon, target),
+    )
+    const slowerNoPressure = usable.filter(
+      (pokemon) =>
+        pokemon.dexName !== target.dexName &&
+        pokemon.speed <= target.speed &&
+        !hasStabSuperEffective(pokemon, target),
+    )
+
+    if (
+      answers.length < 1 ||
+      fasterNoPressure.length < 1 ||
+      slowerPressure.length < 1 ||
+      slowerNoPressure.length < 1
+    ) {
+      return []
+    }
+
+    const rng = seededRandom(`speed-pressure-${target.code}`)
+    const answer = sample(answers, 1, rng)[0]
+    const answerStab = bestStabAgainst(answer, target)
+
+    return [
+      makeQuestion({
+        id: `speed-pressure-${target.code}`,
+        difficulty: '전문가',
+        tags: ['스피드', '상성', '압박', '복합판단', '실전판단'],
+        promptKo: `${labelPokemon(
+          target,
+        )}를 상대로 동일 조건에서 먼저 움직이면서 자속으로 약점을 찌를 수 있는 후보는?`,
+        answer: labelPokemon(answer),
+        distractors: [
+          labelPokemon(sample(fasterNoPressure, 1, rng)[0]),
+          labelPokemon(sample(slowerPressure, 1, rng)[0]),
+          labelPokemon(sample(slowerNoPressure, 1, rng)[0]),
+        ],
+        explanationKo: `${labelPokemon(target)}의 기본 스피드는 ${
+          target.speed
+        }이고 ${labelPokemon(answer)}의 기본 스피드는 ${
+          answer.speed
+        }입니다. 또 ${typeLabel(answerStab)} 자속 공격이 ${labelPokemon(
+          target,
+        )}에게 ${formatMultiplier(
+          damageMultiplier(answerStab, target.types),
+        )}로 들어가므로 선공 압박과 약점 압박을 동시에 만족합니다.`,
+        sourceRefs: uniqueSources([
+          ...pokemonDataSources(target),
+          ...pokemonDataSources(answer),
+          typeSource(answerStab),
+        ]),
+        focusPokemon: pokemonReference(target),
+        generatedFrom: 'pkmn-dex:speed-pressure',
+      }),
+    ]
+  })
 }
 
 function makeQuestion({
@@ -808,6 +1062,7 @@ function makeQuestion({
   distractors,
   explanationKo,
   sourceRefs,
+  focusPokemon,
   generatedFrom,
 }) {
   const choices = unique([answer, ...distractors])
@@ -824,6 +1079,7 @@ function makeQuestion({
     answerIndex: shuffled.indexOf(answer),
     explanationKo,
     sourceRefs,
+    ...(focusPokemon ? { focusPokemon } : {}),
     generatedFrom,
   }
 }
@@ -837,6 +1093,9 @@ function validateQuestion(question) {
   }
   if (!question.sourceRefs.length) {
     throw new Error(`Missing sourceRefs ${question.id}`)
+  }
+  if (question.sourceRefs.some((source) => !source.url || !source.label)) {
+    throw new Error(`Invalid sourceRefs ${question.id}`)
   }
 }
 
@@ -858,6 +1117,20 @@ function damageMultiplier(attackType, defenderTypes) {
   )
 }
 
+function hasStabSuperEffective(attacker, defender) {
+  return Boolean(bestStabAgainst(attacker, defender))
+}
+
+function bestStabAgainst(attacker, defender) {
+  return attacker.types
+    .filter((typeName) => damageMultiplier(typeName, defender.types) > 1)
+    .sort(
+      (left, right) =>
+        damageMultiplier(right, defender.types) -
+        damageMultiplier(left, defender.types),
+    )[0]
+}
+
 const ALL_TYPES = Object.keys(TYPE_LABELS)
 
 function labelPokemon(pokemon) {
@@ -873,6 +1146,75 @@ function typeLabel(typeName) {
 
 function typeComboLabel(types) {
   return types.map(typeLabel).join(' / ')
+}
+
+function pokemonReference(pokemon) {
+  if (!pokemon.pokeApiName || !pokemon.pokeApiUrl) {
+    return undefined
+  }
+  return {
+    code: pokemon.code,
+    nameKo: pokemon.ko ?? pokemon.en,
+    nameEn: pokemon.en,
+    dexName: pokemon.dexName,
+    pokeApiName: pokemon.pokeApiName,
+    imageUrl: pokemon.imageUrl,
+    referenceUrl: pokemon.pokeApiUrl,
+  }
+}
+
+function pokemonDataSources(pokemon) {
+  return uniqueSources([
+    pokeApiSource(pokemon),
+    dexSource(pokemon),
+  ].filter(Boolean))
+}
+
+function pokeApiSource(pokemon) {
+  if (!pokemon.pokeApiUrl) {
+    return null
+  }
+  return {
+    kind: 'pokeapi',
+    label: `PokeAPI Pokemon: ${labelPokemon(pokemon)}`,
+    url: pokemon.pokeApiUrl,
+    retrievedAt: RETRIEVED_AT,
+  }
+}
+
+function dexSource(pokemon) {
+  return {
+    ...SOURCE_DEX,
+    label: `@pkmn/dex Pokemon data: ${labelPokemon(pokemon)}`,
+    url: `https://dex.pokemonshowdown.com/pokemon/${toId(
+      pokemon.species?.name ?? pokemon.dexName ?? pokemon.en,
+    )}`,
+  }
+}
+
+function typeSource(typeName) {
+  return {
+    kind: 'pokeapi',
+    label: `PokeAPI Type: ${typeLabel(typeName)}`,
+    url: `https://pokeapi.co/api/v2/type/${toId(typeName)}`,
+    retrievedAt: RETRIEVED_AT,
+  }
+}
+
+function eligibleSourceFor(pokemon) {
+  return {
+    ...SOURCE_ELIGIBLE,
+    label: `Regulation Set M-A Eligible Pokemon: ${labelPokemon(pokemon)}`,
+  }
+}
+
+function regulationSourceFor(label, textFragment) {
+  const fragment = encodeURIComponent(textFragment || label)
+  return {
+    ...SOURCE_REGULATION,
+    label: `Regulation Set M-A: ${label}`,
+    url: `${REGULATION_URL}#:~:text=${fragment}`,
+  }
 }
 
 function formatMultiplier(multiplier) {
@@ -909,6 +1251,18 @@ function unique(items) {
   return Array.from(new Set(items))
 }
 
+function uniqueSources(sources) {
+  const seen = new Set()
+  return sources.filter((source) => {
+    const key = `${source.kind}:${source.url}:${source.label}`
+    if (seen.has(key)) {
+      return false
+    }
+    seen.add(key)
+    return true
+  })
+}
+
 function uniqueBy(items, getKey) {
   const seen = new Set()
   return items.filter((item) => {
@@ -943,6 +1297,26 @@ function hash(value) {
 
 function toId(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+}
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
+}
+
+async function mapConcurrent(items, limit, callback) {
+  const results = []
+  let index = 0
+  async function worker() {
+    while (index < items.length) {
+      const current = index
+      index += 1
+      results[current] = await callback(items[current], current)
+    }
+  }
+  await Promise.all(Array.from({ length: limit }, worker))
+  return results
 }
 
 main().catch((error) => {

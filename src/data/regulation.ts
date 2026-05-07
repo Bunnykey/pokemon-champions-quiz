@@ -4,7 +4,7 @@ export const REGULATION_MA = {
   id: 'regulation-m-a',
   labelKo: 'Regulation Set M-A',
   scheduleKo: '2026-04-08 02:00 UTC부터 2026-06-17 01:59 UTC까지',
-  retrievedAt: '2026-05-04',
+  retrievedAt: '2026-05-08',
   officialRegulationUrl:
     'https://champions-news.pokemon-home.com/en/page/751.html',
   officialEligibleListUrl:
@@ -31,7 +31,7 @@ export const DIFFICULTY_DESCRIPTIONS: Record<Difficulty, string> = {
   초급: '참가 가능 여부와 메가진화 규칙을 헷갈리지 않는 단계',
   중급: '상성, STAB, 스피드 비교를 실전 선택으로 연결하는 단계',
   상급: '교체, 선출, 복합 조건을 보고 안전한 선택지를 고르는 단계',
-  전문가: '타이머, 규정 함정, 근소한 스피드 티어까지 점검하는 단계',
+  전문가: '교체, 카운터, 스피드 압박을 복합 조건으로 판단하는 단계',
 }
 
 export const TYPE_LABELS: Record<string, string> = {

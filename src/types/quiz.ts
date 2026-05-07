@@ -14,6 +14,16 @@ export interface SourceRef {
   retrievedAt?: string
 }
 
+export interface PokemonReference {
+  code?: string
+  nameKo: string
+  nameEn: string
+  dexName: string
+  pokeApiName: string
+  imageUrl?: string
+  referenceUrl: string
+}
+
 export interface Question {
   id: string
   difficulty: Difficulty
@@ -23,6 +33,7 @@ export interface Question {
   answerIndex: number
   explanationKo: string
   sourceRefs: SourceRef[]
+  focusPokemon?: PokemonReference
   generatedFrom: string
 }
 
