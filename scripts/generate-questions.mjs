@@ -778,7 +778,7 @@ function buildResistanceQuestions(usable) {
       }
       return makeQuestion({
         id: `resist-${toId(attackType)}-${repeat}`,
-        difficulty: typeIndex % 3 === 0 ? '전문가' : '상급',
+        difficulty: '상급',
         tags: ['상성', '교체', '실전판단'],
         promptKo: `${typeLabel(
           attackType,
@@ -816,7 +816,7 @@ function buildSpeedQuestions(usable) {
       Math.min(...picks.map((pokemon) => pokemon.speed))
     return makeQuestion({
       id: `speed-fastest-${index}`,
-      difficulty: spread <= 15 ? '전문가' : index % 2 === 0 ? '상급' : '중급',
+      difficulty: spread <= 15 || index % 2 === 0 ? '상급' : '중급',
       tags: ['스피드', '선공', '실전판단'],
       promptKo: '동일 조건에서 가장 먼저 행동하는 포켓몬은?',
       answer: labelPokemon(answer),

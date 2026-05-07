@@ -35,8 +35,8 @@ import {
 } from './lib/progress'
 import {
   difficultyQuestionCounts,
-  getQuestionsForDifficulty,
   getQuestionTags,
+  getShuffledQuestionsForDifficulty,
   questions,
   questionsById,
 } from './lib/questions'
@@ -60,15 +60,14 @@ function App() {
     useState<ReviewDifficulty>('전체')
   const [reviewTag, setReviewTag] = useState('전체')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
+  const [activeQuestions, setActiveQuestions] = useState<Question[]>(() =>
+    getShuffledQuestionsForDifficulty('입문'),
+  )
 
   useEffect(() => {
     saveProgress(progress)
   }, [progress])
 
-  const activeQuestions = useMemo(
-    () => getQuestionsForDifficulty(difficulty),
-    [difficulty],
-  )
   const currentQuestion = activeQuestions[questionIndex % activeQuestions.length]
   const reviewTags = useMemo(() => getQuestionTags(), [])
   const missedQuestions = useMemo(
@@ -92,6 +91,7 @@ function App() {
 
   function startQuiz(nextDifficulty: Difficulty) {
     setDifficulty(nextDifficulty)
+    setActiveQuestions(getShuffledQuestionsForDifficulty(nextDifficulty))
     setQuestionIndex(0)
     setSelectedIndex(null)
     setBlameNote('')
@@ -115,7 +115,12 @@ function App() {
   }
 
   function nextQuestion() {
-    setQuestionIndex((current) => current + 1)
+    if (questionIndex + 1 >= activeQuestions.length) {
+      setActiveQuestions(getShuffledQuestionsForDifficulty(difficulty))
+      setQuestionIndex(0)
+    } else {
+      setQuestionIndex((current) => current + 1)
+    }
     setSelectedIndex(null)
     setBlameNote('')
   }
@@ -286,6 +291,12 @@ function HomeView({
           <span>이슈 {validationSummary.checks.issues}</span>
           <span>공식 eligible {validationSummary.officialEligiblePokemon}</span>
           <span>허용 메가 {validationSummary.officialAllowedMegaEvolutions}</span>
+          <span>
+            난이도 서열{' '}
+            {validationSummary.difficultyHierarchy.monotonicAverage
+              ? '통과'
+              : '점검 필요'}
+          </span>
         </div>
       </section>
 

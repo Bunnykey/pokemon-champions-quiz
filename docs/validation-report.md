@@ -1,6 +1,6 @@
 # Quiz Validation Report
 
-Generated: 2026-05-07T21:52:43.694Z
+Generated: 2026-05-07T22:08:41.415Z
 Status: passed
 
 ## Sources
@@ -17,11 +17,13 @@ Status: passed
 - Official eligible Pokemon checked: 213
 - Official allowed Mega Evolutions checked: 59
 - PokeAPI type cross-check: 213/213 verified
-- Expert practical questions: 460/460
+- Expert practical questions: 397/397
 - Expert official trivia questions: 0
 - Non-practical banned text matches: 0
 - Question-specific reference coverage: 2066/2066
 - Focus Pokemon images: 1291/1291
+- Difficulty hierarchy monotonic: true
+- Difficulty placement violations: 0
 - Issues: 0
 
 ## Difficulty Counts
@@ -29,8 +31,16 @@ Status: passed
 - 입문: 234
 - 초급: 434
 - 중급: 476
-- 상급: 462
-- 전문가: 460
+- 상급: 525
+- 전문가: 397
+
+## Difficulty Hierarchy
+
+- 입문: average 1.31, min 1.1, max 1.5
+- 초급: average 1.94, min 1.2, max 2.3
+- 중급: average 2.95, min 2, max 4
+- 상급: average 3.84, min 3, max 4.2
+- 전문가: average 5, min 5, max 5
 
 ## Caveats
 

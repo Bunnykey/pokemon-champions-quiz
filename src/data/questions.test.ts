@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { DIFFICULTIES, REGULATION_MA } from './regulation'
 import questions from './questions.json'
+import { shuffleQuestions } from '../lib/questions'
 import type { Question } from '../types/quiz'
 
 const typedQuestions = questions as Question[]
@@ -29,6 +30,20 @@ describe('generated question bank', () => {
       expect(question.promptKo.length).toBeGreaterThan(0)
       expect(question.explanationKo.length).toBeGreaterThan(0)
     }
+  })
+
+  it('can shuffle question order without mutating the source bank', () => {
+    const introQuestions = typedQuestions.filter(
+      (question) => question.difficulty === '입문',
+    )
+    const shuffled = shuffleQuestions(introQuestions, () => 0)
+
+    expect(shuffled).toHaveLength(introQuestions.length)
+    expect(shuffled.map((question) => question.id).sort()).toEqual(
+      introQuestions.map((question) => question.id).sort(),
+    )
+    expect(shuffled[0].id).not.toBe(introQuestions[0].id)
+    expect(typedQuestions[0].id).toBe(questions[0].id)
   })
 
   it('anchors official regulation questions to Regulation Set M-A', () => {
@@ -66,25 +81,68 @@ describe('generated question bank', () => {
   })
 
   it('keeps expert questions practical instead of regulation trivia', () => {
-    const expertDecisionTags = new Set([
-      '상성',
-      '교체',
-      '카운터',
-      '스피드',
-      '스피드티어',
-      '선공',
-      '압박',
-      '복합판단',
-    ])
-
     for (const question of typedQuestions.filter(
       (candidate) => candidate.difficulty === '전문가',
     )) {
       expect(question.generatedFrom).not.toMatch(/^official-regulation/)
       expect(question.tags).toContain('실전판단')
-      expect(question.tags.some((tag) => expertDecisionTags.has(tag))).toBe(true)
+      expect(question.tags).toContain('복합판단')
+      expect(
+        question.tags.includes('카운터') || question.tags.includes('압박'),
+      ).toBe(true)
       expect(question.tags).not.toContain('타이머')
       expect(question.tags).not.toContain('시즌')
+    }
+  })
+
+  it('keeps the difficulty hierarchy ordered by template complexity', () => {
+    const allowedGeneratedFromByDifficulty: Record<string, Set<string>> = {
+      입문: new Set([
+        'official-eligible-list + pkmn-dex:type-identity',
+        'official-eligible-list:eligible-pick',
+        'official-regulation:rule-0',
+        'official-regulation:rule-1',
+      ]),
+      초급: new Set([
+        'official-eligible-list + pkmn-dex:type-identity',
+        'official-eligible-list:eligible-pick',
+        'official-eligible-list:ineligible-trap',
+        'official-regulation:mega-allowed',
+        'official-regulation:rule-2',
+        'official-regulation:rule-3',
+        'official-regulation:rule-5',
+        'pkmn-dex:type-chart-stab',
+      ]),
+      중급: new Set([
+        'official-eligible-list:ineligible-trap',
+        'official-regulation:mega-allowed',
+        'official-regulation:mega-trap',
+        'official-regulation:rule-4',
+        'pkmn-dex:ability-recognition',
+        'pkmn-dex:base-speed-fastest',
+        'pkmn-dex:type-chart-stab',
+        'pkmn-dex:type-chart-weakness',
+      ]),
+      상급: new Set([
+        'official-regulation:mega-trap',
+        'pkmn-dex:ability-recognition',
+        'pkmn-dex:base-speed-benchmark',
+        'pkmn-dex:base-speed-fastest',
+        'pkmn-dex:type-chart-resistance',
+        'pkmn-dex:type-chart-weakness',
+      ]),
+      전문가: new Set([
+        'pkmn-dex:speed-pressure',
+        'pkmn-dex:type-chart-counter-pivot',
+      ]),
+    }
+
+    for (const question of typedQuestions) {
+      expect(
+        allowedGeneratedFromByDifficulty[question.difficulty].has(
+          question.generatedFrom,
+        ),
+      ).toBe(true)
     }
   })
 

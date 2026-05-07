@@ -1,19 +1,26 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
 import questions from './data/questions.json'
+import { shuffleQuestions } from './lib/questions'
 
 describe('App', () => {
   beforeEach(() => {
     window.localStorage.clear()
   })
 
+  afterEach(() => {
+    vi.restoreAllMocks()
+  })
+
   it('starts a quiz, answers, shows explanation, and exposes blame URL', async () => {
     const user = userEvent.setup()
-    const firstIntroQuestion = questions.find(
-      (question) => question.difficulty === '입문',
-    )
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    const firstIntroQuestion = shuffleQuestions(
+      questions.filter((question) => question.difficulty === '입문'),
+      () => 0,
+    )[0]
     render(<App />)
 
     expect(screen.getByText('Pokémon Champions 실전 퀴즈')).toBeInTheDocument()
@@ -23,6 +30,7 @@ describe('App', () => {
 
     await user.click(screen.getAllByRole('button', { name: /시작/ })[0])
     expect(firstIntroQuestion?.focusPokemon).toBeDefined()
+    expect(screen.getByText(firstIntroQuestion.promptKo)).toBeInTheDocument()
     expect(
       screen.getByRole('img', {
         name: `${firstIntroQuestion?.focusPokemon?.nameKo} (${firstIntroQuestion?.focusPokemon?.nameEn})`,
@@ -46,16 +54,24 @@ describe('App', () => {
 
   it('supports keyboard answering and next-question navigation', async () => {
     const user = userEvent.setup()
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    const introQuestions = questions.filter(
+      (question) => question.difficulty === '입문',
+    )
+    const shuffledIntroQuestions = shuffleQuestions(introQuestions, () => 0)
+    const expectedFirstQuestion = shuffledIntroQuestions[0]
+    const expectedSecondQuestion = shuffledIntroQuestions[1]
     render(<App />)
 
     await user.click(screen.getAllByRole('button', { name: /시작/ })[0])
-    await user.keyboard('2')
+    await user.keyboard(String(expectedFirstQuestion.answerIndex + 1))
 
     expect(screen.getByTestId('result-status')).toHaveTextContent('정답')
 
     await user.keyboard('{Enter}')
 
     expect(screen.getByTestId('result-status')).toHaveTextContent('선택 대기')
+    expect(screen.getByText(expectedSecondQuestion.promptKo)).toBeInTheDocument()
   })
 
   it('shows service policy controls and can reset local progress', async () => {

@@ -55534,6 +55534,396 @@
     "generatedFrom": "pkmn-dex:type-chart-weakness"
   },
   {
+    "id": "resist-normal-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "라이츄 (Raichu)",
+      "블래키 (Umbreon)",
+      "파밀리쥐 (Maushold)",
+      "보스로라 (Aggron)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "보스로라 (Aggron)는 강철 (Steel) / 바위 (Rock) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 보스로라 (Aggron)",
+        "url": "https://pokeapi.co/api/v2/pokemon/aggron",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 보스로라 (Aggron)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/aggron",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "돌핀맨 (Palafin)",
+      "야나키 (Simisage)",
+      "바리톱스 (Bastiodon)",
+      "바오키 (Simisear)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "바리톱스 (Bastiodon)는 바위 (Rock) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 바리톱스 (Bastiodon)",
+        "url": "https://pokeapi.co/api/v2/pokemon/bastiodon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 바리톱스 (Bastiodon)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/bastiodon",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "포푸니라 (Weavile)",
+      "아머까오 (Corviknight)",
+      "파르토 (Diggersby)",
+      "요가램 (Medicham)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "아머까오 (Corviknight)는 비행 (Flying) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 아머까오 (Corviknight)",
+        "url": "https://pokeapi.co/api/v2/pokemon/corviknight",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 아머까오 (Corviknight)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/corviknight",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "켄타로스 (팔데아의 모습/컴뱃종) (Tauros (Paldean Form (Combat Breed)))",
+      "두드리짱 (Tinkaton)",
+      "썬더볼트 (Manectric)",
+      "미끄래곤 (Goodra)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "두드리짱 (Tinkaton)는 페어리 (Fairy) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 두드리짱 (Tinkaton)",
+        "url": "https://pokeapi.co/api/v2/pokemon/tinkaton",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 두드리짱 (Tinkaton)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/tinkaton",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "밀로틱 (Milotic)",
+      "마휘핑 (Alcremie)",
+      "음번 (Noivern)",
+      "깜까미 (Sableye)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "깜까미 (Sableye)는 악 (Dark) / 고스트 (Ghost) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 깜까미 (Sableye)",
+        "url": "https://pokeapi.co/api/v2/pokemon/sableye",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 깜까미 (Sableye)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/sableye",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "사다이사 (Sandaconda)",
+      "블레이범 (Typhlosion)",
+      "따라큐 (Mimikyu)",
+      "캥카 (Kangaskhan)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "따라큐 (Mimikyu)는 고스트 (Ghost) / 페어리 (Fairy) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 따라큐 (Mimikyu)",
+        "url": "https://pokeapi.co/api/v2/pokemon/mimikyu-disguised",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 따라큐 (Mimikyu)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/mimikyu",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "강철톤 (Steelix)",
+      "에몽가 (Emolga)",
+      "썬더볼트 (Manectric)",
+      "샤크니아 (Sharpedo)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "강철톤 (Steelix)는 강철 (Steel) / 땅 (Ground) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 강철톤 (Steelix)",
+        "url": "https://pokeapi.co/api/v2/pokemon/steelix",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 강철톤 (Steelix)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/steelix",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "라이츄 (Raichu)",
+      "블로스터 (Clawitzer)",
+      "할비롱 (Drampa)",
+      "클레피 (Klefki)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "클레피 (Klefki)는 강철 (Steel) / 페어리 (Fairy) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 클레피 (Klefki)",
+        "url": "https://pokeapi.co/api/v2/pokemon/klefki",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 클레피 (Klefki)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/klefki",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "마임꽁꽁 (Mr. Rime)",
+      "냐오닉스 (수컷의 모습) (Meowstic (Male))",
+      "토대부기 (Torterra)",
+      "바리톱스 (Bastiodon)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "바리톱스 (Bastiodon)는 바위 (Rock) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 바리톱스 (Bastiodon)",
+        "url": "https://pokeapi.co/api/v2/pokemon/bastiodon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 바리톱스 (Bastiodon)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/bastiodon",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-normal-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "마임꽁꽁 (Mr. Rime)",
+      "포트데스 (Polteageist)",
+      "거북왕 (Blastoise)",
+      "만마드 (Mudsdale)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "포트데스 (Polteageist)는 고스트 (Ghost) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 노말 (Normal)",
+        "url": "https://pokeapi.co/api/v2/type/normal",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 포트데스 (Polteageist)",
+        "url": "https://pokeapi.co/api/v2/pokemon/polteageist",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 포트데스 (Polteageist)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/polteageist",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
     "id": "resist-fire-0",
     "difficulty": "상급",
     "tags": [
@@ -56308,6 +56698,396 @@
         "kind": "pkmn-dex",
         "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
         "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "깜까미 (Sableye)",
+      "과미드라 (Hydrapple)",
+      "샤미드 (Vaporeon)",
+      "조로아크 (Zoroark)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "과미드라 (Hydrapple)는 풀 (Grass) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 과미드라 (Hydrapple)",
+        "url": "https://pokeapi.co/api/v2/pokemon/hydrapple",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 과미드라 (Hydrapple)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/hydrapple",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "마스카나 (Meowscarada)",
+      "헤라크로스 (Heracross)",
+      "보스로라 (Aggron)",
+      "비비용 (Vivillon)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "마스카나 (Meowscarada)는 풀 (Grass) / 악 (Dark) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 마스카나 (Meowscarada)",
+        "url": "https://pokeapi.co/api/v2/pokemon/meowscarada",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 마스카나 (Meowscarada)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/meowscarada",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+      "픽시 (Clefable)",
+      "클레피 (Klefki)",
+      "마폭시 (Delphox)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "앗차키 (Simipour)",
+      "로즈레이드 (Roserade)",
+      "클레스퍼트라 (Espathra)",
+      "앱솔 (Absol)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "로즈레이드 (Roserade)는 풀 (Grass) / 독 (Poison) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 로즈레이드 (Roserade)",
+        "url": "https://pokeapi.co/api/v2/pokemon/roserade",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 로즈레이드 (Roserade)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/roserade",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "괴력몬 (Machamp)",
+      "썬더볼트 (Manectric)",
+      "아보크 (Arbok)",
+      "루가루암 (한낮의 모습) (Lycanroc (Midday Form))"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "썬더볼트 (Manectric)는 전기 (Electric) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 썬더볼트 (Manectric)",
+        "url": "https://pokeapi.co/api/v2/pokemon/manectric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 썬더볼트 (Manectric)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/manectric",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "루차불 (Hawlucha)",
+      "로토무 (로토무의 모습) (Rotom (Rotom))",
+      "괴력몬 (Machamp)",
+      "독침붕 (Beedrill)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "로토무 (로토무의 모습) (Rotom (Rotom))는 전기 (Electric) / 고스트 (Ghost) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 로토무 (로토무의 모습) (Rotom (Rotom))",
+        "url": "https://pokeapi.co/api/v2/pokemon/rotom",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 로토무 (로토무의 모습) (Rotom (Rotom))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/rotom",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "대로트 (Trevenant)",
+      "무장조 (Skarmory)",
+      "신비록 (Wyrdeer)",
+      "블래키 (Umbreon)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "대로트 (Trevenant)는 고스트 (Ghost) / 풀 (Grass) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 대로트 (Trevenant)",
+        "url": "https://pokeapi.co/api/v2/pokemon/trevenant",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 대로트 (Trevenant)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/trevenant",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "괴력몬 (Machamp)",
+      "글라이온 (Gliscor)",
+      "블레이범 (Typhlosion)",
+      "루차불 (Hawlucha)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "글라이온 (Gliscor)는 땅 (Ground) / 비행 (Flying) 타입이라 전기 (Electric) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 글라이온 (Gliscor)",
+        "url": "https://pokeapi.co/api/v2/pokemon/gliscor",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 글라이온 (Gliscor)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/gliscor",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "램펄드 (Rampardos)",
+      "괴력몬 (Machamp)",
+      "견고라스 (Tyrantrum)",
+      "따라큐 (Mimikyu)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "견고라스 (Tyrantrum)는 바위 (Rock) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 견고라스 (Tyrantrum)",
+        "url": "https://pokeapi.co/api/v2/pokemon/tyrantrum",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 견고라스 (Tyrantrum)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/tyrantrum",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-electric-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "애프룡 (Flapple)",
+      "바오키 (Simisear)",
+      "마릴리 (Azumarill)",
+      "캐스퐁 (Castform)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "애프룡 (Flapple)는 풀 (Grass) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 전기 (Electric)",
+        "url": "https://pokeapi.co/api/v2/type/electric",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 애프룡 (Flapple)",
+        "url": "https://pokeapi.co/api/v2/pokemon/flapple",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 애프룡 (Flapple)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/flapple",
         "retrievedAt": "2026-05-08"
       }
     ],
@@ -57094,6 +57874,396 @@
     "generatedFrom": "pkmn-dex:type-chart-resistance"
   },
   {
+    "id": "resist-fighting-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "악비아르 (Krookodile)",
+      "나루림 (Slurpuff)",
+      "괴력몬 (Machamp)",
+      "앗차키 (Simipour)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "나루림 (Slurpuff)는 페어리 (Fairy) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 나루림 (Slurpuff)",
+        "url": "https://pokeapi.co/api/v2/pokemon/slurpuff",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 나루림 (Slurpuff)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/slurpuff",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "킬라플로르 (Glimmora)",
+      "켄타로스 (팔데아의 모습/워터종) (Tauros (Paldean Form (Aqua Breed)))",
+      "헬가 (Houndoom)",
+      "블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))는 불꽃 (Fire) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/typhlosion-hisui",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/typhlosion-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "찌리배리 (Bellibolt)",
+      "이상해꽃 (Venusaur)",
+      "부란다 (Pangoro)",
+      "할비롱 (Drampa)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "이상해꽃 (Venusaur)는 풀 (Grass) / 독 (Poison) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 이상해꽃 (Venusaur)",
+        "url": "https://pokeapi.co/api/v2/pokemon/venusaur",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 이상해꽃 (Venusaur)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/venusaur",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "샤크니아 (Sharpedo)",
+      "키키링 (Farigiraf)",
+      "파르토 (Diggersby)",
+      "아보크 (Arbok)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "아보크 (Arbok)는 독 (Poison) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 아보크 (Arbok)",
+        "url": "https://pokeapi.co/api/v2/pokemon/arbok",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 아보크 (Arbok)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/arbok",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "블레이범 (Typhlosion)",
+      "폭타 (Camerupt)",
+      "로토무 (로토무의 모습) (Rotom (Rotom))",
+      "사마자르 (Kleavor)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "로토무 (로토무의 모습) (Rotom (Rotom))는 전기 (Electric) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 로토무 (로토무의 모습) (Rotom (Rotom))",
+        "url": "https://pokeapi.co/api/v2/pokemon/rotom",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 로토무 (로토무의 모습) (Rotom (Rotom))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/rotom",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "코터스 (Torkoal)",
+      "블래키 (Umbreon)",
+      "켄타로스 (Tauros)",
+      "대쓰여너 (수컷의 모습) (Basculegion (Male))"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "대쓰여너 (수컷의 모습) (Basculegion (Male))는 물 (Water) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 대쓰여너 (수컷의 모습) (Basculegion (Male))",
+        "url": "https://pokeapi.co/api/v2/pokemon/basculegion-male",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 대쓰여너 (수컷의 모습) (Basculegion (Male))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/basculegion",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "로토무 (히트로토무) (Rotom (Heat Rotom))",
+      "샤미드 (Vaporeon)",
+      "부란다 (Pangoro)",
+      "누리레느 (Primarina)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "누리레느 (Primarina)는 물 (Water) / 페어리 (Fairy) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 누리레느 (Primarina)",
+        "url": "https://pokeapi.co/api/v2/pokemon/primarina",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 누리레느 (Primarina)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/primarina",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "바리톱스 (Bastiodon)",
+      "펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
+      "라이츄 (Raichu)",
+      "윈디 (Arcanine)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "펌킨인 (특대과종) (Gourgeist (Jumbo Variety))는 고스트 (Ghost) / 풀 (Grass) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
+        "url": "https://pokeapi.co/api/v2/pokemon/gourgeist-super",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/gourgeist-super",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "루카리오 (Lucario)",
+      "쁘사이저 (Pinsir)",
+      "파밀리쥐 (Maushold)",
+      "전룡 (Ampharos)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "쁘사이저 (Pinsir)는 벌레 (Bug) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 쁘사이저 (Pinsir)",
+        "url": "https://pokeapi.co/api/v2/pokemon/pinsir",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 쁘사이저 (Pinsir)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/pinsir",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-fighting-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "만마드 (Mudsdale)",
+      "블래키 (Umbreon)",
+      "대로트 (Trevenant)",
+      "강철톤 (Steelix)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "대로트 (Trevenant)는 고스트 (Ghost) / 풀 (Grass) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 격투 (Fighting)",
+        "url": "https://pokeapi.co/api/v2/type/fighting",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 대로트 (Trevenant)",
+        "url": "https://pokeapi.co/api/v2/pokemon/trevenant",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 대로트 (Trevenant)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/trevenant",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
     "id": "resist-poison-0",
     "difficulty": "상급",
     "tags": [
@@ -57868,6 +59038,396 @@
         "kind": "pkmn-dex",
         "label": "@pkmn/dex Pokemon data: 글라이온 (Gliscor)",
         "url": "https://dex.pokemonshowdown.com/pokemon/gliscor",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "렌트라 (Luxray)",
+      "데스판 (Runerigus)",
+      "개굴닌자 (Greninja)",
+      "장크로다일 (Feraligatr)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "렌트라 (Luxray)는 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 렌트라 (Luxray)",
+        "url": "https://pokeapi.co/api/v2/pokemon/luxray",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 렌트라 (Luxray)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/luxray",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "장크로다일 (Feraligatr)",
+      "램펄드 (Rampardos)",
+      "토대부기 (Torterra)",
+      "마휘핑 (Alcremie)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "램펄드 (Rampardos)는 바위 (Rock) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 램펄드 (Rampardos)",
+        "url": "https://pokeapi.co/api/v2/pokemon/rampardos",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 램펄드 (Rampardos)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/rampardos",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "메더 (Stunfisk)",
+      "대쓰여너 (암컷의 모습) (Basculegion (Female))",
+      "보르그 (Watchog)",
+      "라우드본 (Skeledirge)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "메더 (Stunfisk)는 땅 (Ground) / 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 메더 (Stunfisk)",
+        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 메더 (Stunfisk)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "노보청 (Conkeldurr)",
+      "마폭시 (Delphox)",
+      "앗차키 (Simipour)",
+      "몰드류 (Excadrill)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "몰드류 (Excadrill)는 땅 (Ground) / 강철 (Steel) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 몰드류 (Excadrill)",
+        "url": "https://pokeapi.co/api/v2/pokemon/excadrill",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 몰드류 (Excadrill)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/excadrill",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "몰드류 (Excadrill)",
+      "한카리아스 (Garchomp)",
+      "개굴닌자 (Greninja)",
+      "하랑우탄 (Oranguru)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "몰드류 (Excadrill)는 땅 (Ground) / 강철 (Steel) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 몰드류 (Excadrill)",
+        "url": "https://pokeapi.co/api/v2/pokemon/excadrill",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 몰드류 (Excadrill)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/excadrill",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+      "야도킹 (가라르의 모습) (Slowking (Galarian Form))",
+      "마릴리 (Azumarill)",
+      "파라블레이즈 (Ceruledge)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "골루그 (Golurk)",
+      "모르페코 (Morpeko)",
+      "맘모꾸리 (Mamoswine)",
+      "웨이니발 (Quaquaval)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "모르페코 (Morpeko)는 전기 (Electric) / 악 (Dark) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 모르페코 (Morpeko)",
+        "url": "https://pokeapi.co/api/v2/pokemon/morpeko-full-belly",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 모르페코 (Morpeko)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/morpeko",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "엘레이드 (Gallade)",
+      "거북왕 (Blastoise)",
+      "콜로솔트 (Garganacl)",
+      "아보크 (Arbok)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "콜로솔트 (Garganacl)는 바위 (Rock) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 콜로솔트 (Garganacl)",
+        "url": "https://pokeapi.co/api/v2/pokemon/garganacl",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 콜로솔트 (Garganacl)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/garganacl",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "얼음귀신 (Glalie)",
+      "비비용 (Vivillon)",
+      "견고라스 (Tyrantrum)",
+      "망나뇽 (Dragonite)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "견고라스 (Tyrantrum)는 바위 (Rock) / 드래곤 (Dragon) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 견고라스 (Tyrantrum)",
+        "url": "https://pokeapi.co/api/v2/pokemon/tyrantrum",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 견고라스 (Tyrantrum)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/tyrantrum",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-flying-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "데스판 (Runerigus)",
+      "샤로다 (Serperior)",
+      "냐오닉스 (수컷의 모습) (Meowstic (Male))",
+      "렌트라 (Luxray)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "렌트라 (Luxray)는 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 비행 (Flying)",
+        "url": "https://pokeapi.co/api/v2/type/flying",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 렌트라 (Luxray)",
+        "url": "https://pokeapi.co/api/v2/pokemon/luxray",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 렌트라 (Luxray)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/luxray",
         "retrievedAt": "2026-05-08"
       }
     ],
@@ -58654,6 +60214,396 @@
     "generatedFrom": "pkmn-dex:type-chart-resistance"
   },
   {
+    "id": "resist-rock-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "글레이시아 (Glaceon)",
+      "메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+      "카디나르마 (Armarouge)",
+      "다크펫 (Banette)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "메더 (가라르의 모습) (Stunfisk (Galarian Form))는 땅 (Ground) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk-galar",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk-galar",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "포트데스 (Polteageist)",
+      "토대부기 (Torterra)",
+      "일레도리자드 (Heliolisk)",
+      "미끄래곤 (Goodra)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "토대부기 (Torterra)는 풀 (Grass) / 땅 (Ground) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 토대부기 (Torterra)",
+        "url": "https://pokeapi.co/api/v2/pokemon/torterra",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 토대부기 (Torterra)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/torterra",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "리자몽 (Charizard)",
+      "글레이시아 (Glaceon)",
+      "메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+      "눈설왕 (Abomasnow)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "메더 (가라르의 모습) (Stunfisk (Galarian Form))는 땅 (Ground) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk-galar",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk-galar",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "로토무 (스핀로토무) (Rotom (Fan Rotom))",
+      "로토무 (히트로토무) (Rotom (Heat Rotom))",
+      "루카리오 (Lucario)",
+      "켄타로스 (팔데아의 모습/블레이즈종) (Tauros (Paldean Form (Blaze Breed)))"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "루카리오 (Lucario)는 격투 (Fighting) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 루카리오 (Lucario)",
+        "url": "https://pokeapi.co/api/v2/pokemon/lucario",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 루카리오 (Lucario)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/lucario",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "왕구리 (Politoed)",
+      "에브이 (Espeon)",
+      "웨이니발 (Quaquaval)",
+      "데덴네 (Dedenne)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "웨이니발 (Quaquaval)는 물 (Water) / 격투 (Fighting) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 웨이니발 (Quaquaval)",
+        "url": "https://pokeapi.co/api/v2/pokemon/quaquaval",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 웨이니발 (Quaquaval)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/quaquaval",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "프레프티르 (Aromatisse)",
+      "파밀리쥐 (Maushold)",
+      "악비아르 (Krookodile)",
+      "콜로솔트 (Garganacl)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "악비아르 (Krookodile)는 땅 (Ground) / 악 (Dark) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
+        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "패리퍼 (Pelipper)",
+      "거대코뿌리 (Rhyperior)",
+      "부스터 (Flareon)",
+      "하랑우탄 (Oranguru)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "거대코뿌리 (Rhyperior)는 땅 (Ground) / 바위 (Rock) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 거대코뿌리 (Rhyperior)",
+        "url": "https://pokeapi.co/api/v2/pokemon/rhyperior",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 거대코뿌리 (Rhyperior)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/rhyperior",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "블래키 (Umbreon)",
+      "나루림 (Slurpuff)",
+      "마스카나 (Meowscarada)",
+      "악비아르 (Krookodile)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "악비아르 (Krookodile)는 땅 (Ground) / 악 (Dark) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
+        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "눈여아 (Froslass)",
+      "하랑우탄 (Oranguru)",
+      "프테라 (Aerodactyl)",
+      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-rock-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "아마루르가 (Aurorus)",
+      "나루림 (Slurpuff)",
+      "사마자르 (Kleavor)",
+      "노보청 (Conkeldurr)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "노보청 (Conkeldurr)는 격투 (Fighting) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 바위 (Rock)",
+        "url": "https://pokeapi.co/api/v2/type/rock",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 노보청 (Conkeldurr)",
+        "url": "https://pokeapi.co/api/v2/pokemon/conkeldurr",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 노보청 (Conkeldurr)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/conkeldurr",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
     "id": "resist-ghost-0",
     "difficulty": "상급",
     "tags": [
@@ -59428,6 +61378,396 @@
         "kind": "pkmn-dex",
         "label": "@pkmn/dex Pokemon data: 가디안 (Gardevoir)",
         "url": "https://dex.pokemonshowdown.com/pokemon/gardevoir",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-0",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "루가루암 (황혼의 모습) (Lycanroc (Dusk Form))",
+      "야나키 (Simisage)",
+      "후딘 (Alakazam)",
+      "블래키 (Umbreon)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "블래키 (Umbreon)는 악 (Dark) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 블래키 (Umbreon)",
+        "url": "https://pokeapi.co/api/v2/pokemon/umbreon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 블래키 (Umbreon)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/umbreon",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-1",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
+      "라이츄 (알로라의 모습) (Raichu (Alolan Form))",
+      "패리퍼 (Pelipper)",
+      "클레스퍼트라 (Espathra)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))는 풀 (Grass) / 격투 (Fighting) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/decidueye-hisui",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/decidueye-hisui",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-2",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "루가루암 (황혼의 모습) (Lycanroc (Dusk Form))",
+      "대쓰여너 (수컷의 모습) (Basculegion (Male))",
+      "폭타 (Camerupt)",
+      "데덴네 (Dedenne)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
+        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-3",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "쏘콘 (Forretress)",
+      "염뉴트 (Salazzle)",
+      "데덴네 (Dedenne)",
+      "몰드류 (Excadrill)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
+        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-4",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "골루그 (Golurk)",
+      "치렁 (Chimecho)",
+      "냐오닉스 (암컷의 모습) (Meowstic (Female))",
+      "플라엣테 (Floette)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "플라엣테 (Floette)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 플라엣테 (Floette)",
+        "url": "https://pokeapi.co/api/v2/pokemon/floette",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 플라엣테 (Floette)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/floette",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-5",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "아리아도스 (Ariados)",
+      "배바닐라 (Vanilluxe)",
+      "님피아 (Sylveon)",
+      "메더 (Stunfisk)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "님피아 (Sylveon)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 님피아 (Sylveon)",
+        "url": "https://pokeapi.co/api/v2/pokemon/sylveon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 님피아 (Sylveon)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/sylveon",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-6",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "프레프티르 (Aromatisse)",
+      "메타몽 (Ditto)",
+      "거대코뿌리 (Rhyperior)",
+      "파르토 (Diggersby)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "프레프티르 (Aromatisse)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 프레프티르 (Aromatisse)",
+        "url": "https://pokeapi.co/api/v2/pokemon/aromatisse",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 프레프티르 (Aromatisse)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/aromatisse",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-7",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "찌리배리 (Bellibolt)",
+      "라우드본 (Skeledirge)",
+      "나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
+      "애프룡 (Flapple)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "나인테일 (알로라의 모습) (Ninetales (Alolan Form))는 얼음 (Ice) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/ninetales-alola",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/ninetales-alola",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-8",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "윈디 (Arcanine)",
+      "데덴네 (Dedenne)",
+      "아보크 (Arbok)",
+      "토대부기 (Torterra)"
+    ],
+    "answerIndex": 1,
+    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
+        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:type-chart-resistance"
+  },
+  {
+    "id": "resist-dark-9",
+    "difficulty": "상급",
+    "tags": [
+      "상성",
+      "교체",
+      "실전판단"
+    ],
+    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
+    "choices": [
+      "달코퀸 (Tsareena)",
+      "한카리아스 (Garchomp)",
+      "키키링 (Farigiraf)",
+      "마휘핑 (Alcremie)"
+    ],
+    "answerIndex": 3,
+    "explanationKo": "마휘핑 (Alcremie)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Type: 악 (Dark)",
+        "url": "https://pokeapi.co/api/v2/type/dark",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 마휘핑 (Alcremie)",
+        "url": "https://pokeapi.co/api/v2/pokemon/alcremie",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 마휘핑 (Alcremie)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/alcremie",
         "retrievedAt": "2026-05-08"
       }
     ],
@@ -60760,6 +63100,75 @@
         "kind": "pkmn-dex",
         "label": "@pkmn/dex Pokemon data: 깜까미 (Sableye)",
         "url": "https://dex.pokemonshowdown.com/pokemon/sableye",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:base-speed-fastest"
+  },
+  {
+    "id": "speed-fastest-19",
+    "difficulty": "상급",
+    "tags": [
+      "스피드",
+      "선공",
+      "실전판단"
+    ],
+    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
+    "choices": [
+      "핫삼 (Scizor)",
+      "파르토 (Diggersby)",
+      "이상해꽃 (Venusaur)",
+      "보르그 (Watchog)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "이상해꽃 (Venusaur)의 기본 스피드는 80입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 이상해꽃 (Venusaur)",
+        "url": "https://pokeapi.co/api/v2/pokemon/venusaur",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 이상해꽃 (Venusaur)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/venusaur",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 핫삼 (Scizor)",
+        "url": "https://pokeapi.co/api/v2/pokemon/scizor",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 핫삼 (Scizor)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/scizor",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 파르토 (Diggersby)",
+        "url": "https://pokeapi.co/api/v2/pokemon/diggersby",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 파르토 (Diggersby)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/diggersby",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 보르그 (Watchog)",
+        "url": "https://pokeapi.co/api/v2/pokemon/watchog",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 보르그 (Watchog)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/watchog",
         "retrievedAt": "2026-05-08"
       }
     ],
@@ -63388,6 +65797,75 @@
     "generatedFrom": "pkmn-dex:base-speed-fastest"
   },
   {
+    "id": "speed-fastest-118",
+    "difficulty": "상급",
+    "tags": [
+      "스피드",
+      "선공",
+      "실전판단"
+    ],
+    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
+    "choices": [
+      "악비아르 (Krookodile)",
+      "가디안 (Gardevoir)",
+      "배바닐라 (Vanilluxe)",
+      "브리두라스 (Archaludon)"
+    ],
+    "answerIndex": 0,
+    "explanationKo": "악비아르 (Krookodile)의 기본 스피드는 92입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
+        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 배바닐라 (Vanilluxe)",
+        "url": "https://pokeapi.co/api/v2/pokemon/vanilluxe",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 배바닐라 (Vanilluxe)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/vanilluxe",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 브리두라스 (Archaludon)",
+        "url": "https://pokeapi.co/api/v2/pokemon/archaludon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 브리두라스 (Archaludon)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/archaludon",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 가디안 (Gardevoir)",
+        "url": "https://pokeapi.co/api/v2/pokemon/gardevoir",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 가디안 (Gardevoir)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/gardevoir",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:base-speed-fastest"
+  },
+  {
     "id": "speed-fastest-120",
     "difficulty": "상급",
     "tags": [
@@ -64762,6 +67240,75 @@
         "kind": "pkmn-dex",
         "label": "@pkmn/dex Pokemon data: 야도란 (Slowbro)",
         "url": "https://dex.pokemonshowdown.com/pokemon/slowbro",
+        "retrievedAt": "2026-05-08"
+      }
+    ],
+    "generatedFrom": "pkmn-dex:base-speed-fastest"
+  },
+  {
+    "id": "speed-fastest-171",
+    "difficulty": "상급",
+    "tags": [
+      "스피드",
+      "선공",
+      "실전판단"
+    ],
+    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
+    "choices": [
+      "폭타 (Camerupt)",
+      "야도란 (가라르의 모습) (Slowbro (Galarian Form))",
+      "과미드라 (Hydrapple)",
+      "브리무음 (Hatterene)"
+    ],
+    "answerIndex": 2,
+    "explanationKo": "과미드라 (Hydrapple)의 기본 스피드는 44입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
+    "sourceRefs": [
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 브리무음 (Hatterene)",
+        "url": "https://pokeapi.co/api/v2/pokemon/hatterene",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 브리무음 (Hatterene)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/hatterene",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 과미드라 (Hydrapple)",
+        "url": "https://pokeapi.co/api/v2/pokemon/hydrapple",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 과미드라 (Hydrapple)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/hydrapple",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 폭타 (Camerupt)",
+        "url": "https://pokeapi.co/api/v2/pokemon/camerupt",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 폭타 (Camerupt)",
+        "url": "https://dex.pokemonshowdown.com/pokemon/camerupt",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pokeapi",
+        "label": "PokeAPI Pokemon: 야도란 (가라르의 모습) (Slowbro (Galarian Form))",
+        "url": "https://pokeapi.co/api/v2/pokemon/slowbro-galar",
+        "retrievedAt": "2026-05-08"
+      },
+      {
+        "kind": "pkmn-dex",
+        "label": "@pkmn/dex Pokemon data: 야도란 (가라르의 모습) (Slowbro (Galarian Form))",
+        "url": "https://dex.pokemonshowdown.com/pokemon/slowbro-galar",
         "retrievedAt": "2026-05-08"
       }
     ],
@@ -75767,2553 +78314,6 @@
       "referenceUrl": "https://pokeapi.co/api/v2/pokemon/diggersby"
     },
     "generatedFrom": "pkmn-dex:ability-recognition"
-  },
-  {
-    "id": "resist-normal-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "라이츄 (Raichu)",
-      "블래키 (Umbreon)",
-      "파밀리쥐 (Maushold)",
-      "보스로라 (Aggron)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "보스로라 (Aggron)는 강철 (Steel) / 바위 (Rock) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 보스로라 (Aggron)",
-        "url": "https://pokeapi.co/api/v2/pokemon/aggron",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 보스로라 (Aggron)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/aggron",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "돌핀맨 (Palafin)",
-      "야나키 (Simisage)",
-      "바리톱스 (Bastiodon)",
-      "바오키 (Simisear)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "바리톱스 (Bastiodon)는 바위 (Rock) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 바리톱스 (Bastiodon)",
-        "url": "https://pokeapi.co/api/v2/pokemon/bastiodon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 바리톱스 (Bastiodon)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/bastiodon",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "포푸니라 (Weavile)",
-      "아머까오 (Corviknight)",
-      "파르토 (Diggersby)",
-      "요가램 (Medicham)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "아머까오 (Corviknight)는 비행 (Flying) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 아머까오 (Corviknight)",
-        "url": "https://pokeapi.co/api/v2/pokemon/corviknight",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 아머까오 (Corviknight)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/corviknight",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "켄타로스 (팔데아의 모습/컴뱃종) (Tauros (Paldean Form (Combat Breed)))",
-      "두드리짱 (Tinkaton)",
-      "썬더볼트 (Manectric)",
-      "미끄래곤 (Goodra)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "두드리짱 (Tinkaton)는 페어리 (Fairy) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 두드리짱 (Tinkaton)",
-        "url": "https://pokeapi.co/api/v2/pokemon/tinkaton",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 두드리짱 (Tinkaton)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/tinkaton",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "밀로틱 (Milotic)",
-      "마휘핑 (Alcremie)",
-      "음번 (Noivern)",
-      "깜까미 (Sableye)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "깜까미 (Sableye)는 악 (Dark) / 고스트 (Ghost) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 깜까미 (Sableye)",
-        "url": "https://pokeapi.co/api/v2/pokemon/sableye",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 깜까미 (Sableye)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/sableye",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "사다이사 (Sandaconda)",
-      "블레이범 (Typhlosion)",
-      "따라큐 (Mimikyu)",
-      "캥카 (Kangaskhan)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "따라큐 (Mimikyu)는 고스트 (Ghost) / 페어리 (Fairy) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 따라큐 (Mimikyu)",
-        "url": "https://pokeapi.co/api/v2/pokemon/mimikyu-disguised",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 따라큐 (Mimikyu)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/mimikyu",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "강철톤 (Steelix)",
-      "에몽가 (Emolga)",
-      "썬더볼트 (Manectric)",
-      "샤크니아 (Sharpedo)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "강철톤 (Steelix)는 강철 (Steel) / 땅 (Ground) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 강철톤 (Steelix)",
-        "url": "https://pokeapi.co/api/v2/pokemon/steelix",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 강철톤 (Steelix)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/steelix",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "라이츄 (Raichu)",
-      "블로스터 (Clawitzer)",
-      "할비롱 (Drampa)",
-      "클레피 (Klefki)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "클레피 (Klefki)는 강철 (Steel) / 페어리 (Fairy) 타입이라 노말 (Normal) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 클레피 (Klefki)",
-        "url": "https://pokeapi.co/api/v2/pokemon/klefki",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 클레피 (Klefki)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/klefki",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "마임꽁꽁 (Mr. Rime)",
-      "냐오닉스 (수컷의 모습) (Meowstic (Male))",
-      "토대부기 (Torterra)",
-      "바리톱스 (Bastiodon)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "바리톱스 (Bastiodon)는 바위 (Rock) / 강철 (Steel) 타입이라 노말 (Normal) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 바리톱스 (Bastiodon)",
-        "url": "https://pokeapi.co/api/v2/pokemon/bastiodon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 바리톱스 (Bastiodon)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/bastiodon",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-normal-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "노말 (Normal) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "마임꽁꽁 (Mr. Rime)",
-      "포트데스 (Polteageist)",
-      "거북왕 (Blastoise)",
-      "만마드 (Mudsdale)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "포트데스 (Polteageist)는 고스트 (Ghost) 타입이라 노말 (Normal) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 노말 (Normal)",
-        "url": "https://pokeapi.co/api/v2/type/normal",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 포트데스 (Polteageist)",
-        "url": "https://pokeapi.co/api/v2/pokemon/polteageist",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 포트데스 (Polteageist)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/polteageist",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "깜까미 (Sableye)",
-      "과미드라 (Hydrapple)",
-      "샤미드 (Vaporeon)",
-      "조로아크 (Zoroark)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "과미드라 (Hydrapple)는 풀 (Grass) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 과미드라 (Hydrapple)",
-        "url": "https://pokeapi.co/api/v2/pokemon/hydrapple",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 과미드라 (Hydrapple)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/hydrapple",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "마스카나 (Meowscarada)",
-      "헤라크로스 (Heracross)",
-      "보스로라 (Aggron)",
-      "비비용 (Vivillon)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "마스카나 (Meowscarada)는 풀 (Grass) / 악 (Dark) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 마스카나 (Meowscarada)",
-        "url": "https://pokeapi.co/api/v2/pokemon/meowscarada",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 마스카나 (Meowscarada)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/meowscarada",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-      "픽시 (Clefable)",
-      "클레피 (Klefki)",
-      "마폭시 (Delphox)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "앗차키 (Simipour)",
-      "로즈레이드 (Roserade)",
-      "클레스퍼트라 (Espathra)",
-      "앱솔 (Absol)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "로즈레이드 (Roserade)는 풀 (Grass) / 독 (Poison) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 로즈레이드 (Roserade)",
-        "url": "https://pokeapi.co/api/v2/pokemon/roserade",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 로즈레이드 (Roserade)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/roserade",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "괴력몬 (Machamp)",
-      "썬더볼트 (Manectric)",
-      "아보크 (Arbok)",
-      "루가루암 (한낮의 모습) (Lycanroc (Midday Form))"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "썬더볼트 (Manectric)는 전기 (Electric) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 썬더볼트 (Manectric)",
-        "url": "https://pokeapi.co/api/v2/pokemon/manectric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 썬더볼트 (Manectric)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/manectric",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "루차불 (Hawlucha)",
-      "로토무 (로토무의 모습) (Rotom (Rotom))",
-      "괴력몬 (Machamp)",
-      "독침붕 (Beedrill)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "로토무 (로토무의 모습) (Rotom (Rotom))는 전기 (Electric) / 고스트 (Ghost) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 로토무 (로토무의 모습) (Rotom (Rotom))",
-        "url": "https://pokeapi.co/api/v2/pokemon/rotom",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 로토무 (로토무의 모습) (Rotom (Rotom))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/rotom",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "대로트 (Trevenant)",
-      "무장조 (Skarmory)",
-      "신비록 (Wyrdeer)",
-      "블래키 (Umbreon)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "대로트 (Trevenant)는 고스트 (Ghost) / 풀 (Grass) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 대로트 (Trevenant)",
-        "url": "https://pokeapi.co/api/v2/pokemon/trevenant",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 대로트 (Trevenant)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/trevenant",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "괴력몬 (Machamp)",
-      "글라이온 (Gliscor)",
-      "블레이범 (Typhlosion)",
-      "루차불 (Hawlucha)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "글라이온 (Gliscor)는 땅 (Ground) / 비행 (Flying) 타입이라 전기 (Electric) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 글라이온 (Gliscor)",
-        "url": "https://pokeapi.co/api/v2/pokemon/gliscor",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 글라이온 (Gliscor)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/gliscor",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "램펄드 (Rampardos)",
-      "괴력몬 (Machamp)",
-      "견고라스 (Tyrantrum)",
-      "따라큐 (Mimikyu)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "견고라스 (Tyrantrum)는 바위 (Rock) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 견고라스 (Tyrantrum)",
-        "url": "https://pokeapi.co/api/v2/pokemon/tyrantrum",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 견고라스 (Tyrantrum)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/tyrantrum",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-electric-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "전기 (Electric) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "애프룡 (Flapple)",
-      "바오키 (Simisear)",
-      "마릴리 (Azumarill)",
-      "캐스퐁 (Castform)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "애프룡 (Flapple)는 풀 (Grass) / 드래곤 (Dragon) 타입이라 전기 (Electric) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 전기 (Electric)",
-        "url": "https://pokeapi.co/api/v2/type/electric",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 애프룡 (Flapple)",
-        "url": "https://pokeapi.co/api/v2/pokemon/flapple",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 애프룡 (Flapple)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/flapple",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "악비아르 (Krookodile)",
-      "나루림 (Slurpuff)",
-      "괴력몬 (Machamp)",
-      "앗차키 (Simipour)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "나루림 (Slurpuff)는 페어리 (Fairy) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 나루림 (Slurpuff)",
-        "url": "https://pokeapi.co/api/v2/pokemon/slurpuff",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 나루림 (Slurpuff)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/slurpuff",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "킬라플로르 (Glimmora)",
-      "켄타로스 (팔데아의 모습/워터종) (Tauros (Paldean Form (Aqua Breed)))",
-      "헬가 (Houndoom)",
-      "블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))는 불꽃 (Fire) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/typhlosion-hisui",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 블레이범 (히스이의 모습) (Typhlosion (Hisuian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/typhlosion-hisui",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "찌리배리 (Bellibolt)",
-      "이상해꽃 (Venusaur)",
-      "부란다 (Pangoro)",
-      "할비롱 (Drampa)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "이상해꽃 (Venusaur)는 풀 (Grass) / 독 (Poison) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 이상해꽃 (Venusaur)",
-        "url": "https://pokeapi.co/api/v2/pokemon/venusaur",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 이상해꽃 (Venusaur)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/venusaur",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "샤크니아 (Sharpedo)",
-      "키키링 (Farigiraf)",
-      "파르토 (Diggersby)",
-      "아보크 (Arbok)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "아보크 (Arbok)는 독 (Poison) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 아보크 (Arbok)",
-        "url": "https://pokeapi.co/api/v2/pokemon/arbok",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 아보크 (Arbok)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/arbok",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "블레이범 (Typhlosion)",
-      "폭타 (Camerupt)",
-      "로토무 (로토무의 모습) (Rotom (Rotom))",
-      "사마자르 (Kleavor)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "로토무 (로토무의 모습) (Rotom (Rotom))는 전기 (Electric) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 로토무 (로토무의 모습) (Rotom (Rotom))",
-        "url": "https://pokeapi.co/api/v2/pokemon/rotom",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 로토무 (로토무의 모습) (Rotom (Rotom))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/rotom",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "코터스 (Torkoal)",
-      "블래키 (Umbreon)",
-      "켄타로스 (Tauros)",
-      "대쓰여너 (수컷의 모습) (Basculegion (Male))"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "대쓰여너 (수컷의 모습) (Basculegion (Male))는 물 (Water) / 고스트 (Ghost) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 대쓰여너 (수컷의 모습) (Basculegion (Male))",
-        "url": "https://pokeapi.co/api/v2/pokemon/basculegion-male",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 대쓰여너 (수컷의 모습) (Basculegion (Male))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/basculegion",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "로토무 (히트로토무) (Rotom (Heat Rotom))",
-      "샤미드 (Vaporeon)",
-      "부란다 (Pangoro)",
-      "누리레느 (Primarina)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "누리레느 (Primarina)는 물 (Water) / 페어리 (Fairy) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 누리레느 (Primarina)",
-        "url": "https://pokeapi.co/api/v2/pokemon/primarina",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 누리레느 (Primarina)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/primarina",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "바리톱스 (Bastiodon)",
-      "펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
-      "라이츄 (Raichu)",
-      "윈디 (Arcanine)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "펌킨인 (특대과종) (Gourgeist (Jumbo Variety))는 고스트 (Ghost) / 풀 (Grass) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
-        "url": "https://pokeapi.co/api/v2/pokemon/gourgeist-super",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 펌킨인 (특대과종) (Gourgeist (Jumbo Variety))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/gourgeist-super",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "루카리오 (Lucario)",
-      "쁘사이저 (Pinsir)",
-      "파밀리쥐 (Maushold)",
-      "전룡 (Ampharos)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "쁘사이저 (Pinsir)는 벌레 (Bug) 타입이라 격투 (Fighting) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 쁘사이저 (Pinsir)",
-        "url": "https://pokeapi.co/api/v2/pokemon/pinsir",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 쁘사이저 (Pinsir)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/pinsir",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-fighting-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "격투 (Fighting) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "만마드 (Mudsdale)",
-      "블래키 (Umbreon)",
-      "대로트 (Trevenant)",
-      "강철톤 (Steelix)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "대로트 (Trevenant)는 고스트 (Ghost) / 풀 (Grass) 타입이라 격투 (Fighting) 기술을 0배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 격투 (Fighting)",
-        "url": "https://pokeapi.co/api/v2/type/fighting",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 대로트 (Trevenant)",
-        "url": "https://pokeapi.co/api/v2/pokemon/trevenant",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 대로트 (Trevenant)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/trevenant",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "렌트라 (Luxray)",
-      "데스판 (Runerigus)",
-      "개굴닌자 (Greninja)",
-      "장크로다일 (Feraligatr)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "렌트라 (Luxray)는 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 렌트라 (Luxray)",
-        "url": "https://pokeapi.co/api/v2/pokemon/luxray",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 렌트라 (Luxray)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/luxray",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "장크로다일 (Feraligatr)",
-      "램펄드 (Rampardos)",
-      "토대부기 (Torterra)",
-      "마휘핑 (Alcremie)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "램펄드 (Rampardos)는 바위 (Rock) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 램펄드 (Rampardos)",
-        "url": "https://pokeapi.co/api/v2/pokemon/rampardos",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 램펄드 (Rampardos)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/rampardos",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "메더 (Stunfisk)",
-      "대쓰여너 (암컷의 모습) (Basculegion (Female))",
-      "보르그 (Watchog)",
-      "라우드본 (Skeledirge)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "메더 (Stunfisk)는 땅 (Ground) / 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 메더 (Stunfisk)",
-        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 메더 (Stunfisk)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "노보청 (Conkeldurr)",
-      "마폭시 (Delphox)",
-      "앗차키 (Simipour)",
-      "몰드류 (Excadrill)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "몰드류 (Excadrill)는 땅 (Ground) / 강철 (Steel) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 몰드류 (Excadrill)",
-        "url": "https://pokeapi.co/api/v2/pokemon/excadrill",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 몰드류 (Excadrill)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/excadrill",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "몰드류 (Excadrill)",
-      "한카리아스 (Garchomp)",
-      "개굴닌자 (Greninja)",
-      "하랑우탄 (Oranguru)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "몰드류 (Excadrill)는 땅 (Ground) / 강철 (Steel) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 몰드류 (Excadrill)",
-        "url": "https://pokeapi.co/api/v2/pokemon/excadrill",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 몰드류 (Excadrill)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/excadrill",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-      "야도킹 (가라르의 모습) (Slowking (Galarian Form))",
-      "마릴리 (Azumarill)",
-      "파라블레이즈 (Ceruledge)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "골루그 (Golurk)",
-      "모르페코 (Morpeko)",
-      "맘모꾸리 (Mamoswine)",
-      "웨이니발 (Quaquaval)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "모르페코 (Morpeko)는 전기 (Electric) / 악 (Dark) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 모르페코 (Morpeko)",
-        "url": "https://pokeapi.co/api/v2/pokemon/morpeko-full-belly",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 모르페코 (Morpeko)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/morpeko",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "엘레이드 (Gallade)",
-      "거북왕 (Blastoise)",
-      "콜로솔트 (Garganacl)",
-      "아보크 (Arbok)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "콜로솔트 (Garganacl)는 바위 (Rock) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 콜로솔트 (Garganacl)",
-        "url": "https://pokeapi.co/api/v2/pokemon/garganacl",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 콜로솔트 (Garganacl)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/garganacl",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "얼음귀신 (Glalie)",
-      "비비용 (Vivillon)",
-      "견고라스 (Tyrantrum)",
-      "망나뇽 (Dragonite)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "견고라스 (Tyrantrum)는 바위 (Rock) / 드래곤 (Dragon) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 견고라스 (Tyrantrum)",
-        "url": "https://pokeapi.co/api/v2/pokemon/tyrantrum",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 견고라스 (Tyrantrum)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/tyrantrum",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-flying-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "비행 (Flying) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "데스판 (Runerigus)",
-      "샤로다 (Serperior)",
-      "냐오닉스 (수컷의 모습) (Meowstic (Male))",
-      "렌트라 (Luxray)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "렌트라 (Luxray)는 전기 (Electric) 타입이라 비행 (Flying) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 비행 (Flying)",
-        "url": "https://pokeapi.co/api/v2/type/flying",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 렌트라 (Luxray)",
-        "url": "https://pokeapi.co/api/v2/pokemon/luxray",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 렌트라 (Luxray)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/luxray",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "글레이시아 (Glaceon)",
-      "메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-      "카디나르마 (Armarouge)",
-      "다크펫 (Banette)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "메더 (가라르의 모습) (Stunfisk (Galarian Form))는 땅 (Ground) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk-galar",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk-galar",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "포트데스 (Polteageist)",
-      "토대부기 (Torterra)",
-      "일레도리자드 (Heliolisk)",
-      "미끄래곤 (Goodra)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "토대부기 (Torterra)는 풀 (Grass) / 땅 (Ground) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 토대부기 (Torterra)",
-        "url": "https://pokeapi.co/api/v2/pokemon/torterra",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 토대부기 (Torterra)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/torterra",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "리자몽 (Charizard)",
-      "글레이시아 (Glaceon)",
-      "메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-      "눈설왕 (Abomasnow)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "메더 (가라르의 모습) (Stunfisk (Galarian Form))는 땅 (Ground) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/stunfisk-galar",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 메더 (가라르의 모습) (Stunfisk (Galarian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/stunfisk-galar",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "로토무 (스핀로토무) (Rotom (Fan Rotom))",
-      "로토무 (히트로토무) (Rotom (Heat Rotom))",
-      "루카리오 (Lucario)",
-      "켄타로스 (팔데아의 모습/블레이즈종) (Tauros (Paldean Form (Blaze Breed)))"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "루카리오 (Lucario)는 격투 (Fighting) / 강철 (Steel) 타입이라 바위 (Rock) 기술을 1/4배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 루카리오 (Lucario)",
-        "url": "https://pokeapi.co/api/v2/pokemon/lucario",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 루카리오 (Lucario)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/lucario",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "왕구리 (Politoed)",
-      "에브이 (Espeon)",
-      "웨이니발 (Quaquaval)",
-      "데덴네 (Dedenne)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "웨이니발 (Quaquaval)는 물 (Water) / 격투 (Fighting) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 웨이니발 (Quaquaval)",
-        "url": "https://pokeapi.co/api/v2/pokemon/quaquaval",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 웨이니발 (Quaquaval)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/quaquaval",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "프레프티르 (Aromatisse)",
-      "파밀리쥐 (Maushold)",
-      "악비아르 (Krookodile)",
-      "콜로솔트 (Garganacl)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "악비아르 (Krookodile)는 땅 (Ground) / 악 (Dark) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
-        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "패리퍼 (Pelipper)",
-      "거대코뿌리 (Rhyperior)",
-      "부스터 (Flareon)",
-      "하랑우탄 (Oranguru)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "거대코뿌리 (Rhyperior)는 땅 (Ground) / 바위 (Rock) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 거대코뿌리 (Rhyperior)",
-        "url": "https://pokeapi.co/api/v2/pokemon/rhyperior",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 거대코뿌리 (Rhyperior)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/rhyperior",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "블래키 (Umbreon)",
-      "나루림 (Slurpuff)",
-      "마스카나 (Meowscarada)",
-      "악비아르 (Krookodile)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "악비아르 (Krookodile)는 땅 (Ground) / 악 (Dark) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
-        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "눈여아 (Froslass)",
-      "하랑우탄 (Oranguru)",
-      "프테라 (Aerodactyl)",
-      "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))는 강철 (Steel) / 드래곤 (Dragon) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 미끄래곤 (히스이의 모습) (Goodra (Hisuian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/goodra-hisui",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-rock-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "바위 (Rock) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "아마루르가 (Aurorus)",
-      "나루림 (Slurpuff)",
-      "사마자르 (Kleavor)",
-      "노보청 (Conkeldurr)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "노보청 (Conkeldurr)는 격투 (Fighting) 타입이라 바위 (Rock) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 바위 (Rock)",
-        "url": "https://pokeapi.co/api/v2/type/rock",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 노보청 (Conkeldurr)",
-        "url": "https://pokeapi.co/api/v2/pokemon/conkeldurr",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 노보청 (Conkeldurr)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/conkeldurr",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-0",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "루가루암 (황혼의 모습) (Lycanroc (Dusk Form))",
-      "야나키 (Simisage)",
-      "후딘 (Alakazam)",
-      "블래키 (Umbreon)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "블래키 (Umbreon)는 악 (Dark) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 블래키 (Umbreon)",
-        "url": "https://pokeapi.co/api/v2/pokemon/umbreon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 블래키 (Umbreon)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/umbreon",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-1",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
-      "라이츄 (알로라의 모습) (Raichu (Alolan Form))",
-      "패리퍼 (Pelipper)",
-      "클레스퍼트라 (Espathra)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))는 풀 (Grass) / 격투 (Fighting) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/decidueye-hisui",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 모크나이퍼 (히스이의 모습) (Decidueye (Hisuian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/decidueye-hisui",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-2",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "루가루암 (황혼의 모습) (Lycanroc (Dusk Form))",
-      "대쓰여너 (수컷의 모습) (Basculegion (Male))",
-      "폭타 (Camerupt)",
-      "데덴네 (Dedenne)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
-        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-3",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "쏘콘 (Forretress)",
-      "염뉴트 (Salazzle)",
-      "데덴네 (Dedenne)",
-      "몰드류 (Excadrill)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
-        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-4",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "골루그 (Golurk)",
-      "치렁 (Chimecho)",
-      "냐오닉스 (암컷의 모습) (Meowstic (Female))",
-      "플라엣테 (Floette)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "플라엣테 (Floette)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 플라엣테 (Floette)",
-        "url": "https://pokeapi.co/api/v2/pokemon/floette",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 플라엣테 (Floette)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/floette",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-5",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "아리아도스 (Ariados)",
-      "배바닐라 (Vanilluxe)",
-      "님피아 (Sylveon)",
-      "메더 (Stunfisk)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "님피아 (Sylveon)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 님피아 (Sylveon)",
-        "url": "https://pokeapi.co/api/v2/pokemon/sylveon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 님피아 (Sylveon)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/sylveon",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-6",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "프레프티르 (Aromatisse)",
-      "메타몽 (Ditto)",
-      "거대코뿌리 (Rhyperior)",
-      "파르토 (Diggersby)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "프레프티르 (Aromatisse)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 프레프티르 (Aromatisse)",
-        "url": "https://pokeapi.co/api/v2/pokemon/aromatisse",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 프레프티르 (Aromatisse)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/aromatisse",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-7",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "찌리배리 (Bellibolt)",
-      "라우드본 (Skeledirge)",
-      "나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
-      "애프룡 (Flapple)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "나인테일 (알로라의 모습) (Ninetales (Alolan Form))는 얼음 (Ice) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/ninetales-alola",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 나인테일 (알로라의 모습) (Ninetales (Alolan Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/ninetales-alola",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-8",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "윈디 (Arcanine)",
-      "데덴네 (Dedenne)",
-      "아보크 (Arbok)",
-      "토대부기 (Torterra)"
-    ],
-    "answerIndex": 1,
-    "explanationKo": "데덴네 (Dedenne)는 전기 (Electric) / 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 데덴네 (Dedenne)",
-        "url": "https://pokeapi.co/api/v2/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 데덴네 (Dedenne)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/dedenne",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "resist-dark-9",
-    "difficulty": "전문가",
-    "tags": [
-      "상성",
-      "교체",
-      "실전판단"
-    ],
-    "promptKo": "악 (Dark) 기술을 예상할 때, 가장 안전한 교체 후보는?",
-    "choices": [
-      "달코퀸 (Tsareena)",
-      "한카리아스 (Garchomp)",
-      "키키링 (Farigiraf)",
-      "마휘핑 (Alcremie)"
-    ],
-    "answerIndex": 3,
-    "explanationKo": "마휘핑 (Alcremie)는 페어리 (Fairy) 타입이라 악 (Dark) 기술을 1/2배로 받습니다. 나머지 후보보다 교체 리스크가 낮습니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Type: 악 (Dark)",
-        "url": "https://pokeapi.co/api/v2/type/dark",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 마휘핑 (Alcremie)",
-        "url": "https://pokeapi.co/api/v2/pokemon/alcremie",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 마휘핑 (Alcremie)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/alcremie",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:type-chart-resistance"
-  },
-  {
-    "id": "speed-fastest-19",
-    "difficulty": "전문가",
-    "tags": [
-      "스피드",
-      "선공",
-      "실전판단"
-    ],
-    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
-    "choices": [
-      "핫삼 (Scizor)",
-      "파르토 (Diggersby)",
-      "이상해꽃 (Venusaur)",
-      "보르그 (Watchog)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "이상해꽃 (Venusaur)의 기본 스피드는 80입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 이상해꽃 (Venusaur)",
-        "url": "https://pokeapi.co/api/v2/pokemon/venusaur",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 이상해꽃 (Venusaur)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/venusaur",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 핫삼 (Scizor)",
-        "url": "https://pokeapi.co/api/v2/pokemon/scizor",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 핫삼 (Scizor)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/scizor",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 파르토 (Diggersby)",
-        "url": "https://pokeapi.co/api/v2/pokemon/diggersby",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 파르토 (Diggersby)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/diggersby",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 보르그 (Watchog)",
-        "url": "https://pokeapi.co/api/v2/pokemon/watchog",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 보르그 (Watchog)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/watchog",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:base-speed-fastest"
-  },
-  {
-    "id": "speed-fastest-118",
-    "difficulty": "전문가",
-    "tags": [
-      "스피드",
-      "선공",
-      "실전판단"
-    ],
-    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
-    "choices": [
-      "악비아르 (Krookodile)",
-      "가디안 (Gardevoir)",
-      "배바닐라 (Vanilluxe)",
-      "브리두라스 (Archaludon)"
-    ],
-    "answerIndex": 0,
-    "explanationKo": "악비아르 (Krookodile)의 기본 스피드는 92입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 악비아르 (Krookodile)",
-        "url": "https://pokeapi.co/api/v2/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 악비아르 (Krookodile)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/krookodile",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 배바닐라 (Vanilluxe)",
-        "url": "https://pokeapi.co/api/v2/pokemon/vanilluxe",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 배바닐라 (Vanilluxe)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/vanilluxe",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 브리두라스 (Archaludon)",
-        "url": "https://pokeapi.co/api/v2/pokemon/archaludon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 브리두라스 (Archaludon)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/archaludon",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 가디안 (Gardevoir)",
-        "url": "https://pokeapi.co/api/v2/pokemon/gardevoir",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 가디안 (Gardevoir)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/gardevoir",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:base-speed-fastest"
-  },
-  {
-    "id": "speed-fastest-171",
-    "difficulty": "전문가",
-    "tags": [
-      "스피드",
-      "선공",
-      "실전판단"
-    ],
-    "promptKo": "동일 조건에서 가장 먼저 행동하는 포켓몬은?",
-    "choices": [
-      "폭타 (Camerupt)",
-      "야도란 (가라르의 모습) (Slowbro (Galarian Form))",
-      "과미드라 (Hydrapple)",
-      "브리무음 (Hatterene)"
-    ],
-    "answerIndex": 2,
-    "explanationKo": "과미드라 (Hydrapple)의 기본 스피드는 44입니다. 후보 중 가장 높은 기본 스피드를 가지므로 동일 조건에서 먼저 행동합니다.",
-    "sourceRefs": [
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 브리무음 (Hatterene)",
-        "url": "https://pokeapi.co/api/v2/pokemon/hatterene",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 브리무음 (Hatterene)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/hatterene",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 과미드라 (Hydrapple)",
-        "url": "https://pokeapi.co/api/v2/pokemon/hydrapple",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 과미드라 (Hydrapple)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/hydrapple",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 폭타 (Camerupt)",
-        "url": "https://pokeapi.co/api/v2/pokemon/camerupt",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 폭타 (Camerupt)",
-        "url": "https://dex.pokemonshowdown.com/pokemon/camerupt",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pokeapi",
-        "label": "PokeAPI Pokemon: 야도란 (가라르의 모습) (Slowbro (Galarian Form))",
-        "url": "https://pokeapi.co/api/v2/pokemon/slowbro-galar",
-        "retrievedAt": "2026-05-08"
-      },
-      {
-        "kind": "pkmn-dex",
-        "label": "@pkmn/dex Pokemon data: 야도란 (가라르의 모습) (Slowbro (Galarian Form))",
-        "url": "https://dex.pokemonshowdown.com/pokemon/slowbro-galar",
-        "retrievedAt": "2026-05-08"
-      }
-    ],
-    "generatedFrom": "pkmn-dex:base-speed-fastest"
   },
   {
     "id": "counter-pivot-0003-000-grass",

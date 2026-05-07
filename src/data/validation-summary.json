@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-07T21:52:43.694Z",
+  "generatedAt": "2026-05-07T22:08:41.415Z",
   "retrievedAt": "2026-05-08",
   "status": "passed",
   "totalQuestions": 2066,
@@ -7,8 +7,8 @@
     "입문": 234,
     "초급": 434,
     "중급": 476,
-    "상급": 462,
-    "전문가": 460
+    "상급": 525,
+    "전문가": 397
   },
   "officialEligiblePokemon": 213,
   "officialAllowedMegaEvolutions": 59,
@@ -20,13 +20,13 @@
     "issues": 0
   },
   "pedagogyQuality": {
-    "expertQuestions": 460,
-    "expertPracticalQuestions": 460,
+    "expertQuestions": 397,
+    "expertPracticalQuestions": 397,
     "expertOfficialTriviaQuestions": 0,
     "bannedTextMatches": 0,
     "policy": [
       "전문가 난이도에는 시즌 시작/종료 시각, UTC 일정, 반복 복습 문항을 허용하지 않습니다.",
-      "전문가 난이도는 실전판단 태그와 상성/교체/스피드/카운터/압박 계열 판단 태그가 필요합니다."
+      "전문가 난이도는 실전판단, 복합판단, 카운터 또는 압박 태그가 필요합니다."
     ]
   },
   "sourceReferenceQuality": {
@@ -36,6 +36,36 @@
     "policy": [
       "비규정 문항은 PokeAPI Pokemon/Type 또는 Pokemon Showdown Dex의 문제별 URL을 포함해야 합니다.",
       "지문에 특정 포켓몬이 등장하는 문항은 focusPokemon 메타데이터와 이미지 URL을 포함해야 합니다."
+    ]
+  },
+  "difficultyHierarchy": {
+    "averageScores": {
+      "입문": 1.31,
+      "초급": 1.94,
+      "중급": 2.95,
+      "상급": 3.84,
+      "전문가": 5
+    },
+    "minScores": {
+      "입문": 1.1,
+      "초급": 1.2,
+      "중급": 2,
+      "상급": 3,
+      "전문가": 5
+    },
+    "maxScores": {
+      "입문": 1.5,
+      "초급": 2.3,
+      "중급": 4,
+      "상급": 4.2,
+      "전문가": 5
+    },
+    "monotonicAverage": true,
+    "placementViolations": 0,
+    "policy": [
+      "각 생성 템플릿은 허용 난이도 범위를 갖고, 범위를 벗어나면 검증 실패입니다.",
+      "난이도별 평균 복잡도 점수는 입문에서 전문가까지 엄격히 증가해야 합니다.",
+      "전문가 난이도는 counter-pivot 또는 speed-pressure 계열 복합 문항만 허용합니다."
     ]
   },
   "pokeApiTypeCrossCheck": {

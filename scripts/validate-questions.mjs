@@ -262,6 +262,7 @@ validateQuestionShape()
 validateRuleSpecificAnswers()
 const pedagogyQuality = validatePedagogyQuality()
 const sourceReferenceQuality = validateSourceReferenceQuality()
+const difficultyHierarchy = validateDifficultyHierarchy()
 const pokeApiTypeCrossCheck = await validatePokeApiTypeCrossCheck()
 
 const byDifficulty = Object.fromEntries(
@@ -288,6 +289,7 @@ const summary = {
   },
   pedagogyQuality,
   sourceReferenceQuality,
+  difficultyHierarchy,
   pokeApiTypeCrossCheck,
   caveats: [
     'Pokémon Champions 공식 규정과 참가 가능 목록은 라이브 공식 페이지와 대조했습니다.',
@@ -518,17 +520,6 @@ function validatePedagogyQuality() {
     /\bUTC\b/,
     /20\d{2}-\d{2}-\d{2}/,
   ]
-  const expertAllowedTags = new Set([
-    '상성',
-    '교체',
-    '카운터',
-    '스피드',
-    '스피드티어',
-    '선공',
-    '압박',
-    '복합판단',
-  ])
-
   const expertQuestions = questions.filter((question) => question.difficulty === '전문가')
   let bannedTextMatches = 0
   let expertPracticalQuestions = 0
@@ -565,10 +556,18 @@ function validatePedagogyQuality() {
     if (!question.tags.includes('실전판단')) {
       addIssue(question.id, 'Expert questions must include 실전판단')
     }
-    if (question.tags.some((tag) => expertAllowedTags.has(tag))) {
+    if (!question.tags.includes('복합판단')) {
+      addIssue(question.id, 'Expert questions must include 복합판단')
+    }
+
+    const isExpertPractical =
+      question.tags.includes('실전판단') &&
+      question.tags.includes('복합판단') &&
+      (question.tags.includes('카운터') || question.tags.includes('압박'))
+    if (isExpertPractical) {
       expertPracticalQuestions += 1
     } else {
-      addIssue(question.id, 'Expert questions must use practical battle-decision tags')
+      addIssue(question.id, 'Expert questions must combine battle decision and counter/pressure tags')
     }
   }
 
@@ -579,9 +578,183 @@ function validatePedagogyQuality() {
     bannedTextMatches,
     policy: [
       '전문가 난이도에는 시즌 시작/종료 시각, UTC 일정, 반복 복습 문항을 허용하지 않습니다.',
-      '전문가 난이도는 실전판단 태그와 상성/교체/스피드/카운터/압박 계열 판단 태그가 필요합니다.',
+      '전문가 난이도는 실전판단, 복합판단, 카운터 또는 압박 태그가 필요합니다.',
     ],
   }
+}
+
+function validateDifficultyHierarchy() {
+  const groupedScores = Object.fromEntries(
+    DIFFICULTIES.map((difficulty) => [difficulty, []]),
+  )
+  const placementViolations = []
+
+  for (const question of questions) {
+    const score = difficultyScore(question)
+    groupedScores[question.difficulty].push(score)
+
+    const allowedDifficulties = allowedDifficultiesFor(question)
+    if (!allowedDifficulties.includes(question.difficulty)) {
+      placementViolations.push({
+        id: question.id,
+        difficulty: question.difficulty,
+        allowedDifficulties,
+        generatedFrom: question.generatedFrom,
+      })
+      addIssue(
+        question.id,
+        `Difficulty placement mismatch: ${question.difficulty} is not one of ${allowedDifficulties.join(', ')}`,
+      )
+    }
+  }
+
+  const averageScores = Object.fromEntries(
+    DIFFICULTIES.map((difficulty) => {
+      const scores = groupedScores[difficulty]
+      const average =
+        scores.reduce((sum, score) => sum + score, 0) / Math.max(scores.length, 1)
+      return [difficulty, Number(average.toFixed(2))]
+    }),
+  )
+  const minScores = Object.fromEntries(
+    DIFFICULTIES.map((difficulty) => [
+      difficulty,
+      Math.min(...groupedScores[difficulty]),
+    ]),
+  )
+  const maxScores = Object.fromEntries(
+    DIFFICULTIES.map((difficulty) => [
+      difficulty,
+      Math.max(...groupedScores[difficulty]),
+    ]),
+  )
+
+  let monotonicAverage = true
+  for (let index = 1; index < DIFFICULTIES.length; index += 1) {
+    const previous = DIFFICULTIES[index - 1]
+    const current = DIFFICULTIES[index]
+    if (averageScores[current] <= averageScores[previous]) {
+      monotonicAverage = false
+      addIssue(
+        `difficulty-hierarchy-${current}`,
+        `Average difficulty score is not increasing: ${previous}=${averageScores[previous]}, ${current}=${averageScores[current]}`,
+      )
+    }
+  }
+
+  return {
+    averageScores,
+    minScores,
+    maxScores,
+    monotonicAverage,
+    placementViolations: placementViolations.length,
+    policy: [
+      '각 생성 템플릿은 허용 난이도 범위를 갖고, 범위를 벗어나면 검증 실패입니다.',
+      '난이도별 평균 복잡도 점수는 입문에서 전문가까지 엄격히 증가해야 합니다.',
+      '전문가 난이도는 counter-pivot 또는 speed-pressure 계열 복합 문항만 허용합니다.',
+    ],
+  }
+}
+
+function difficultyScore(question) {
+  if (question.generatedFrom === 'pkmn-dex:type-chart-counter-pivot') {
+    return 5
+  }
+  if (question.generatedFrom === 'pkmn-dex:speed-pressure') {
+    return 5
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-resistance') {
+    return 4.2
+  }
+  if (question.generatedFrom === 'pkmn-dex:base-speed-benchmark') {
+    return 4.2
+  }
+  if (question.generatedFrom === 'official-regulation:mega-trap') {
+    return 4
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-weakness') {
+    return 3.2
+  }
+  if (question.generatedFrom === 'pkmn-dex:base-speed-fastest') {
+    return 3.2
+  }
+  if (question.generatedFrom === 'pkmn-dex:ability-recognition') {
+    return 3
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-stab') {
+    return 2.3
+  }
+  if (question.generatedFrom === 'official-eligible-list:ineligible-trap') {
+    return 2.3
+  }
+  if (question.generatedFrom === 'official-regulation:mega-allowed') {
+    return 2.2
+  }
+  if (question.id.startsWith('timer-')) {
+    return 2
+  }
+  if (question.generatedFrom === 'official-eligible-list:eligible-pick') {
+    return 1.5
+  }
+  if (question.generatedFrom === 'official-eligible-list + pkmn-dex:type-identity') {
+    return 1.2
+  }
+  if (question.generatedFrom.startsWith('official-regulation:rule-')) {
+    return 1.1
+  }
+  return 3
+}
+
+function allowedDifficultiesFor(question) {
+  if (question.generatedFrom === 'pkmn-dex:type-chart-counter-pivot') {
+    return ['전문가']
+  }
+  if (question.generatedFrom === 'pkmn-dex:speed-pressure') {
+    return ['전문가']
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-resistance') {
+    return ['상급']
+  }
+  if (question.generatedFrom === 'pkmn-dex:base-speed-benchmark') {
+    return ['상급']
+  }
+  if (question.generatedFrom === 'official-regulation:mega-trap') {
+    return ['중급', '상급']
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-weakness') {
+    return ['중급', '상급']
+  }
+  if (question.generatedFrom === 'pkmn-dex:base-speed-fastest') {
+    return ['중급', '상급']
+  }
+  if (question.generatedFrom === 'pkmn-dex:ability-recognition') {
+    return ['중급', '상급']
+  }
+  if (question.generatedFrom === 'pkmn-dex:type-chart-stab') {
+    return ['초급', '중급']
+  }
+  if (question.generatedFrom === 'official-eligible-list:ineligible-trap') {
+    return ['초급', '중급']
+  }
+  if (question.generatedFrom === 'official-regulation:mega-allowed') {
+    return ['초급', '중급']
+  }
+  if (question.id === 'rule-mega-once' || question.id === 'rule-duplicate-items') {
+    return ['입문']
+  }
+  if (question.id === 'timer-total' || question.id === 'timer-player' || question.id === 'timer-preview') {
+    return ['초급']
+  }
+  if (question.id === 'timer-turn') {
+    return ['중급']
+  }
+  if (question.generatedFrom === 'official-eligible-list:eligible-pick') {
+    return ['입문', '초급']
+  }
+  if (question.generatedFrom === 'official-eligible-list + pkmn-dex:type-identity') {
+    return ['입문', '초급']
+  }
+  return DIFFICULTIES
 }
 
 function validateSourceReferenceQuality() {
@@ -628,7 +801,7 @@ function validateSourceReferenceQuality() {
 async function validatePokeApiTypeCrossCheck() {
   const results = await mapConcurrent(eligiblePokemon, 12, async (pokemon) => {
     const pokeApiName = normalizePokeApiName(pokemon.en)
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeApiName}`)
+    const response = await fetchWithRetry(`https://pokeapi.co/api/v2/pokemon/${pokeApiName}`)
     if (!response.ok) {
       return {
         code: pokemon.code,
@@ -691,11 +864,19 @@ function renderReport(summary, validationIssues) {
     `- Non-practical banned text matches: ${summary.pedagogyQuality.bannedTextMatches}`,
     `- Question-specific reference coverage: ${summary.sourceReferenceQuality.questionSpecificReferenceQuestions}/${summary.totalQuestions}`,
     `- Focus Pokemon images: ${summary.sourceReferenceQuality.focusPokemonWithImages}/${summary.sourceReferenceQuality.focusPokemonQuestions}`,
+    `- Difficulty hierarchy monotonic: ${summary.difficultyHierarchy.monotonicAverage}`,
+    `- Difficulty placement violations: ${summary.difficultyHierarchy.placementViolations}`,
     `- Issues: ${validationIssues.length}`,
     '',
     '## Difficulty Counts',
     '',
     ...Object.entries(summary.byDifficulty).map(([difficulty, count]) => `- ${difficulty}: ${count}`),
+    '',
+    '## Difficulty Hierarchy',
+    '',
+    ...Object.entries(summary.difficultyHierarchy.averageScores).map(
+      ([difficulty, score]) => `- ${difficulty}: average ${score}, min ${summary.difficultyHierarchy.minScores[difficulty]}, max ${summary.difficultyHierarchy.maxScores[difficulty]}`,
+    ),
     '',
     '## Caveats',
     '',
@@ -726,13 +907,29 @@ async function fetchEligible(url) {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: { 'user-agent': 'pokemon-champions-quiz-validator/1.0' },
-  })
-  if (!response.ok) {
-    throw new Error(`Fetch failed ${response.status}: ${url}`)
-  }
+  const response = await fetchWithRetry(url)
   return response.text()
+}
+
+async function fetchWithRetry(url, retries = 2) {
+  let lastError
+  for (let attempt = 0; attempt <= retries; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        headers: { 'user-agent': 'pokemon-champions-quiz-validator/1.0' },
+      })
+      if (!response.ok) {
+        throw new Error(`Fetch failed ${response.status}: ${url}`)
+      }
+      return response
+    } catch (error) {
+      lastError = error
+      if (attempt < retries) {
+        await delay(250 * (attempt + 1))
+      }
+    }
+  }
+  throw lastError
 }
 
 function parseAllowedMegas(html) {
@@ -884,6 +1081,12 @@ function toSlug(value) {
 
 function isHttpUrl(value) {
   return /^https?:\/\//.test(value)
+}
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms)
+  })
 }
 
 async function mapConcurrent(items, limit, callback) {
