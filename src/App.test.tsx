@@ -74,6 +74,28 @@ describe('App', () => {
     expect(screen.getByText(expectedSecondQuestion.promptKo)).toBeInTheDocument()
   })
 
+  it('moves keyboard focus through interactive controls', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.tab()
+    expect(document.activeElement).not.toBe(document.body)
+    expect(document.activeElement).toBe(
+      screen.getByRole('link', { name: '본문으로 건너뛰기' }),
+    )
+
+    await user.tab()
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: /홈/ }))
+
+    await user.tab()
+    expect(document.activeElement).toBe(
+      screen.getByRole('button', { name: /퀴즈/ }),
+    )
+    expect(['A', 'BUTTON']).toContain(
+      (document.activeElement as HTMLElement).tagName,
+    )
+  })
+
   it('shows service policy controls and can reset local progress', async () => {
     const user = userEvent.setup()
     const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
