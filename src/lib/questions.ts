@@ -20,6 +20,15 @@ export function getQuestionsForDifficulty(difficulty: Difficulty) {
   return questions.filter((question) => question.difficulty === difficulty)
 }
 
+export function getQuestionsForDifficultyAndTag(
+  difficulty: Difficulty,
+  tag: string,
+) {
+  return getQuestionsForDifficulty(difficulty).filter(
+    (question) => tag === '전체' || question.tags.includes(tag),
+  )
+}
+
 export function getShuffledQuestionsForDifficulty(difficulty: Difficulty) {
   return shuffleQuestions(getQuestionsForDifficulty(difficulty))
 }
