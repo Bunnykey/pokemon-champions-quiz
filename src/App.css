@@ -392,6 +392,20 @@
   margin-top: -4px;
 }
 
+.question-timer {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  color: var(--ink);
+  background: #fff7d7;
+  font-family: var(--display);
+  font-weight: 900;
+}
+
 .quiz-card h2 {
   margin: 18px 0 22px;
   font-family: var(--display);

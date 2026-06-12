@@ -51,6 +51,8 @@ import type {
 
 type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
+const QUESTION_TIME_LIMIT_SECONDS = 60
+const TIMED_OUT_SELECTION_INDEX = -1
 
 function App() {
   const [view, setView] = useState<ViewMode>('home')
@@ -115,6 +117,25 @@ function App() {
         questionId: currentQuestion.id,
         selectedIndex: choiceIndex,
         correct,
+        answeredAt: new Date().toISOString(),
+      }),
+    )
+  }
+
+  function timeOutQuestion(questionId: string) {
+    if (
+      selectedIndex !== null ||
+      !currentQuestion ||
+      currentQuestion.id !== questionId
+    ) {
+      return
+    }
+    setSelectedIndex(TIMED_OUT_SELECTION_INDEX)
+    setProgress((current) =>
+      recordAnswer(current, {
+        questionId: currentQuestion.id,
+        selectedIndex: TIMED_OUT_SELECTION_INDEX,
+        correct: false,
         answeredAt: new Date().toISOString(),
       }),
     )
@@ -226,6 +247,7 @@ function App() {
               blameNote={blameNote}
               onAnswer={answerQuestion}
               onNext={nextQuestion}
+              onTimeExpired={timeOutQuestion}
               onBlameNoteChange={setBlameNote}
             />
           )}
@@ -410,6 +432,7 @@ interface QuizViewProps {
   blameNote: string
   onAnswer: (choiceIndex: number) => void
   onNext: () => void
+  onTimeExpired: (questionId: string) => void
   onBlameNoteChange: (note: string) => void
 }
 
@@ -421,11 +444,38 @@ function QuizView({
   blameNote,
   onAnswer,
   onNext,
+  onTimeExpired,
   onBlameNoteChange,
 }: QuizViewProps) {
+  const [secondsRemaining, setSecondsRemaining] = useState(
+    QUESTION_TIME_LIMIT_SECONDS,
+  )
   const answered = selectedIndex !== null
   const correct = selectedIndex === question.answerIndex
   const blameUrl = buildBlameIssueUrl(question, blameNote)
+
+  useEffect(() => {
+    setSecondsRemaining(QUESTION_TIME_LIMIT_SECONDS)
+  }, [question.id])
+
+  useEffect(() => {
+    if (answered) {
+      return
+    }
+
+    const intervalId = window.setInterval(() => {
+      setSecondsRemaining((current) => Math.max(0, current - 1))
+    }, 1000)
+    const timeoutId = window.setTimeout(() => {
+      setSecondsRemaining(0)
+      onTimeExpired(question.id)
+    }, QUESTION_TIME_LIMIT_SECONDS * 1000)
+
+    return () => {
+      window.clearInterval(intervalId)
+      window.clearTimeout(timeoutId)
+    }
+  }, [answered, onTimeExpired, question.id])
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -459,6 +509,10 @@ function QuizView({
           </span>
           <span>
             {questionIndex + 1} / {totalQuestions}
+          </span>
+          <span className="question-timer" role="timer" aria-label="남은 시간">
+            <TimerReset size={16} />
+            {secondsRemaining}초
           </span>
         </div>
         <ProgressMeter

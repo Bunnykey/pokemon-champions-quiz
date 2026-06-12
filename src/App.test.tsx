@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
@@ -11,6 +11,7 @@ describe('App', () => {
   })
 
   afterEach(() => {
+    vi.useRealTimers()
     vi.restoreAllMocks()
   })
 
@@ -72,6 +73,35 @@ describe('App', () => {
 
     expect(screen.getByTestId('result-status')).toHaveTextContent('선택 대기')
     expect(screen.getByText(expectedSecondQuestion.promptKo)).toBeInTheDocument()
+  })
+
+  it('marks unanswered quiz questions incorrect when the countdown expires', async () => {
+    vi.useFakeTimers()
+    const user = userEvent.setup({
+      advanceTimers: vi.advanceTimersByTime,
+    })
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    const firstIntroQuestion = shuffleQuestions(
+      questions.filter((question) => question.difficulty === '입문'),
+      () => 0,
+    )[0]
+    render(<App />)
+
+    const startQuiz = user.click(screen.getAllByRole('button', { name: /시작/ })[0])
+    await vi.advanceTimersByTimeAsync(0)
+    await startQuiz
+
+    act(() => {
+      vi.advanceTimersByTime(60000)
+    })
+
+    expect(screen.getByTestId('result-status')).toHaveTextContent('오답')
+    expect(screen.getByText(firstIntroQuestion.explanationKo)).toBeInTheDocument()
+    expect(
+      window.localStorage.getItem('pokemon-champions-quiz-progress-v1'),
+    ).toContain(firstIntroQuestion.id)
+
+    vi.useRealTimers()
   })
 
   it('moves keyboard focus through interactive controls', async () => {
