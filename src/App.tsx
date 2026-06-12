@@ -36,9 +36,11 @@ import {
 import {
   difficultyQuestionCounts,
   getQuestionTags,
-  getShuffledQuestionsForDifficulty,
+  getQuestionsForDifficulty,
+  getQuestionsForDifficultyAndTag,
   questions,
   questionsById,
+  shuffleQuestions,
 } from './lib/questions'
 import type {
   Difficulty,
@@ -56,12 +58,13 @@ function App() {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [blameNote, setBlameNote] = useState('')
+  const [quizTag, setQuizTag] = useState('전체')
   const [reviewDifficulty, setReviewDifficulty] =
     useState<ReviewDifficulty>('전체')
   const [reviewTag, setReviewTag] = useState('전체')
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const [activeQuestions, setActiveQuestions] = useState<Question[]>(() =>
-    getShuffledQuestionsForDifficulty('입문'),
+    shuffleQuestions(getQuestionsForDifficultyAndTag('입문', '전체')),
   )
 
   useEffect(() => {
@@ -89,9 +92,12 @@ function App() {
   const accuracy = getAccuracy(progress)
   const answeredCount = progress.answered.length
 
-  function startQuiz(nextDifficulty: Difficulty) {
+  function startQuiz(nextDifficulty: Difficulty, nextTag = '전체') {
     setDifficulty(nextDifficulty)
-    setActiveQuestions(getShuffledQuestionsForDifficulty(nextDifficulty))
+    setQuizTag(nextTag)
+    setActiveQuestions(
+      shuffleQuestions(getQuestionsForDifficultyAndTag(nextDifficulty, nextTag)),
+    )
     setQuestionIndex(0)
     setSelectedIndex(null)
     setBlameNote('')
@@ -116,7 +122,9 @@ function App() {
 
   function nextQuestion() {
     if (questionIndex + 1 >= activeQuestions.length) {
-      setActiveQuestions(getShuffledQuestionsForDifficulty(difficulty))
+      setActiveQuestions(
+        shuffleQuestions(getQuestionsForDifficultyAndTag(difficulty, quizTag)),
+      )
       setQuestionIndex(0)
     } else {
       setQuestionIndex((current) => current + 1)
@@ -245,7 +253,7 @@ interface HomeViewProps {
   answeredCount: number
   accuracy: number
   progress: ProgressState
-  onStart: (difficulty: Difficulty) => void
+  onStart: (difficulty: Difficulty, tag: string) => void
   onOpenReview: () => void
 }
 
@@ -256,6 +264,35 @@ function HomeView({
   onStart,
   onOpenReview,
 }: HomeViewProps) {
+  const quizTagOptions = useMemo(
+    () =>
+      DIFFICULTIES.reduce(
+        (options, difficulty) => {
+          options[difficulty] = Array.from(
+            new Set(
+              getQuestionsForDifficulty(difficulty).flatMap(
+                (question) => question.tags,
+              ),
+            ),
+          ).sort()
+          return options
+        },
+        {} as Record<Difficulty, string[]>,
+      ),
+    [],
+  )
+  const [selectedQuizTags, setSelectedQuizTags] = useState<
+    Record<Difficulty, string>
+  >(() =>
+    DIFFICULTIES.reduce(
+      (tags, difficulty) => {
+        tags[difficulty] = '전체'
+        return tags
+      },
+      {} as Record<Difficulty, string>,
+    ),
+  )
+
   return (
     <>
       <section className="regulation-band" aria-labelledby="regulation-title">
@@ -319,10 +356,29 @@ function HomeView({
               <p>
                 풀이 {stats.answered}회 · 정답 {stats.correct}회
               </p>
+              <div className="filters">
+                <select
+                  aria-label={`${difficulty} 퀴즈 태그 필터`}
+                  value={selectedQuizTags[difficulty]}
+                  onChange={(event) =>
+                    setSelectedQuizTags((current) => ({
+                      ...current,
+                      [difficulty]: event.target.value,
+                    }))
+                  }
+                >
+                  <option value="전체">전체 태그</option>
+                  {quizTagOptions[difficulty].map((tag) => (
+                    <option key={tag} value={tag}>
+                      {tag}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <button
                 className="primary-action"
                 type="button"
-                onClick={() => onStart(difficulty)}
+                onClick={() => onStart(difficulty, selectedQuizTags[difficulty])}
               >
                 <Swords size={18} /> 시작
               </button>
