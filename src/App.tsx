@@ -7,8 +7,10 @@ import {
   Info,
   Keyboard,
   Lock,
+  Moon,
   RotateCcw,
   ShieldCheck,
+  Sun,
   Swords,
   TimerReset,
   Trophy,
@@ -51,11 +53,14 @@ import type {
 
 type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
+type Theme = 'light' | 'dark'
 const QUESTION_TIME_LIMIT_SECONDS = 60
 const TIMED_OUT_SELECTION_INDEX = -1
+const THEME_STORAGE_KEY = 'theme'
 
 function App() {
   const [view, setView] = useState<ViewMode>('home')
+  const [theme, setTheme] = useState<Theme>(() => resolveInitialTheme())
   const [difficulty, setDifficulty] = useState<Difficulty>('입문')
   const [questionIndex, setQuestionIndex] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
@@ -72,6 +77,10 @@ function App() {
   useEffect(() => {
     saveProgress(progress)
   }, [progress])
+
+  useEffect(() => {
+    applyTheme(theme)
+  }, [theme])
 
   const currentQuestion = activeQuestions[questionIndex % activeQuestions.length]
   const reviewTags = useMemo(() => getQuestionTags(), [])
@@ -166,6 +175,15 @@ function App() {
     setProgress(emptyProgress())
   }
 
+  function toggleTheme() {
+    setTheme((currentTheme) => {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark'
+      applyTheme(nextTheme)
+      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme)
+      return nextTheme
+    })
+  }
+
   return (
     <>
       <a className="skip-link" href="#content">
@@ -225,6 +243,16 @@ function App() {
               onClick={() => setView('service')}
             >
               <Info size={18} /> 서비스
+            </button>
+            <button
+              className="theme-toggle"
+              type="button"
+              aria-label="테마 전환"
+              aria-pressed={theme === 'dark'}
+              title="테마 전환"
+              onClick={toggleTheme}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
           </nav>
 
@@ -915,6 +943,21 @@ function isTypingTarget(target: EventTarget | null) {
     target.tagName === 'SELECT' ||
     target.isContentEditable
   )
+}
+
+function resolveInitialTheme(): Theme {
+  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    return savedTheme
+  }
+
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute('data-theme', theme)
 }
 
 export default App

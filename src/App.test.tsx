@@ -8,6 +8,7 @@ import { shuffleQuestions } from './lib/questions'
 describe('App', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    document.documentElement.removeAttribute('data-theme')
   })
 
   afterEach(() => {
@@ -148,5 +149,29 @@ describe('App', () => {
       window.localStorage.getItem('pokemon-champions-quiz-progress-v1'),
     ).toContain('"answered":[]')
     confirmSpy.mockRestore()
+  })
+
+  it('toggles and persists the theme preference', async () => {
+    const user = userEvent.setup()
+    window.matchMedia = (query) =>
+      ({
+        matches: false,
+        media: query,
+        addEventListener() {},
+        removeEventListener() {},
+        addListener() {},
+        removeListener() {},
+        onchange: null,
+        dispatchEvent() {
+          return false
+        },
+      }) as MediaQueryList
+
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: '테마 전환' }))
+
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
+    expect(window.localStorage.getItem('theme')).toBe('dark')
   })
 })
