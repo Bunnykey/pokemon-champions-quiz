@@ -26,6 +26,7 @@ import {
 } from './data/regulation'
 import validationSummary from './data/validation-summary.json'
 import { buildBlameIssueUrl } from './lib/blame'
+import { aggregateAccuracyByDay } from './lib/history'
 import {
   clearStoredProgress,
   emptyProgress,
@@ -126,7 +127,6 @@ function App() {
         questionId: currentQuestion.id,
         selectedIndex: choiceIndex,
         correct,
-        answeredAt: new Date().toISOString(),
       }),
     )
   }
@@ -145,7 +145,6 @@ function App() {
         questionId: currentQuestion.id,
         selectedIndex: TIMED_OUT_SELECTION_INDEX,
         correct: false,
-        answeredAt: new Date().toISOString(),
       }),
     )
   }
@@ -342,6 +341,11 @@ function HomeView({
       {} as Record<Difficulty, string>,
     ),
   )
+  const scoreHistory = useMemo(
+    () => aggregateAccuracyByDay(progress, 7),
+    [progress],
+  )
+  const hasDatedHistory = scoreHistory.some((day) => day.total > 0)
 
   return (
     <>
@@ -447,6 +451,35 @@ function HomeView({
         <button className="secondary-action" type="button" onClick={onOpenReview}>
           <BookOpen size={18} /> 오답 {progress.missedQuestionIds.length}개 복습
         </button>
+      </section>
+
+      <section className="history-panel" aria-labelledby="history-title">
+        <div className="history-panel-header">
+          <div>
+            <h2 id="history-title">최근 7일 정답률</h2>
+            <p>날짜가 기록된 풀이만 집계합니다.</p>
+          </div>
+        </div>
+        {hasDatedHistory ? (
+          <ol className="history-list">
+            {scoreHistory.map((day) => {
+              const percent = Math.round(day.accuracy * 100)
+              return (
+                <li className="history-day" key={day.date}>
+                  <span className="history-date">{day.date.slice(5)}</span>
+                  <span className="history-bar" aria-hidden="true">
+                    <span style={{ width: `${percent}%` }} />
+                  </span>
+                  <span className="history-meta">
+                    {day.total}문제 · 정답률 {percent}%
+                  </span>
+                </li>
+              )
+            })}
+          </ol>
+        ) : (
+          <p className="history-empty">아직 날짜가 기록된 풀이 기록이 없습니다.</p>
+        )}
       </section>
     </>
   )
