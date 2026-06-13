@@ -56,7 +56,10 @@ export function recordAnswer(
   }
 
   return {
-    answered: [...progress.answered, record].slice(-600),
+    answered: [
+      ...progress.answered,
+      { ...record, answeredAt: record.answeredAt ?? Date.now() },
+    ].slice(-600),
     missedQuestionIds: Array.from(missed),
   }
 }

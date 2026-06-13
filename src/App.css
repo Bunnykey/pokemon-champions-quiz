@@ -291,7 +291,8 @@
 .battle-card,
 .review-item,
 .empty-state,
-.training-summary {
+.training-summary,
+.history-panel {
   border: 2px solid var(--ink);
   border-radius: 8px;
   background: var(--paper);
@@ -386,6 +387,77 @@
   gap: 18px;
   margin: 0 24px 30px;
   padding: 20px;
+}
+
+.history-panel {
+  margin: 0 24px 30px;
+  padding: 18px 20px;
+}
+
+.history-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.history-panel h2 {
+  margin: 0 0 6px;
+  font-family: var(--display);
+  font-size: 1.25rem;
+}
+
+.history-panel p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.history-day {
+  display: grid;
+  grid-template-columns: 58px minmax(72px, 1fr) minmax(132px, auto);
+  gap: 10px;
+  align-items: center;
+  min-height: 30px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.history-date {
+  color: var(--ink);
+  font-family: var(--display);
+}
+
+.history-bar {
+  height: 10px;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--meter-track);
+}
+
+.history-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--grass-green), var(--signal-yellow));
+}
+
+.history-meta {
+  text-align: right;
+}
+
+.history-empty {
+  padding: 6px 0 2px;
 }
 
 .quiz-layout {
@@ -869,5 +941,14 @@ select:focus-visible {
 
   .service-grid {
     grid-template-columns: 1fr;
+  }
+
+  .history-day {
+    grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .history-meta {
+    grid-column: 2;
+    text-align: left;
   }
 }
