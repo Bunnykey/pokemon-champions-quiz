@@ -7,8 +7,10 @@ import {
   Info,
   Keyboard,
   Lock,
+  Moon,
   RotateCcw,
   ShieldCheck,
+  Sun,
   Swords,
   TimerReset,
   Trophy,
@@ -24,6 +26,7 @@ import {
 } from './data/regulation'
 import validationSummary from './data/validation-summary.json'
 import { buildBlameIssueUrl } from './lib/blame'
+import { aggregateAccuracyByDay } from './lib/history'
 import {
   clearStoredProgress,
   emptyProgress,
@@ -36,9 +39,11 @@ import {
 import {
   difficultyQuestionCounts,
   getQuestionTags,
-  getShuffledQuestionsForDifficulty,
+  getQuestionsForDifficulty,
+  getQuestionsForDifficultyAndTag,
   questions,
   questionsById,
+  shuffleQuestions,
 } from './lib/questions'
 import type {
   Difficulty,
@@ -49,24 +54,39 @@ import type {
 
 type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
+type Theme = 'light' | 'dark'
+type QuizStartError = {
+  difficulty: Difficulty
+  message: string
+} | null
+const QUESTION_TIME_LIMIT_SECONDS = 60
+const TIMED_OUT_SELECTION_INDEX = -1
+const THEME_STORAGE_KEY = 'theme'
 
 function App() {
   const [view, setView] = useState<ViewMode>('home')
+  const [theme, setTheme] = useState<Theme>(() => resolveInitialTheme())
   const [difficulty, setDifficulty] = useState<Difficulty>('입문')
   const [questionIndex, setQuestionIndex] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null)
   const [blameNote, setBlameNote] = useState('')
+  const [quizTag, setQuizTag] = useState('전체')
   const [reviewDifficulty, setReviewDifficulty] =
     useState<ReviewDifficulty>('전체')
   const [reviewTag, setReviewTag] = useState('전체')
+  const [quizStartError, setQuizStartError] = useState<QuizStartError>(null)
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const [activeQuestions, setActiveQuestions] = useState<Question[]>(() =>
-    getShuffledQuestionsForDifficulty('입문'),
+    shuffleQuestions(getQuestionsForDifficultyAndTag('입문', '전체')),
   )
 
   useEffect(() => {
     saveProgress(progress)
   }, [progress])
+
+  useEffect(() => {
+    applyTheme(theme)
+  }, [theme])
 
   const currentQuestion = activeQuestions[questionIndex % activeQuestions.length]
   const reviewTags = useMemo(() => getQuestionTags(), [])
@@ -89,9 +109,21 @@ function App() {
   const accuracy = getAccuracy(progress)
   const answeredCount = progress.answered.length
 
-  function startQuiz(nextDifficulty: Difficulty) {
+  function startQuiz(nextDifficulty: Difficulty, nextTag = '전체') {
+    const nextQuestions = getQuestionsForDifficultyAndTag(nextDifficulty, nextTag)
+    if (nextQuestions.length === 0) {
+      setQuizStartError({
+        difficulty: nextDifficulty,
+        message: '해당 조건의 문제가 없습니다',
+      })
+      setView('home')
+      return
+    }
+
+    setQuizStartError(null)
     setDifficulty(nextDifficulty)
-    setActiveQuestions(getShuffledQuestionsForDifficulty(nextDifficulty))
+    setQuizTag(nextTag)
+    setActiveQuestions(shuffleQuestions(nextQuestions))
     setQuestionIndex(0)
     setSelectedIndex(null)
     setBlameNote('')
@@ -109,14 +141,33 @@ function App() {
         questionId: currentQuestion.id,
         selectedIndex: choiceIndex,
         correct,
-        answeredAt: new Date().toISOString(),
+      }),
+    )
+  }
+
+  function timeOutQuestion(questionId: string) {
+    if (
+      selectedIndex !== null ||
+      !currentQuestion ||
+      currentQuestion.id !== questionId
+    ) {
+      return
+    }
+    setSelectedIndex(TIMED_OUT_SELECTION_INDEX)
+    setProgress((current) =>
+      recordAnswer(current, {
+        questionId: currentQuestion.id,
+        selectedIndex: TIMED_OUT_SELECTION_INDEX,
+        correct: false,
       }),
     )
   }
 
   function nextQuestion() {
     if (questionIndex + 1 >= activeQuestions.length) {
-      setActiveQuestions(getShuffledQuestionsForDifficulty(difficulty))
+      setActiveQuestions(
+        shuffleQuestions(getQuestionsForDifficultyAndTag(difficulty, quizTag)),
+      )
       setQuestionIndex(0)
     } else {
       setQuestionIndex((current) => current + 1)
@@ -135,6 +186,15 @@ function App() {
     }
     clearStoredProgress()
     setProgress(emptyProgress())
+  }
+
+  function toggleTheme() {
+    setTheme((currentTheme) => {
+      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark'
+      applyTheme(nextTheme)
+      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme)
+      return nextTheme
+    })
   }
 
   return (
@@ -197,6 +257,16 @@ function App() {
             >
               <Info size={18} /> 서비스
             </button>
+            <button
+              className="theme-toggle"
+              type="button"
+              aria-label="테마 전환"
+              aria-pressed={theme === 'dark'}
+              title="테마 전환"
+              onClick={toggleTheme}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </nav>
 
           {view === 'home' && (
@@ -204,6 +274,7 @@ function App() {
               answeredCount={answeredCount}
               accuracy={accuracy}
               progress={progress}
+              quizStartError={quizStartError}
               onStart={startQuiz}
               onOpenReview={() => setView('review')}
             />
@@ -218,6 +289,7 @@ function App() {
               blameNote={blameNote}
               onAnswer={answerQuestion}
               onNext={nextQuestion}
+              onTimeExpired={timeOutQuestion}
               onBlameNoteChange={setBlameNote}
             />
           )}
@@ -245,7 +317,8 @@ interface HomeViewProps {
   answeredCount: number
   accuracy: number
   progress: ProgressState
-  onStart: (difficulty: Difficulty) => void
+  quizStartError: QuizStartError
+  onStart: (difficulty: Difficulty, tag: string) => void
   onOpenReview: () => void
 }
 
@@ -253,9 +326,44 @@ function HomeView({
   answeredCount,
   accuracy,
   progress,
+  quizStartError,
   onStart,
   onOpenReview,
 }: HomeViewProps) {
+  const quizTagOptions = useMemo(
+    () =>
+      DIFFICULTIES.reduce(
+        (options, difficulty) => {
+          options[difficulty] = Array.from(
+            new Set(
+              getQuestionsForDifficulty(difficulty).flatMap(
+                (question) => question.tags,
+              ),
+            ),
+          ).sort()
+          return options
+        },
+        {} as Record<Difficulty, string[]>,
+      ),
+    [],
+  )
+  const [selectedQuizTags, setSelectedQuizTags] = useState<
+    Record<Difficulty, string>
+  >(() =>
+    DIFFICULTIES.reduce(
+      (tags, difficulty) => {
+        tags[difficulty] = '전체'
+        return tags
+      },
+      {} as Record<Difficulty, string>,
+    ),
+  )
+  const scoreHistory = useMemo(
+    () => aggregateAccuracyByDay(progress, 7),
+    [progress],
+  )
+  const hasDatedHistory = scoreHistory.some((day) => day.total > 0)
+
   return (
     <>
       <section className="regulation-band" aria-labelledby="regulation-title">
@@ -319,13 +427,37 @@ function HomeView({
               <p>
                 풀이 {stats.answered}회 · 정답 {stats.correct}회
               </p>
+              <div className="filters">
+                <select
+                  aria-label={`${difficulty} 퀴즈 태그 필터`}
+                  value={selectedQuizTags[difficulty]}
+                  onChange={(event) =>
+                    setSelectedQuizTags((current) => ({
+                      ...current,
+                      [difficulty]: event.target.value,
+                    }))
+                  }
+                >
+                  <option value="전체">전체 태그</option>
+                  {quizTagOptions[difficulty].map((tag) => (
+                    <option key={tag} value={tag}>
+                      {tag}
+                    </option>
+                  ))}
+                </select>
+              </div>
               <button
                 className="primary-action"
                 type="button"
-                onClick={() => onStart(difficulty)}
+                onClick={() => onStart(difficulty, selectedQuizTags[difficulty])}
               >
                 <Swords size={18} /> 시작
               </button>
+              {quizStartError?.difficulty === difficulty && (
+                <p className="quiz-start-error" role="status">
+                  {quizStartError.message}
+                </p>
+              )}
             </article>
           )
         })}
@@ -342,6 +474,35 @@ function HomeView({
           <BookOpen size={18} /> 오답 {progress.missedQuestionIds.length}개 복습
         </button>
       </section>
+
+      <section className="history-panel" aria-labelledby="history-title">
+        <div className="history-panel-header">
+          <div>
+            <h2 id="history-title">최근 7일 정답률</h2>
+            <p>날짜가 기록된 풀이만 집계합니다.</p>
+          </div>
+        </div>
+        {hasDatedHistory ? (
+          <ol className="history-list">
+            {scoreHistory.map((day) => {
+              const percent = Math.round(day.accuracy * 100)
+              return (
+                <li className="history-day" key={day.date}>
+                  <span className="history-date">{day.date.slice(5)}</span>
+                  <span className="history-bar" aria-hidden="true">
+                    <span style={{ width: `${percent}%` }} />
+                  </span>
+                  <span className="history-meta">
+                    {day.total}문제 · 정답률 {percent}%
+                  </span>
+                </li>
+              )
+            })}
+          </ol>
+        ) : (
+          <p className="history-empty">아직 날짜가 기록된 풀이 기록이 없습니다.</p>
+        )}
+      </section>
     </>
   )
 }
@@ -354,6 +515,7 @@ interface QuizViewProps {
   blameNote: string
   onAnswer: (choiceIndex: number) => void
   onNext: () => void
+  onTimeExpired: (questionId: string) => void
   onBlameNoteChange: (note: string) => void
 }
 
@@ -365,11 +527,38 @@ function QuizView({
   blameNote,
   onAnswer,
   onNext,
+  onTimeExpired,
   onBlameNoteChange,
 }: QuizViewProps) {
+  const [secondsRemaining, setSecondsRemaining] = useState(
+    QUESTION_TIME_LIMIT_SECONDS,
+  )
   const answered = selectedIndex !== null
   const correct = selectedIndex === question.answerIndex
   const blameUrl = buildBlameIssueUrl(question, blameNote)
+
+  useEffect(() => {
+    setSecondsRemaining(QUESTION_TIME_LIMIT_SECONDS)
+  }, [question.id])
+
+  useEffect(() => {
+    if (answered) {
+      return
+    }
+
+    const intervalId = window.setInterval(() => {
+      setSecondsRemaining((current) => Math.max(0, current - 1))
+    }, 1000)
+    const timeoutId = window.setTimeout(() => {
+      setSecondsRemaining(0)
+      onTimeExpired(question.id)
+    }, QUESTION_TIME_LIMIT_SECONDS * 1000)
+
+    return () => {
+      window.clearInterval(intervalId)
+      window.clearTimeout(timeoutId)
+    }
+  }, [answered, onTimeExpired, question.id])
 
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
@@ -403,6 +592,10 @@ function QuizView({
           </span>
           <span>
             {questionIndex + 1} / {totalQuestions}
+          </span>
+          <span className="question-timer" role="timer" aria-label="남은 시간">
+            <TimerReset size={16} />
+            {secondsRemaining}초
           </span>
         </div>
         <ProgressMeter
@@ -805,6 +998,21 @@ function isTypingTarget(target: EventTarget | null) {
     target.tagName === 'SELECT' ||
     target.isContentEditable
   )
+}
+
+function resolveInitialTheme(): Theme {
+  const savedTheme = window.localStorage.getItem(THEME_STORAGE_KEY)
+  if (savedTheme === 'light' || savedTheme === 'dark') {
+    return savedTheme
+  }
+
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light'
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.setAttribute('data-theme', theme)
 }
 
 export default App

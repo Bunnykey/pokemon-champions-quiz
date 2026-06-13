@@ -1,16 +1,19 @@
-import { render, screen } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
 import questions from './data/questions.json'
 import { shuffleQuestions } from './lib/questions'
+import type { Difficulty } from './types/quiz'
 
 describe('App', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    document.documentElement.removeAttribute('data-theme')
   })
 
   afterEach(() => {
+    vi.useRealTimers()
     vi.restoreAllMocks()
   })
 
@@ -74,6 +77,57 @@ describe('App', () => {
     expect(screen.getByText(expectedSecondQuestion.promptKo)).toBeInTheDocument()
   })
 
+  it('marks unanswered quiz questions incorrect when the countdown expires', async () => {
+    vi.useFakeTimers()
+    const user = userEvent.setup({
+      advanceTimers: vi.advanceTimersByTime,
+    })
+    vi.spyOn(Math, 'random').mockReturnValue(0)
+    const firstIntroQuestion = shuffleQuestions(
+      questions.filter((question) => question.difficulty === '입문'),
+      () => 0,
+    )[0]
+    render(<App />)
+
+    const startQuiz = user.click(screen.getAllByRole('button', { name: /시작/ })[0])
+    await vi.advanceTimersByTimeAsync(0)
+    await startQuiz
+
+    act(() => {
+      vi.advanceTimersByTime(60000)
+    })
+
+    expect(screen.getByTestId('result-status')).toHaveTextContent('오답')
+    expect(screen.getByText(firstIntroQuestion.explanationKo)).toBeInTheDocument()
+    expect(
+      window.localStorage.getItem('pokemon-champions-quiz-progress-v1'),
+    ).toContain(firstIntroQuestion.id)
+
+    vi.useRealTimers()
+  })
+
+  it('moves keyboard focus through interactive controls', async () => {
+    const user = userEvent.setup()
+    render(<App />)
+
+    await user.tab()
+    expect(document.activeElement).not.toBe(document.body)
+    expect(document.activeElement).toBe(
+      screen.getByRole('link', { name: '본문으로 건너뛰기' }),
+    )
+
+    await user.tab()
+    expect(document.activeElement).toBe(screen.getByRole('button', { name: /홈/ }))
+
+    await user.tab()
+    expect(document.activeElement).toBe(
+      screen.getByRole('button', { name: /퀴즈/ }),
+    )
+    expect(['A', 'BUTTON']).toContain(
+      (document.activeElement as HTMLElement).tagName,
+    )
+  })
+
   it('shows service policy controls and can reset local progress', async () => {
     const user = userEvent.setup()
     const confirmSpy = vi.spyOn(window, 'confirm').mockReturnValue(true)
@@ -96,5 +150,92 @@ describe('App', () => {
       window.localStorage.getItem('pokemon-champions-quiz-progress-v1'),
     ).toContain('"answered":[]')
     confirmSpy.mockRestore()
+  })
+
+  it('toggles and persists the theme preference', async () => {
+    const user = userEvent.setup()
+    window.matchMedia = (query) =>
+      ({
+        matches: false,
+        media: query,
+        addEventListener() {},
+        removeEventListener() {},
+        addListener() {},
+        removeListener() {},
+        onchange: null,
+        dispatchEvent() {
+          return false
+        },
+      }) as MediaQueryList
+
+    render(<App />)
+
+    await user.click(screen.getByRole('button', { name: '테마 전환' }))
+
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
+    expect(window.localStorage.getItem('theme')).toBe('dark')
+  })
+})
+
+describe('App quiz start guard', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+    vi.resetModules()
+  })
+
+  afterEach(() => {
+    vi.doUnmock('./lib/questions')
+    vi.restoreAllMocks()
+  })
+
+  it('stays on selection and shows a message when the selected quiz has no questions', async () => {
+    vi.doMock('./lib/questions', async (importOriginal) => {
+      const actual =
+        await importOriginal<typeof import('./lib/questions')>()
+
+      return {
+        ...actual,
+        getQuestionsForDifficultyAndTag: vi.fn((
+          difficulty: Difficulty,
+          tag: string,
+        ) =>
+          difficulty === '입문' && tag === '불가능태그'
+            ? []
+            : actual.getQuestionsForDifficultyAndTag(difficulty, tag),
+        ),
+        getQuestionsForDifficulty: vi.fn((difficulty: Difficulty) =>
+          difficulty === '입문'
+            ? [
+                {
+                  ...actual.getQuestionsForDifficulty(difficulty)[0],
+                  tags: ['불가능태그'],
+                },
+              ]
+            : actual.getQuestionsForDifficulty(difficulty),
+        ),
+      }
+    })
+    const { default: GuardedApp } = await import('./App')
+    const user = userEvent.setup()
+
+    render(<GuardedApp />)
+    const introCard = screen
+      .getAllByRole('button', { name: /시작/ })[0]
+      .closest('article')
+
+    expect(introCard).not.toBeNull()
+    await user.selectOptions(
+      within(introCard as HTMLElement).getByLabelText('입문 퀴즈 태그 필터'),
+      '불가능태그',
+    )
+    await user.click(
+      within(introCard as HTMLElement).getByRole('button', { name: /시작/ }),
+    )
+
+    expect(screen.getByText('해당 조건의 문제가 없습니다')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: '오늘의 훈련 상태' }),
+    ).toBeInTheDocument()
+    expect(screen.queryByLabelText('퀴즈')).not.toBeInTheDocument()
   })
 })

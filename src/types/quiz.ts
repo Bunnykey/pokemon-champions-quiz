@@ -41,7 +41,7 @@ export interface AnswerRecord {
   questionId: string
   selectedIndex: number
   correct: boolean
-  answeredAt: string
+  answeredAt?: number
 }
 
 export interface ProgressState {
