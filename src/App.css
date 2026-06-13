@@ -29,11 +29,15 @@
   align-items: end;
   padding: 42px 24px 30px;
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.64)),
+    linear-gradient(
+      135deg,
+      var(--header-overlay-strong),
+      var(--header-overlay-soft)
+    ),
     repeating-linear-gradient(
       90deg,
-      rgba(15, 24, 42, 0.05) 0,
-      rgba(15, 24, 42, 0.05) 1px,
+      var(--header-stripe) 0,
+      var(--header-stripe) 1px,
       transparent 1px,
       transparent 18px
     ),
@@ -103,12 +107,13 @@
   display: flex;
   gap: 8px;
   padding: 12px 24px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--nav-surface);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(14px);
 }
 
 .mode-button,
+.theme-toggle,
 .primary-action,
 .secondary-action,
 .blame-action,
@@ -125,10 +130,17 @@
   cursor: pointer;
 }
 
-.mode-button {
+.mode-button,
+.theme-toggle {
   padding: 8px 14px;
   color: var(--ink);
   background: var(--paper);
+}
+
+.theme-toggle {
+  margin-left: auto;
+  min-width: 42px;
+  padding: 8px;
 }
 
 .mode-button.active {
@@ -138,7 +150,7 @@
 
 .primary-action {
   padding: 10px 16px;
-  color: var(--paper);
+  color: var(--on-accent);
   background: var(--champion-red);
   box-shadow: 4px 4px 0 var(--ink);
 }
@@ -152,12 +164,12 @@
 
 .danger-action {
   padding: 10px 14px;
-  color: var(--paper);
-  background: #a82622;
+  color: var(--on-accent);
+  background: var(--danger-strong);
 }
 
 .blame-action {
-  color: var(--paper);
+  color: var(--on-accent);
   background: var(--stadium-blue);
 }
 
@@ -216,7 +228,7 @@
   padding: 0 10px;
   border: 2px solid var(--ink);
   border-radius: 999px;
-  color: var(--paper);
+  color: var(--on-accent);
   background: var(--grass-green);
   font-weight: 900;
 }
@@ -261,7 +273,7 @@
   justify-content: center;
   border: 2px solid var(--ink);
   border-radius: 999px;
-  color: var(--paper);
+  color: var(--on-accent);
   background: linear-gradient(var(--champion-red) 0 50%, var(--paper) 50% 100%);
   font-family: var(--display);
   font-weight: 900;
@@ -329,28 +341,28 @@
   min-height: 30px;
   padding: 0 10px;
   border: 2px solid var(--ink);
-  color: var(--paper);
+  color: var(--difficulty-foreground);
 }
 
 .difficulty-0 {
-  background: #2b9f6a;
+  background: var(--difficulty-0);
 }
 
 .difficulty-1 {
-  background: #2f73d9;
+  background: var(--difficulty-1);
 }
 
 .difficulty-2 {
-  background: #f0a51b;
-  color: var(--ink);
+  color: var(--difficulty-warning-foreground);
+  background: var(--difficulty-2);
 }
 
 .difficulty-3 {
-  background: #d7473f;
+  background: var(--difficulty-3);
 }
 
 .difficulty-4 {
-  background: #3b2d67;
+  background: var(--difficulty-4);
 }
 
 .progress-meter {
@@ -359,7 +371,7 @@
   overflow: hidden;
   border: 2px solid var(--ink);
   border-radius: 999px;
-  background: #e9edf4;
+  background: var(--meter-track);
 }
 
 .progress-meter div {
@@ -401,7 +413,7 @@
   border: 2px solid var(--ink);
   border-radius: 8px;
   color: var(--ink);
-  background: #fff7d7;
+  background: var(--warm-surface);
   font-family: var(--display);
   font-weight: 900;
 }
@@ -424,7 +436,7 @@
   padding: 10px;
   background:
     linear-gradient(90deg, rgba(255, 212, 71, 0.25), rgba(31, 111, 214, 0.08)),
-    #fff;
+    var(--control-surface);
 }
 
 .pokemon-art-frame {
@@ -435,14 +447,18 @@
   border: 2px solid var(--ink);
   border-radius: 999px;
   background:
-    linear-gradient(#fff 0 48%, var(--ink) 48% 52%, #f8fafc 52% 100%);
+    linear-gradient(
+      var(--control-surface) 0 48%,
+      var(--ink) 48% 52%,
+      var(--pokeball-lower) 52% 100%
+    );
 }
 
 .pokemon-art-frame img {
   width: 94px;
   height: 94px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 0 rgba(15, 24, 42, 0.18));
+  filter: drop-shadow(0 4px 0 var(--image-shadow));
 }
 
 .pokemon-spotlight figcaption {
@@ -487,7 +503,7 @@
   border: 2px solid var(--ink);
   border-radius: 8px;
   color: var(--ink);
-  background: #fff;
+  background: var(--control-surface);
   font: inherit;
   font-weight: 800;
   text-align: left;
@@ -507,7 +523,7 @@
 }
 
 .answer-button:hover:not(:disabled) {
-  background: #fff7d7;
+  background: var(--warm-surface);
 }
 
 .answer-button:disabled {
@@ -515,11 +531,11 @@
 }
 
 .answer-button.correct {
-  background: #d8f6e2;
+  background: var(--success-surface);
 }
 
 .answer-button.wrong {
-  background: #ffe1df;
+  background: var(--danger-surface);
 }
 
 .answer-button.dimmed {
@@ -534,13 +550,13 @@
   padding: 0 12px;
   border: 2px solid var(--ink);
   border-radius: 999px;
-  color: var(--paper);
+  color: var(--on-accent);
   background: var(--champion-red);
   font-weight: 900;
 }
 
 .result.good {
-  background: #1d8c5f;
+  background: var(--success-strong);
 }
 
 .explanation {
@@ -565,7 +581,7 @@
   min-height: 26px;
   padding: 0 8px;
   color: var(--ink);
-  background: #edf2ff;
+  background: var(--info-surface);
   font-size: 0.8rem;
 }
 

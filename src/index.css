@@ -10,19 +10,78 @@
   --signal-yellow: #ffd447;
   --stadium-blue: #1f6fd6;
   --grass-green: #2b9f6a;
+  --on-accent: #fffdf7;
+  --nav-surface: rgba(255, 255, 255, 0.9);
+  --page-grid-line: rgba(17, 24, 39, 0.04);
+  --header-overlay-strong: rgba(255, 255, 255, 0.86);
+  --header-overlay-soft: rgba(255, 255, 255, 0.64);
+  --header-stripe: rgba(15, 24, 42, 0.05);
+  --control-surface: #fff;
+  --warm-surface: #fff7d7;
+  --meter-track: #e9edf4;
+  --success-surface: #d8f6e2;
+  --danger-surface: #ffe1df;
+  --info-surface: #edf2ff;
+  --success-strong: #1d8c5f;
+  --danger-strong: #a82622;
+  --pokeball-lower: #f8fafc;
+  --image-shadow: rgba(15, 24, 42, 0.18);
+  --difficulty-0: #2b9f6a;
+  --difficulty-1: #2f73d9;
+  --difficulty-2: #f0a51b;
+  --difficulty-3: #d7473f;
+  --difficulty-4: #3b2d67;
+  --difficulty-foreground: #fffdf7;
+  --difficulty-warning-foreground: #111827;
   --display: 'Bricolage Grotesque', 'IBM Plex Sans KR', sans-serif;
   --body: 'IBM Plex Sans KR', 'Apple SD Gothic Neo', sans-serif;
+  color-scheme: light dark;
   font-family: var(--body);
   color: var(--ink);
   background:
-    linear-gradient(90deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(17, 24, 39, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, var(--page-grid-line) 1px, transparent 1px),
+    linear-gradient(180deg, var(--page-grid-line) 1px, transparent 1px),
     var(--field);
   background-size: 28px 28px;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+:root[data-theme='dark'] {
+  --ink: #f5f7fb;
+  --muted: #bac5d8;
+  --paper: #111827;
+  --field: #070b14;
+  --line: #354158;
+  --champion-red: #ff6a65;
+  --signal-yellow: #ffd447;
+  --stadium-blue: #7db9ff;
+  --grass-green: #5ad99b;
+  --on-accent: #111827;
+  --nav-surface: rgba(11, 18, 32, 0.92);
+  --page-grid-line: rgba(245, 247, 251, 0.06);
+  --header-overlay-strong: rgba(7, 11, 20, 0.84);
+  --header-overlay-soft: rgba(7, 11, 20, 0.66);
+  --header-stripe: rgba(245, 247, 251, 0.08);
+  --control-surface: #172235;
+  --warm-surface: #2e2a15;
+  --meter-track: #273348;
+  --success-surface: #123827;
+  --danger-surface: #4a1f22;
+  --info-surface: #152b4a;
+  --success-strong: #5ad99b;
+  --danger-strong: #ff6a65;
+  --pokeball-lower: #1f2937;
+  --image-shadow: rgba(0, 0, 0, 0.45);
+  --difficulty-0: #157347;
+  --difficulty-1: #1765c1;
+  --difficulty-2: #9f6a00;
+  --difficulty-3: #b73530;
+  --difficulty-4: #4b3a83;
+  --difficulty-warning-foreground: #fffdf7;
+  color-scheme: dark;
 }
 
 * {
@@ -73,7 +132,7 @@ a {
   border: 2px solid var(--ink);
   border-radius: 8px;
   background: var(--champion-red);
-  color: var(--paper);
+  color: var(--on-accent);
   font-weight: 800;
   cursor: pointer;
 }
