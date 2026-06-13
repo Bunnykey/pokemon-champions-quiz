@@ -1,9 +1,10 @@
-import { act, render, screen } from '@testing-library/react'
+import { act, render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import App from './App'
 import questions from './data/questions.json'
 import { shuffleQuestions } from './lib/questions'
+import type { Difficulty } from './types/quiz'
 
 describe('App', () => {
   beforeEach(() => {
@@ -173,5 +174,68 @@ describe('App', () => {
 
     expect(document.documentElement.getAttribute('data-theme')).toBe('dark')
     expect(window.localStorage.getItem('theme')).toBe('dark')
+  })
+})
+
+describe('App quiz start guard', () => {
+  beforeEach(() => {
+    window.localStorage.clear()
+    vi.resetModules()
+  })
+
+  afterEach(() => {
+    vi.doUnmock('./lib/questions')
+    vi.restoreAllMocks()
+  })
+
+  it('stays on selection and shows a message when the selected quiz has no questions', async () => {
+    vi.doMock('./lib/questions', async (importOriginal) => {
+      const actual =
+        await importOriginal<typeof import('./lib/questions')>()
+
+      return {
+        ...actual,
+        getQuestionsForDifficultyAndTag: vi.fn((
+          difficulty: Difficulty,
+          tag: string,
+        ) =>
+          difficulty === '입문' && tag === '불가능태그'
+            ? []
+            : actual.getQuestionsForDifficultyAndTag(difficulty, tag),
+        ),
+        getQuestionsForDifficulty: vi.fn((difficulty: Difficulty) =>
+          difficulty === '입문'
+            ? [
+                {
+                  ...actual.getQuestionsForDifficulty(difficulty)[0],
+                  tags: ['불가능태그'],
+                },
+              ]
+            : actual.getQuestionsForDifficulty(difficulty),
+        ),
+      }
+    })
+    const { default: GuardedApp } = await import('./App')
+    const user = userEvent.setup()
+
+    render(<GuardedApp />)
+    const introCard = screen
+      .getAllByRole('button', { name: /시작/ })[0]
+      .closest('article')
+
+    expect(introCard).not.toBeNull()
+    await user.selectOptions(
+      within(introCard as HTMLElement).getByLabelText('입문 퀴즈 태그 필터'),
+      '불가능태그',
+    )
+    await user.click(
+      within(introCard as HTMLElement).getByRole('button', { name: /시작/ }),
+    )
+
+    expect(screen.getByText('해당 조건의 문제가 없습니다')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: '오늘의 훈련 상태' }),
+    ).toBeInTheDocument()
+    expect(screen.queryByLabelText('퀴즈')).not.toBeInTheDocument()
   })
 })

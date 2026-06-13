@@ -2,11 +2,6 @@ import type { AnswerRecord, ProgressState } from '../types/quiz'
 
 const STORAGE_KEY = 'pokemon-champions-quiz-progress-v1'
 
-const EMPTY_PROGRESS: ProgressState = {
-  answered: [],
-  missedQuestionIds: [],
-}
-
 export function emptyProgress(): ProgressState {
   return {
     answered: [],
@@ -17,20 +12,34 @@ export function emptyProgress(): ProgressState {
 export function loadProgress(storage: Storage = window.localStorage): ProgressState {
   const value = storage.getItem(STORAGE_KEY)
   if (!value) {
-    return EMPTY_PROGRESS
+    return emptyProgress()
   }
 
   try {
-    const parsed = JSON.parse(value) as ProgressState
+    const parsed = JSON.parse(value) as unknown
+    if (!isStoredProgress(parsed)) {
+      return emptyProgress()
+    }
+
     return {
-      answered: Array.isArray(parsed.answered) ? parsed.answered : [],
-      missedQuestionIds: Array.isArray(parsed.missedQuestionIds)
-        ? parsed.missedQuestionIds
-        : [],
+      answered: parsed.answered,
+      missedQuestionIds: parsed.missedQuestionIds,
     }
   } catch {
-    return EMPTY_PROGRESS
+    return emptyProgress()
   }
+}
+
+function isStoredProgress(value: unknown): value is ProgressState {
+  if (typeof value !== 'object' || value === null) {
+    return false
+  }
+
+  const progress = value as Partial<ProgressState>
+  return (
+    Array.isArray(progress.answered) &&
+    Array.isArray(progress.missedQuestionIds)
+  )
 }
 
 export function clearStoredProgress(storage: Storage = window.localStorage) {

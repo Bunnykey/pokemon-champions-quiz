@@ -55,6 +55,10 @@ import type {
 type ViewMode = 'home' | 'quiz' | 'review' | 'service'
 type ReviewDifficulty = '전체' | Difficulty
 type Theme = 'light' | 'dark'
+type QuizStartError = {
+  difficulty: Difficulty
+  message: string
+} | null
 const QUESTION_TIME_LIMIT_SECONDS = 60
 const TIMED_OUT_SELECTION_INDEX = -1
 const THEME_STORAGE_KEY = 'theme'
@@ -70,6 +74,7 @@ function App() {
   const [reviewDifficulty, setReviewDifficulty] =
     useState<ReviewDifficulty>('전체')
   const [reviewTag, setReviewTag] = useState('전체')
+  const [quizStartError, setQuizStartError] = useState<QuizStartError>(null)
   const [progress, setProgress] = useState<ProgressState>(() => loadProgress())
   const [activeQuestions, setActiveQuestions] = useState<Question[]>(() =>
     shuffleQuestions(getQuestionsForDifficultyAndTag('입문', '전체')),
@@ -105,11 +110,20 @@ function App() {
   const answeredCount = progress.answered.length
 
   function startQuiz(nextDifficulty: Difficulty, nextTag = '전체') {
+    const nextQuestions = getQuestionsForDifficultyAndTag(nextDifficulty, nextTag)
+    if (nextQuestions.length === 0) {
+      setQuizStartError({
+        difficulty: nextDifficulty,
+        message: '해당 조건의 문제가 없습니다',
+      })
+      setView('home')
+      return
+    }
+
+    setQuizStartError(null)
     setDifficulty(nextDifficulty)
     setQuizTag(nextTag)
-    setActiveQuestions(
-      shuffleQuestions(getQuestionsForDifficultyAndTag(nextDifficulty, nextTag)),
-    )
+    setActiveQuestions(shuffleQuestions(nextQuestions))
     setQuestionIndex(0)
     setSelectedIndex(null)
     setBlameNote('')
@@ -260,6 +274,7 @@ function App() {
               answeredCount={answeredCount}
               accuracy={accuracy}
               progress={progress}
+              quizStartError={quizStartError}
               onStart={startQuiz}
               onOpenReview={() => setView('review')}
             />
@@ -302,6 +317,7 @@ interface HomeViewProps {
   answeredCount: number
   accuracy: number
   progress: ProgressState
+  quizStartError: QuizStartError
   onStart: (difficulty: Difficulty, tag: string) => void
   onOpenReview: () => void
 }
@@ -310,6 +326,7 @@ function HomeView({
   answeredCount,
   accuracy,
   progress,
+  quizStartError,
   onStart,
   onOpenReview,
 }: HomeViewProps) {
@@ -436,6 +453,11 @@ function HomeView({
               >
                 <Swords size={18} /> 시작
               </button>
+              {quizStartError?.difficulty === difficulty && (
+                <p className="quiz-start-error" role="status">
+                  {quizStartError.message}
+                </p>
+              )}
             </article>
           )
         })}

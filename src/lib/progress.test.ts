@@ -1,5 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { getAccuracy, recordAnswer, removeMiss } from './progress'
+import {
+  emptyProgress,
+  getAccuracy,
+  loadProgress,
+  recordAnswer,
+  removeMiss,
+} from './progress'
 import type { ProgressState } from '../types/quiz'
 
 describe('progress helpers', () => {
@@ -30,4 +36,39 @@ describe('progress helpers', () => {
     expect(getAccuracy(corrected)).toBe(50)
     expect(removeMiss(missed, 'q-1').missedQuestionIds).toEqual([])
   })
+
+  it('returns empty progress when stored progress is corrupt JSON', () => {
+    expect(loadProgress(fakeStorage('{not json'))).toEqual(emptyProgress())
+  })
+
+  it('returns empty progress when answered is missing or not an array', () => {
+    expect(
+      loadProgress(fakeStorage(JSON.stringify({ missedQuestionIds: ['q-1'] }))),
+    ).toEqual(emptyProgress())
+    expect(
+      loadProgress(
+        fakeStorage(
+          JSON.stringify({
+            answered: 'tampered',
+            missedQuestionIds: ['q-1'],
+          }),
+        ),
+      ),
+    ).toEqual(emptyProgress())
+  })
+
+  it('returns empty progress when stored progress is not an object', () => {
+    expect(loadProgress(fakeStorage('123'))).toEqual(emptyProgress())
+  })
 })
+
+function fakeStorage(value: string): Storage {
+  return {
+    getItem: () => value,
+    setItem: vi.fn(),
+    removeItem: vi.fn(),
+    clear: vi.fn(),
+    key: vi.fn(),
+    length: 1,
+  }
+}
