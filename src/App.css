@@ -793,6 +793,13 @@
   font-weight: 800;
 }
 
+.quiz-start-error {
+  margin: 0;
+  color: var(--champion-red);
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
 .review-list {
   display: grid;
   gap: 12px;
